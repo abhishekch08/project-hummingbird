@@ -1,0 +1,17 @@
+# Assumptions and unknowns
+
+**Status rule:** Numbers from the master spec and CH02 configuration are candidate inputs, not approved requirements, measured limits or vendor capabilities. Replace an assumption only through source evidence, an updated model/configuration, requirement trace and a reviewed decision. The exact machine-readable CH02 inputs are in `specs/system/CH02_MODE_ASSUMPTIONS.json`; this page tracks the consequential assumptions and missing evidence without creating competing numeric sources.
+
+| ID | Scenario input or unresolved fact | Provenance / evidence class | Decision or closure evidence |
+|---|---|---|---|
+| A-001 | Eight candidate modes plus two intentionally extreme stress probes; all channel/sample timing values are scenario-only. | CH02 configuration transcribes §37 and CH01 provisional register; assumed. | OI-001/OI-012: approved product modes, timing, duty factors. |
+| A-002 | Eight simultaneous optical ADC paths can scan 12 PD inputs in at least two slots; per-PD optical rate is aggregate across wavelength phases. | CH02 count model; conditional calculation, no noise/settling validation. | OI-014: coherence specification and measured mux/settling performance. |
+| A-003 | Each sample group carries a 64-bit timestamp; each channel sample carries 8 quality bits; optical groups carry 8 wavelength-ID bits. Framed traffic is an illustrative scenario, not a protocol maximum. | CH02 format configuration; assumed. | OI-013: exact frame/CRC/timestamp policy and CH04 burst analysis. |
+| A-004 | Guard factor 1.2, illustrative single-data-line clocks 8/16/32/64 MHz, and illustrative payload efficiency 0.7. None is a documented nRF interface guarantee. | CH02 format configuration; assumed. | OI-013: vendor/device timing and measured sustained throughput. |
+| A-005 | Each candidate LED output has a 150 mA peak load target; a hypothetical all-16-port fault probe implies 2400 mA LED **output**, not battery input current. | Master target and CH02 stress calculation. | OI-015/OI-005: safety owner defines hardware enable/current/exposure limits; CH03 uses emitter V, rail efficiency and cell data. |
+| A-006 | Illustrative sensor-to-ASIC signal-contact counts are 78/94, plus 20 internal logical nets; power, grounds, RF, test and other nets are excluded. | CH02 configuration/count arithmetic, not ball-map or assembly proof. | OI-007: approved partition, package drawing and complete vendor pin/return-path budget. |
+| A-007 | 8/10/14/20 mAh are CH03 sensitivity cases, not measured usable capacities; cell voltage, impedance, temperature and aging data are absent. | Master CH03 plan and input request; unresolved. | OI-003/OI-009: representative cell data and measured pulse/capacity curves. |
+| A-008 | RF, MCU, AON, sensor, memory, audio and LED rails lack measured mode-state currents, voltage and efficiency. Battery runtime and peak sag cannot be calculated as factual values yet. | `docs/inputs/REQUIRED_INPUTS.md`; unresolved. | CH03: per-state data or explicitly parameterized bounds with source and sensitivity. |
+| A-009 | No chosen PDK, transducer source models, safety limit, qualified clinical claim or product mode is approved. | CH01/CH02 gate decisions and open issues; unresolved. | Owner/vendor/specialist evidence and later per-block gate decisions. |
+
+**Change log:** CH00/CH01 proposed targets remain in the master and register. This readiness pass indexed CH02 scenario inputs (A-001–A-006) and unresolved CH03/later dependencies (A-007–A-009) without supplying missing measurements.

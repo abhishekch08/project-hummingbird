@@ -1,6 +1,6 @@
 # Risk Register
 
-Qualitative screening only, 2026-09-23. Impact `I` and likelihood `L` use 1 (low) to 5 (high); the product is a **ranking aid, not a measured probability**. Product/safety owner reviews rankings in CH02. All risks are open.
+Qualitative screening only, 2026-09-23. Impact `I` and likelihood `L` use 1 (low) to 5 (high); the product is a **ranking aid, not a measured probability**. Product/safety owner review is still pending after CH02. All risks are open.
 
 | ID | Risk | I | L | Score | Owner role | Mitigation / next evidence |
 |---|---|---:|---:|---:|---|---|

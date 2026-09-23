@@ -1,31 +1,39 @@
 # Current Baseline
-Architecture version: unselected; candidate requirements and mode scenarios only
-Active branch: feature/CH02-concurrent-modes (published draft PR #2)
-Last reviewed baseline: `03ffe313f2325d26455e741416bbf821346c5118` (CH01 merged into main)
-Last validated content commit: `13590a3955166e6d2565a62c6c09b269fd242e12`
-Current chunk: CH02 concurrent modes (scenario gate complete)
-Current subchunk: complete
-Current status: eight candidate modes and two stress probes analyzed in PR #2; architecture, battery current and product modes not frozen
+
+Architecture version: unselected; candidate requirements and CH02 scenarios only.
+Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after fetching.
+Reviewed baseline before this documentation pass: `c6bd26ea057852b5861956bdd0a34f04de88d179` (CH02 merged as PR #2).
+Current chunk: none active. CH00–CH02 are complete at their explicitly limited gates; CH03 is paused pending user instruction.
+Current subchunk: none active after repository documentation and CI readiness.
+Current status: no product mode, electrical target, chip architecture, battery runtime or tapeout claim approved.
 
 # Passed Gates
-- CH00 scaffold: PASS.
-- CH01 provisional 223-ID register and review: merged as PR #1.
-- CH02 resource accounting and intentionally infeasible scenarios: PASS in `docs/reviews/CH02_GATE.md`.
+
+- CH00: tracked scaffold and structural check; no silicon evidence.
+- CH01: provisional 223-ID requirements register and consistency review, merged as PR #1.
+- CH02: eight candidate modes and two stress probes with resource arithmetic and seven unit tests, merged as PR #2; see `docs/reviews/CH02_GATE.md`.
 
 # Active Work
-- Draft review open: https://github.com/abhishekch08/project-hummingbird/pull/2. No circuit implementation or block literature survey underway.
+
+- No engineering chunk active. Documentation and public checks are ready; no circuit implementation or block literature survey underway.
+- `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
-- Product priority and concurrency approval; cell voltage/impedance; optical source radiometry; actual nRF host throughput; pinout/package rules; foundry/IP availability. See `state/OPEN_ISSUES.md` and the CH02 gate.
+
+- Product priorities/concurrency, cell voltage/impedance, optical source radiometry, actual nRF host throughput, pinout/package rules and foundry/IP availability. See `state/OPEN_ISSUES.md` and `docs/inputs/REQUIRED_INPUTS.md`.
+- Architecture and tapeout gates remain blocked by missing external evidence and by the later design/review sequence in `MASTER_SPEC.md`.
 
 # Next Exact Action
-- CH03 only: create a parameterized energy, runtime and peak-current model for 8/10/14/20 mAh cases. Use measured cell and component data when available; leave unknown quantities explicit and bound assumptions. Do not proceed to CH04 or circuit architecture until the CH03 gate is reviewed.
+
+- Wait for the user's instruction to begin design. The next planned bounded unit is **CH03**, a parameterized energy, runtime and peak-current model for 8/10/14/20 mAh cases with unknown values and sensitivities clearly labeled. Review its scope and inputs at start. Do not begin CH04 or a block architecture before its own gate and required literature review.
 
 # Required Inputs
-- Cell chemistry, voltage window, impedance and capacity-versus-load/temperature; PPG source voltage/current and rail efficiencies; MCU/RF, sensor and audio state currents; product duty cycles. The CH03 model can be built with clearly labeled sensitivities while these are missing.
+
+- Cell chemistry, voltage window, impedance and capacity versus load/temperature; LED voltage/current and rail efficiency; MCU/RF, sensor and audio state currents; product duty cycles. A CH03 model can bound uncertainties without presenting missing measurements as facts.
 
 # Latest Regression
-Command: `python3 models/python/ch02_concurrency.py --check && python3 -m unittest discover -s verification/unit -p 'test_ch02_*.py' && python3 scripts/verification/check_bootstrap.py && python3 scripts/verification/check_requirements.py`
-Commit: `13590a3955166e6d2565a62c6c09b269fd242e12` (validated content); state-only publication update rechecked
-Result: PASS (scenario arithmetic and consistency only, no silicon performance verified)
-Timestamp: 2026-09-23 UTC
+
+Command: `python3 scripts/verification/check_all.py`
+Commit: read `git rev-parse HEAD` on the checkout under test; a commit cannot self-report its eventual merge SHA.
+Result: see `state/VERIFICATION_STATUS.md` and the CI check on the published commit. Public checks establish repository consistency and CH02 arithmetic only.
+Timestamp: 2026-09-23 UTC.
