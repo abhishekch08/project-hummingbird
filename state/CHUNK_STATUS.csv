@@ -1,0 +1,52 @@
+Chunk,Title,Status,Gate_Result,Evidence,Prerequisite_or_Blocker
+CH00,Repository Bootstrap,COMPLETE,STRUCTURE_PASS,scripts/verification/check_bootstrap.py,none
+CH01,Requirements Normalization & Traceability,COMPLETE,REGISTER_PASS_PROVISIONAL,docs/reviews/CH01_REQUIREMENTS_REVIEW.md,CH00
+CH02,Use-Case / Concurrent-Mode Matrix,COMPLETE,SCENARIOS_PASS_FEASIBILITY_HOLD,docs/reviews/CH02_GATE.md,CH01
+CH03,System Power/Energy Model,PAUSED,NOT_RUN,none,CH02; explicit user instruction; inputs in docs/inputs/REQUIRED_INPUTS.md
+CH04,System Data-Rate / Memory Model,PLANNED,NOT_RUN,none,CH03; follow MASTER_SPEC.md §42 and applicable literature gate
+CH05,Clock / Timestamp / Synchronization Architecture,PLANNED,NOT_RUN,none,CH04; follow MASTER_SPEC.md §42 and applicable literature gate
+CH06,Register Map / Host Protocol,PLANNED,NOT_RUN,none,CH05; follow MASTER_SPEC.md §42 and applicable literature gate
+CH07,Biopotential Numerical Design,PLANNED,NOT_RUN,none,CH06; follow MASTER_SPEC.md §42 and applicable literature gate
+CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; follow MASTER_SPEC.md §42 and applicable literature gate
+CH09,EDA/BioZ Architecture,PLANNED,NOT_RUN,none,CH08; follow MASTER_SPEC.md §42 and applicable literature gate
+CH10,Electrochemical / Na⁺ / K⁺ / Sweat Architecture,PLANNED,NOT_RUN,none,CH09; follow MASTER_SPEC.md §42 and applicable literature gate
+CH11,Optical System Physics & Noise Budget,PLANNED,NOT_RUN,none,CH10; follow MASTER_SPEC.md §42 and applicable literature gate
+CH12,Optical AFE Behavioral Implementation,PLANNED,NOT_RUN,none,CH11; follow MASTER_SPEC.md §42 and applicable literature gate
+CH13,Thermal / Thermopile AFE,PLANNED,NOT_RUN,none,CH12; follow MASTER_SPEC.md §42 and applicable literature gate
+CH14,Audio Input Architecture,PLANNED,NOT_RUN,none,CH13; follow MASTER_SPEC.md §42 and applicable literature gate
+CH15,Audio Output Architecture,PLANNED,NOT_RUN,none,CH14; follow MASTER_SPEC.md §42 and applicable literature gate
+CH16,ADC Bank Architecture Study,PLANNED,NOT_RUN,none,CH15; follow MASTER_SPEC.md §42 and applicable literature gate
+CH17,DAC / Excitation Architecture,PLANNED,NOT_RUN,none,CH16; follow MASTER_SPEC.md §42 and applicable literature gate
+CH18,DSP Accelerator Architecture,PLANNED,NOT_RUN,none,CH17; follow MASTER_SPEC.md §42 and applicable literature gate
+CH19,DMA / FIFO / SRAM Subsystem,PLANNED,NOT_RUN,none,CH18; follow MASTER_SPEC.md §42 and applicable literature gate
+CH20,Always-On Controller / Power FSM,PLANNED,NOT_RUN,none,CH19; follow MASTER_SPEC.md §42 and applicable literature gate
+CH21,Memory Architecture,PLANNED,NOT_RUN,none,CH20; follow MASTER_SPEC.md §42 and applicable literature gate
+CH22,PMIC System Architecture,PLANNED,NOT_RUN,none,CH21; follow MASTER_SPEC.md §42 and applicable literature gate
+CH23,Charger / BMS / Fuel Gauge,PLANNED,NOT_RUN,none,CH22; follow MASTER_SPEC.md §42 and applicable literature gate
+CH24,LED Boost / High-Voltage / Power Audio,PLANNED,NOT_RUN,none,CH23; follow MASTER_SPEC.md §42 and applicable literature gate
+CH25,Security Architecture,PLANNED,NOT_RUN,none,CH24; follow MASTER_SPEC.md §42 and applicable literature gate
+CH26,DFT / Calibration Architecture,PLANNED,NOT_RUN,none,CH25; follow MASTER_SPEC.md §42 and applicable literature gate
+CH27,Top-Level Behavioral AMS Integration,PLANNED,NOT_RUN,none,CH26; follow MASTER_SPEC.md §42 and applicable literature gate
+CH28,Digital RTL Integration,PLANNED,NOT_RUN,none,CH27; follow MASTER_SPEC.md §42 and applicable literature gate
+CH29,Pre-PDK Architecture Freeze,PLANNED,NOT_RUN,none,CH28; follow MASTER_SPEC.md §42 and applicable literature gate
+CH30,Foundry / Process Selection,PLANNED,NOT_RUN,none,CH29; follow MASTER_SPEC.md §42 and applicable literature gate
+CH31,PDK Bring-Up,PLANNED,NOT_RUN,none,CH30; follow MASTER_SPEC.md §42 and applicable literature gate
+CH32,Analog Primitive Library,PLANNED,NOT_RUN,none,CH31; follow MASTER_SPEC.md §42 and applicable literature gate
+CH33,Transistor-Level Biopotential AFE,PLANNED,NOT_RUN,none,CH32; follow MASTER_SPEC.md §42 and applicable literature gate
+CH34,Transistor-Level EDA/BioZ,PLANNED,NOT_RUN,none,CH33; follow MASTER_SPEC.md §42 and applicable literature gate
+CH35,Transistor-Level Electrochemical / ISE,PLANNED,NOT_RUN,none,CH34; follow MASTER_SPEC.md §42 and applicable literature gate
+CH36,Transistor-Level Optical AFE,PLANNED,NOT_RUN,none,CH35; follow MASTER_SPEC.md §42 and applicable literature gate
+CH37,Transistor-Level Thermal AFE,PLANNED,NOT_RUN,none,CH36; follow MASTER_SPEC.md §42 and applicable literature gate
+CH38,Transistor-Level ADCs/DACs,PLANNED,NOT_RUN,none,CH37; follow MASTER_SPEC.md §42 and applicable literature gate
+CH39,PowerAudio ASIC Transistor Design,PLANNED,NOT_RUN,none,CH38; follow MASTER_SPEC.md §42 and applicable literature gate
+CH40,Macro Layout,PLANNED,NOT_RUN,none,CH39; follow MASTER_SPEC.md §42 and applicable literature gate
+CH41,Digital Synthesis / STA,PLANNED,NOT_RUN,none,CH40; follow MASTER_SPEC.md §42 and applicable literature gate
+CH42,Full-Chip Floorplan,PLANNED,NOT_RUN,none,CH41; follow MASTER_SPEC.md §42 and applicable literature gate
+CH43,Place & Route,PLANNED,NOT_RUN,none,CH42; follow MASTER_SPEC.md §42 and applicable literature gate
+CH44,Full-Chip DRC / LVS / ERC / Antenna,PLANNED,NOT_RUN,none,CH43; follow MASTER_SPEC.md §42 and applicable literature gate
+CH45,Full-Chip PEX / Post-Layout AMS,PLANNED,NOT_RUN,none,CH44; follow MASTER_SPEC.md §42 and applicable literature gate
+CH46,EM/IR / Reliability,PLANNED,NOT_RUN,none,CH45; follow MASTER_SPEC.md §42 and applicable literature gate
+CH47,Package Co-Design,PLANNED,NOT_RUN,none,CH46; follow MASTER_SPEC.md §42 and applicable literature gate
+CH48,Final Verification Matrix,PLANNED,NOT_RUN,none,CH47; follow MASTER_SPEC.md §42 and applicable literature gate
+CH49,Tapeout Release Candidate,PLANNED,NOT_RUN,none,CH48; follow MASTER_SPEC.md §42 and applicable literature gate
+CH50,Tapeout Readiness Review,PLANNED,NOT_RUN,none,CH49; follow MASTER_SPEC.md §42 and applicable literature gate

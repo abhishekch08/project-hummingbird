@@ -15,3 +15,13 @@ __pycache__/
 *.log
 *.swp
 .DS_Store
+.env.*
+*.p12
+*.pfx
+*.fsdb
+*.wlf
+.coverage
+htmlcov/
+# Local-only restricted artifacts; never depend on these from a public CI run.
+private/
+.secrets/

@@ -1,0 +1,26 @@
+# Documentation index
+
+## Orientation and current evidence
+
+| Read | Purpose |
+|---|---|
+| [MASTER_SPEC.md](../MASTER_SPEC.md) | Candidate functions, constraints, source sections and CH00–CH50 gates. Sections 49–50 are historical bootstrap recipes. |
+| [PROJECT_STATE.md](../state/PROJECT_STATE.md) and [CHUNK_STATUS.csv](../state/CHUNK_STATUS.csv) | Current gate, pause point, next authorized unit, and status of all planned chunks. |
+| [REQUIREMENTS_TRACEABILITY.csv](../state/REQUIREMENTS_TRACEABILITY.csv) | Provisional 223 IDs, proposed checks, source sections and linked issues. |
+| [ASSUMPTIONS.md](../state/ASSUMPTIONS.md) | Numeric and product unknowns that must stay separate from frozen requirements. |
+| [VERIFICATION_STATUS.md](../state/VERIFICATION_STATUS.md) | What the available checks actually establish. |
+| [DECISIONS.md](../state/DECISIONS.md), [OPEN_ISSUES.md](../state/OPEN_ISSUES.md), [RISK_REGISTER.md](../state/RISK_REGISTER.md) | Chosen policies, unresolved decisions and risk/evidence owners. |
+
+## Reviews and next work
+
+- [CH01 requirements review](reviews/CH01_REQUIREMENTS_REVIEW.md) and [CH02 resource gate](reviews/CH02_GATE.md).
+- [CH01 chunk record](chunks/CH01_REQUIREMENTS.md), [CH02 chunk record](chunks/CH02_CONCURRENT_MODES.md), and [chunk template](chunks/CH_TEMPLATE.md).
+- [CH02 numerical report](budgets/CH02_CONCURRENCY_REVIEW.md) and [exact input assumptions](../specs/system/CH02_MODE_ASSUMPTIONS.json).
+- [Requested external inputs for CH03 and later](inputs/REQUIRED_INPUTS.md).
+- [Safety evidence status](safety/README.md) and [package evidence status](package/README.md).
+- [Literature review gate and template](literature/README.md) and [ADR template](adr/ADR_TEMPLATE.md).
+- [Repository ownership map](REPOSITORY_MAP.md), [data rules](governance/DATA_POLICY.md), and [licensing status](governance/LICENSE_STATUS.md).
+
+## Evidence labels
+
+**Scenario/model** means arithmetic conditional on inputs. **Simulation** means a documented model or circuit run. **Measurement** means calibrated physical evidence under stated conditions. **Signoff** means independent accepted review at the required gate. At present the repository has scenario calculations and repository checks; it has no circuit simulation, measured silicon or signoff data.

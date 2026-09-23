@@ -3,7 +3,7 @@
 
 **Document role:** Authoritative starting specification for a new GPT-6 Astra Work-mode engineering project and GitHub repository.  
 **Project type:** Ultra-miniaturized, ultra-low-power, high-performance heterogeneous physiological-computing ASIC/SiP for a head-worn wearable.  
-**Status:** Candidate requirements baseline; numerical targets remain provisional until CH01–CH04 and architecture review.  
+**Status:** Candidate requirements baseline. CH00–CH02 have passed limited repository, provisional-register and scenario-accounting gates; CH03 onward are not started. Numerical targets remain provisional pending feasibility evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
 **Primary design philosophy:** Maximize physiological sensing capability, signal integrity, compute capability, energy efficiency, and functional density per mm²/mm³ without knowingly sacrificing measurement performance.  
 **Important:** This document is a system and implementation specification, not a claim that any generated layout is tapeout-ready. Final tapeout requires the selected foundry PDK, licensed IP/macros, signoff EDA flow, DRC/LVS/ERC/PEX/STA/EM-IR/reliability closure, and engineering review.
 
@@ -133,7 +133,7 @@ Never combine unrelated subsystems in one commit.
 
 ## 0.4 Branch strategy
 
-Recommended:
+Use `main` for merged reviewed milestones and `feature/CHxx-<short-name>` for active engineering chunks. A `develop` integration branch may be added if needed; the current repository does not use one. Historical baseline tags should point to real approved milestones; do not create a tag solely because a template lists it. Suggested future names:
 
 ```text
 main
@@ -2095,11 +2095,17 @@ project-hummingbird/
 │
 ├── README.md
 ├── MASTER_SPEC.md
-├── LICENSE
+├── AGENTS.md
+├── CONTRIBUTING.md
+├── LICENSE                    # only after OI-008 owner decision; currently absent
 ├── .gitignore
+├── .github/workflows/validate.yml
 │
 ├── state/
 │   ├── PROJECT_STATE.md
+│   ├── CHUNK_STATUS.csv
+│   ├── ASSUMPTIONS.md
+│   ├── VERIFICATION_STATUS.md
 │   ├── DECISIONS.md
 │   ├── OPEN_ISSUES.md
 │   ├── RISK_REGISTER.md
@@ -2108,6 +2114,11 @@ project-hummingbird/
 │   └── CHANGELOG.md
 │
 ├── docs/
+│   ├── README.md
+│   ├── REPOSITORY_MAP.md
+│   ├── chunks/
+│   ├── governance/
+│   ├── inputs/
 │   ├── architecture/
 │   ├── adr/
 │   ├── literature/
@@ -2225,6 +2236,8 @@ project-hummingbird/
     └── release_candidates/
 ```
 
+The tree is a **directory and ownership plan**, not evidence that reserved folders contain design artifacts. See `docs/REPOSITORY_MAP.md` for current contents. `LICENSE` is gated by OI-008; a public GitHub repository alone does not choose reuse terms. Keep only public and authorized inputs here as described in `docs/governance/DATA_POLICY.md`.
+
 ---
 
 # 40. PROJECT STATE FILE FORMAT
@@ -2234,8 +2247,8 @@ project-hummingbird/
 ```text
 # Current Baseline
 Architecture version:
-Active branch:
-Last validated commit:
+Canonical branch and live checkout commit:
+Last reviewed baseline (if needed):
 Current chunk:
 Current subchunk:
 Current status:
@@ -2262,7 +2275,7 @@ Result:
 Timestamp:
 ```
 
-This file is the first thing Astra should read in every new chat/session.
+This file is the first thing Astra should read in every new chat/session, together with `state/CHUNK_STATUS.csv`. Obtain the live commit from Git: a committed file cannot contain its own final merge SHA. A paused chunk remains paused until the user explicitly resumes it.
 
 ---
 
@@ -2371,7 +2384,7 @@ Create clean reproducible project structure.
 ### Acceptance
 - repository builds/tests placeholder successfully
 - no untracked critical files
-- initial baseline tagged
+- initial baseline commit traceable; create a version tag only if a real milestone has been approved
 
 ---
 
@@ -3438,7 +3451,7 @@ Do not:
 
 # 49. FIRST ACTIONS FOR A NEW GPT-6 ASTRA WORK SESSION
 
-The first Work-mode session should do **only CH00**.
+**Historical bootstrap recipe (completed):** this section describes the first session of a *new* repository. For this existing repository, use `state/PROJECT_STATE.md` and `state/CHUNK_STATUS.csv` to determine the current authorized scope. Do not run CH00 again merely because a new chat begins.
 
 Exact first-session instruction:
 
@@ -3473,7 +3486,7 @@ Do not start CH01 in the same execution unless explicitly instructed.
 
 # 50. SECOND SESSION
 
-Run CH01 only.
+**Historical bootstrap recipe (completed):** CH01 was executed and merged as PR #1. The text below applies only to a hypothetical fresh program, not the next session of this repository.
 
 Instruction:
 
@@ -3724,8 +3737,8 @@ For every new technical block, execute Section 0.7 before choosing a topology. S
 
 # 60. REPRODUCIBILITY, SECURITY AND REPOSITORY HYGIENE
 
-Pin versions of public dependencies and scripts. Record command, inputs, seed, tool version, PDK corner, host environment and checksum for results. CI shall check Markdown links and structural integrity, requirement IDs and CSV schema, source formatting and available public tests. Proprietary PDKs, licensed IP, foundry decks, keys, personal/health data, restricted die documents and unlicensed paper PDFs shall never enter a public repository. Store references and access instructions instead. Use synthetic data by default. Keep bulky generated reports outside Git when reproducible; commit manifests, scripts, small evidence summaries and immutable hashes. A baseline is only `PASS` when a fresh clone can run its documented public checks. A placeholder check must be described as a repository structural check, not silicon verification.
+Pin versions of public dependencies and scripts. Record command, inputs, seed, tool version, PDK corner, host environment and checksum for results. Public CI shall check Markdown links and structural integrity, requirement IDs and CSV schema, Python syntax, and available public tests; later EDA flows need independent validated checks. Proprietary PDKs, licensed IP, foundry decks, keys, personal/health data, restricted die documents and unlicensed paper PDFs shall never enter a public repository. Store references and access instructions instead. Use synthetic data by default. Keep bulky generated reports outside Git when reproducible; commit manifests, scripts, small evidence summaries and immutable hashes. A baseline is only `PASS` when a fresh clone can run its documented public checks. A placeholder check must be described as a repository structural check, not silicon verification.
 
 # 61. CH00 SCOPE AND NEXT GATE
 
-CH00 produces this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It does **not** freeze the proposed channel counts, approve the architecture, conduct individual block literature surveys or begin circuit design. The next requested chunk is CH01: classify and atomize all normative and candidate statements, identify conflicts, and populate traceability. Do not mark a draft specification `verified` solely because Markdown/CSV checks pass.
+CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture, conduct individual block literature surveys or begin circuit design. CH01 and CH02 are now complete at their limited gates. The next planned chunk is CH03, **paused pending user instruction**; use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV checks pass.
