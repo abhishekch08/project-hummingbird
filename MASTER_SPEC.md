@@ -1126,13 +1126,13 @@ Provide:
 ## 10.8 UV safety
 **MUST:** implement hardware UV exposure limiting.
 
-Track cumulative exposure proxy:
+Track a calibrated electrical drive proxy for fault detection:
 
 ```text
-Exposure = Σ (calibrated optical drive × pulse duration)
+Drive_proxy = Σ (calibrated electrical drive × pulse duration)
 ```
 
-Hardware must disable UV output on violation independent of MCU firmware.
+This proxy is **not** a radiometric exposure measurement or proof of photobiological safety. Before enabling a UV product mode, measure accessible spectral optical output in the actual optical/mechanical geometry, establish the applicable exposure criteria with qualified safety review, and translate the resulting safe limits into independently enforced hardware current, pulse, duty-cycle, and cumulative limits. Hardware must disable UV output on violation independent of MCU firmware. Record the safety assessment and applicable standards for the intended market and use; do not infer a universal safe electrical-current limit from this equation.
 
 ## 10.9 Carotenoid support
 Do not assume a standard LED + PD channel is equivalent to Raman spectroscopy.
@@ -2061,6 +2061,7 @@ Notes
 ```
 
 Requirement IDs:
+- PRC-xxxx (program controls)
 - SYS-xxxx
 - BIO-xxxx
 - EDA-xxxx
@@ -2077,8 +2078,11 @@ Requirement IDs:
 - DFT-xxxx
 - PKG-xxxx
 - SAFE-xxxx
+- TIM-xxxx, AON-xxxx, HIF-xxxx, CAL-xxxx, VAL-xxxx (cross-subsystem functions and validation)
 
 No frozen requirement may exist only in prose without an ID once Chunk 1 is complete.
+
+The CH01 register additionally classifies each row as `CANDIDATE`, `NEEDS_DEFINITION`, `RESEARCH_ONLY`, or `PROCESS_ACTIVE`. `MUST` and `SHOULD` express the intended priority; neither status nor priority is proof of technical feasibility or an approved product claim. The `Notes` field identifies the source section and open issue, while the design and test artifact paths are planned destinations until populated with evidence.
 
 ---
 
