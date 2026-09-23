@@ -1,16 +1,18 @@
 # Risk Register
 
-Status: initial qualitative screening; scores and owners assigned in CH01.
+Qualitative screening only, 2026-09-23. Impact `I` and likelihood `L` use 1 (low) to 5 (high); the product is a **ranking aid, not a measured probability**. Product/safety owner reviews rankings in CH02. All risks are open.
 
-| ID | Risk | Impact | Mitigation / next evidence |
-|---|---|---|---|
-| R-001 | Electrode/ISE input ESD leakage | Signal error | PDK-backed pad and leakage study |
-| R-002 | Optical dynamic range and UV safety | Measurement and safety | Optical budget and independent interlock |
-| R-003 | Channel concurrency and memory bandwidth | Data loss | CH02/CH04 model |
-| R-004 | Switching, RF, audio coupling to microvolt sensing | Invalid measurements | Noise isolation budget |
-| R-005 | Small-cell peak delivery and audio demand | Brownout/runtime | CH03 battery model |
-| R-006 | Biochemical transducer and biomarker claims | Invalid inference | Assay validation plan |
-| R-007 | Dense SiP/MEMS/RF assembly | Yield and performance | Vendor design rules and co-design |
-| R-008 | Bare-die/IP/PDK access | Schedule | Confirm commercial availability |
-| R-009 | Analog test access and calibration time | Production yield | DFT plan before pinout |
-| R-010 | 10% reserve with broad candidate feature set | Area infeasibility | CH01–CH04 feasibility study |
+| ID | Risk | I | L | Score | Owner role | Mitigation / next evidence |
+|---|---|---:|---:|---:|---|---|
+| R-001 | Electrode/ISE input ESD leakage corrupts µV/mV signals | 5 | 4 | 20 | Analog + ESD | PDK-backed pad study and electrode model; OI-004/006 |
+| R-002 | Optical dynamic range and UV exposure misclassified | 5 | 4 | 20 | Optics + safety | Radiometry, ambient model and independent exposure limits; OI-011 |
+| R-003 | Multimodal concurrency exceeds converters, pins or memory bandwidth | 4 | 5 | 20 | Systems | CH02–CH04 mode matrix and loss-free data model; OI-007/012 |
+| R-004 | Switching/RF/audio coupling invalidates microvolt sensing | 5 | 4 | 20 | AMS + package | Noise isolation budget and package return-path analysis; OI-004 |
+| R-005 | Tiny cell cannot deliver peak current or intended runtime | 5 | 4 | 20 | Power | Cell discharge, transient sag and CH03 model; OI-003/009 |
+| R-006 | Biochemical/optical capability interpreted as validated biomarker | 5 | 4 | 20 | Product + science | Restrict claims; reference study and transducer evidence; OI-001/005 |
+| R-007 | Dense SiP/RF/MEMS/memory assembly fails size/yield | 4 | 4 | 16 | SiP | DFM rules and vendor assembly assessment; OI-002/007 |
+| R-008 | Bare-die and licensed PDK/IP inaccessible | 5 | 3 | 15 | Program + procurement | Written vendor terms and PDK availability; OI-002/006 |
+| R-009 | Analog test access/calibration time erodes yield and capacity | 4 | 4 | 16 | DFT | Pin and production-time plan before package freeze; OI-006/007 |
+| R-010 | Candidate feature load consumes 10% reserve | 4 | 5 | 20 | Architecture | Resource Pareto study and approved denominator; OI-007 |
+| R-011 | Near-DC thermal measurement offset/drift overwhelms signal | 4 | 4 | 16 | Thermal analog | Long-term low-frequency characterization; OI-004 |
+| R-012 | Body-connected drive or software fault exceeds safe limit | 5 | 3 | 15 | Safety + analog | Independent interlocks and fault injection; OI-005 |
