@@ -1,10 +1,10 @@
 # Current Baseline
 Architecture version: unselected; candidate requirements only
 Active branch: feature/CH01-requirements (publish branch)
-Last validated commit: current CH01 HEAD after publication; run `git rev-parse HEAD`
-Current chunk: CH01 requirements normalization and traceability
+Last validated content commit: `fb2bfe80e25809d596875f129cdc44a041f43ed8` (remote CH01 tree checked against local)
+Current chunk: CH01 requirements normalization and traceability (complete)
 Current subchunk: complete
-Current status: CH01 provisional register complete; architecture and electrical targets not frozen
+Current status: CH01 provisional register published for review in draft PR #1; architecture and electrical targets not frozen
 
 # Passed Gates
 - CH00 scaffold verified on remote `5ea0185f5b527efd0647e9197d92fea1e7b646da`.
@@ -12,7 +12,7 @@ Current status: CH01 provisional register complete; architecture and electrical 
 - CH01 conflict review: recorded in `docs/reviews/CH01_REQUIREMENTS_REVIEW.md`; open issues and owners recorded.
 
 # Active Work
-- Publish CH01 feature branch and open draft review of its provisional requirements. No circuit implementation underway.
+- Draft review open: https://github.com/abhishekch08/project-hummingbird/pull/1. No circuit implementation underway.
 
 # Blocked Items
 - Product priority and simultaneous-mode decisions; battery cell evidence; sensor models; safety market/standards; nRF die, PDK and IP access; SiP/pad feasibility. See `state/OPEN_ISSUES.md`.
@@ -25,6 +25,6 @@ Current status: CH01 provisional register complete; architecture and electrical 
 
 # Latest Regression
 Command: `python3 scripts/verification/check_bootstrap.py && python3 scripts/verification/check_requirements.py`
-Commit: CH01 publication commit; inspect Git HEAD
+Commit: `fb2bfe80e25809d596875f129cdc44a041f43ed8` (validated content); state-only publication update rechecked
 Result: PASS (repository/register structural consistency only; no silicon requirements verified)
 Timestamp: 2026-09-23 UTC
