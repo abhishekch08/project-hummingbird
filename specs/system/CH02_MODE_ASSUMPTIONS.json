@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "provenance": "MASTER_SPEC.md §37 example modes and CH01 provisional requirements; every sample rate and framing value here is a CH02 scenario assumption, not approved silicon or product specification",
+  "format_assumptions": {
+    "timestamp_bits_per_sample_group": 64,
+    "quality_bits_per_channel_sample": 8,
+    "host_link_guard_factor": 1.2,
+    "illustrative_single_data_line_clocks_hz": [
+      8000000,
+      16000000,
+      32000000,
+      64000000
+    ],
+    "illustrative_bus_payload_efficiency": 0.7,
+    "comment": "Conservative per-sample-group timestamp and wavelength-ID scenario, with per-channel quality bits; it is not a rigorous protocol upper bound. Optical sample_rate_hz is total per PD across source phases; per-wavelength rate is divided by wavelength_phases. CH04 chooses real framing, dark/ambient cycles and CRC. Clocks are hypothetical design probes, not nRF device limits.",
+    "optical_wavelength_id_bits_per_sample_group": 8
+  },
+  "capacities": {
+    "BIO_ADC_simultaneous": 8,
+    "EDA_receive_simultaneous": 4,
+    "ECH_receive_simultaneous": 8,
+    "ECH_potentiostat_simultaneous": 4,
+    "OPT_input_ports": 12,
+    "OPT_ADC_simultaneous": 8,
+    "THM_receive_simultaneous": 4,
+    "AUDIO_ADC_simultaneous": 4,
+    "FAST_ADC_simultaneous": 2,
+    "IMU_external_streams": 1,
+    "LED_output_ports": 16,
+    "LED_output_peak_ma_per_port_candidate": 150
+  },
+  "signal_contact_scenarios": {
+    "optimistic_sensor_to_ASIC": {
+      "BIO_8_differential_plus_ref_bias": 18,
+      "EDA_4_pairs": 8,
+      "ECH_8_working_shared_reference_counter": 10,
+      "OPT_16_LED_12_PD_common": 29,
+      "THM_4_single_ended_plus_excitation_return": 6,
+      "AUDIO_4_inputs_plus_PDM_clock": 5,
+      "AUDIO_output_differential": 2
+    },
+    "less_shared_sensor_to_ASIC": {
+      "BIO_8_differential_plus_ref_bias": 18,
+      "EDA_4_pairs": 8,
+      "ECH_8_working_4_reference_4_counter": 16,
+      "OPT_16_LED_12_PD_common": 29,
+      "THM_8_differential": 16,
+      "AUDIO_4_inputs_plus_PDM_clock": 5,
+      "AUDIO_output_differential": 2
+    },
+    "separate_internal_inter_die_logical_nets_optimistic": {
+      "HOST_SPI_and_controls": 8,
+      "IMU_SPI_IRQ_sync": 6,
+      "MEMORY_serial_and_controls": 6
+    },
+    "excluded": [
+      "power and ground",
+      "RF antenna",
+      "clock/crystal",
+      "charge/input and external passive nodes",
+      "test and programming",
+      "shield/guard",
+      "extra returns",
+      "unshared reference electrodes",
+      "manufacturer assembly keepouts"
+    ],
+    "comment": "Counts are deliberately simple distinct logical signal contacts, not package ball count, die pads, or proven routing. Co-packaged sensors can move contacts inside the SiP; sharing requires leakage and timing proof."
+  },
+  "streams": {
+    "imu_100": {
+      "bank": "IMU",
+      "channels": 6,
+      "simultaneous_channels": 1,
+      "bits_per_channel": 16,
+      "sample_rate_hz": 100
+    },
+    "imu_400": {
+      "bank": "IMU",
+      "channels": 6,
+      "simultaneous_channels": 1,
+      "bits_per_channel": 16,
+      "sample_rate_hz": 400
+    },
+    "imu_1000": {
+      "bank": "IMU",
+      "channels": 6,
+      "simultaneous_channels": 1,
+      "bits_per_channel": 16,
+      "sample_rate_hz": 1000
+    },
+    "temp2_1": {
+      "bank": "THM",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 1
+    },
+    "temp4_1": {
+      "bank": "THM",
+      "channels": 4,
+      "simultaneous_channels": 4,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 1
+    },
+    "temp2_10": {
+      "bank": "THM",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 10
+    },
+    "temp4_10": {
+      "bank": "THM",
+      "channels": 4,
+      "simultaneous_channels": 4,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 10
+    },
+    "eda1_32": {
+      "bank": "EDA",
+      "channels": 1,
+      "simultaneous_channels": 1,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 32
+    },
+    "eda2_32": {
+      "bank": "EDA",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 32
+    },
+    "eda4_1000": {
+      "bank": "EDA",
+      "channels": 4,
+      "simultaneous_channels": 4,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 1000
+    },
+    "ech8_10": {
+      "bank": "ECH",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 10
+    },
+    "ech8_1000": {
+      "bank": "ECH",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 1000
+    },
+    "ppg2_100": {
+      "bank": "OPT",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 100,
+      "wavelength_phases": 2
+    },
+    "ppg4_200": {
+      "bank": "OPT",
+      "channels": 4,
+      "simultaneous_channels": 4,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 200,
+      "wavelength_phases": 2
+    },
+    "ppg8_500": {
+      "bank": "OPT",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 500,
+      "wavelength_phases": 2
+    },
+    "opt12_scan_2000": {
+      "bank": "OPT",
+      "channels": 12,
+      "simultaneous_channels": 8,
+      "time_slots": 2,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 2000,
+      "wavelength_phases": 8
+    },
+    "opt12_true_2000": {
+      "bank": "OPT",
+      "channels": 12,
+      "simultaneous_channels": 12,
+      "time_slots": 1,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 2000,
+      "wavelength_phases": 8
+    },
+    "opt8_4000": {
+      "bank": "OPT",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 20,
+      "sample_rate_hz": 4000,
+      "wavelength_phases": 4
+    },
+    "eeg8_500": {
+      "bank": "BIO",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 500
+    },
+    "eeg8_4000": {
+      "bank": "BIO",
+      "channels": 8,
+      "simultaneous_channels": 8,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 4000
+    },
+    "ecg2_1000": {
+      "bank": "BIO",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 1000
+    },
+    "audio1_16000": {
+      "bank": "AUDIO",
+      "channels": 1,
+      "simultaneous_channels": 1,
+      "bits_per_channel": 16,
+      "sample_rate_hz": 16000
+    },
+    "audio2_48000": {
+      "bank": "AUDIO",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 48000
+    },
+    "audio4_48000": {
+      "bank": "AUDIO",
+      "channels": 4,
+      "simultaneous_channels": 4,
+      "bits_per_channel": 24,
+      "sample_rate_hz": 48000
+    },
+    "fast2_1000000": {
+      "bank": "FAST",
+      "channels": 2,
+      "simultaneous_channels": 2,
+      "bits_per_channel": 16,
+      "sample_rate_hz": 1000000
+    }
+  },
+  "modes": [
+    {
+      "id": "deep_sleep",
+      "class": "candidate",
+      "source": "§37.1",
+      "streams": [],
+      "led_active_max": 0,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "none",
+      "radio": "sleep",
+      "note": "AON supervision not streamed; actual AON load unknown"
+    },
+    {
+      "id": "daily_health",
+      "class": "candidate",
+      "source": "§37.2",
+      "streams": [
+        "imu_100",
+        "temp2_1",
+        "ppg2_100",
+        "eda1_32"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "optional",
+      "radio": "periodic",
+      "note": "EDA included as upper bound; PPG rate is active-window rate, not all-day duty cycle"
+    },
+    {
+      "id": "sleep_neuroscience",
+      "class": "candidate",
+      "source": "§37.3",
+      "streams": [
+        "eeg8_500",
+        "ppg4_200",
+        "imu_100",
+        "temp2_1",
+        "audio1_16000"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "optional",
+      "radio": "periodic",
+      "note": "Continuous raw 16 kHz audio is a conservative upper stream; local event extraction could reduce host traffic"
+    },
+    {
+      "id": "cardiovascular",
+      "class": "candidate",
+      "source": "§37.4",
+      "streams": [
+        "ecg2_1000",
+        "ppg8_500",
+        "imu_400",
+        "temp2_1"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "optional",
+      "radio": "periodic",
+      "note": "ECG2 and 8 optical conversion paths are illustrative; cross-sensor timing not yet budgeted"
+    },
+    {
+      "id": "sweat_biochemistry",
+      "class": "candidate",
+      "source": "§37.5",
+      "streams": [
+        "ech8_10",
+        "eda2_32",
+        "temp4_1",
+        "ppg2_100"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 4,
+      "audio_output": false,
+      "storage": "optional",
+      "radio": "periodic",
+      "note": "Optional intermittent PPG counted while active; 8 ECHEM and 4 potentiostats require reference-electrode proof"
+    },
+    {
+      "id": "optical_spectroscopy",
+      "class": "candidate",
+      "source": "§37.6",
+      "streams": [
+        "opt12_scan_2000",
+        "imu_100",
+        "temp2_10"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "optional",
+      "radio": "periodic",
+      "note": "12 PD inputs are scanned in at least two slots with 8 simultaneous ADC paths; all-12 instantaneous coherence is absent"
+    },
+    {
+      "id": "audio",
+      "class": "candidate",
+      "source": "§37.7",
+      "streams": [
+        "audio2_48000",
+        "imu_100",
+        "ppg2_100",
+        "temp2_1"
+      ],
+      "led_active_max": 1,
+      "active_potentiostats": 0,
+      "audio_output": true,
+      "storage": "optional",
+      "radio": "active",
+      "note": "Optical PPG counted as limited optional upper bound; bone-output peak current unknown"
+    },
+    {
+      "id": "research_raw",
+      "class": "candidate",
+      "source": "§37.8",
+      "streams": [
+        "eeg8_4000",
+        "eda4_1000",
+        "ech8_1000",
+        "opt8_4000",
+        "temp4_10",
+        "audio4_48000",
+        "imu_1000"
+      ],
+      "led_active_max": 2,
+      "active_potentiostats": 4,
+      "audio_output": false,
+      "storage": "NAND_candidate",
+      "radio": "optional",
+      "note": "Illustrative all-bank raw acquisition excluding fast ADC; rates not approved and analog interference unverified"
+    },
+    {
+      "id": "research_fast_stress",
+      "class": "stress",
+      "source": "§15 + §37.8",
+      "streams": [
+        "eeg8_4000",
+        "eda4_1000",
+        "ech8_1000",
+        "opt8_4000",
+        "temp4_10",
+        "audio4_48000",
+        "imu_1000",
+        "fast2_1000000"
+      ],
+      "led_active_max": 2,
+      "active_potentiostats": 4,
+      "audio_output": false,
+      "storage": "NAND_candidate",
+      "radio": "optional",
+      "note": "Adds both candidate 1 MSPS fast ADCs; intentional host/data stress, not an approved mode"
+    },
+    {
+      "id": "resource_conflict_probe",
+      "class": "stress",
+      "source": "§7 + §10 + §37.8",
+      "streams": [
+        "eeg8_500",
+        "ecg2_1000",
+        "opt12_true_2000"
+      ],
+      "led_active_max": 16,
+      "active_potentiostats": 0,
+      "audio_output": false,
+      "storage": "none",
+      "radio": "off",
+      "note": "Intentionally infeasible: BIO demand 10>8, OPT demand 12>8, and theoretical 16 LED ports at full candidate current"
+    }
+  ]
+}
