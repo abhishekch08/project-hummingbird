@@ -1,0 +1,1084 @@
+{
+  "schema_version": 1,
+  "assumption_source": "MASTER_SPEC.md §37 example modes and CH01 provisional requirements; every sample rate and framing value here is a CH02 scenario assumption, not approved silicon or product specification",
+  "signal_contact_scenarios": {
+    "optimistic_sensor_to_ASIC": 78,
+    "less_shared_sensor_to_ASIC": 94,
+    "separate_internal_inter_die_logical_nets_optimistic": 20
+  },
+  "modes": [
+    {
+      "id": "deep_sleep",
+      "classification": "candidate",
+      "source": "§37.1",
+      "notes": "AON supervision not streamed; actual AON load unknown",
+      "streams": [],
+      "adc_occupancy": {},
+      "active_sensor_channels": {},
+      "required_conversions_per_s": {},
+      "minimum_average_conversions_per_s_per_ADC": {},
+      "logical_acquisition_producers_min": 0,
+      "aggregate_sample_groups_per_s": 0,
+      "raw_payload_bps": 0,
+      "scenario_framed_bps": 0,
+      "guarded_host_payload_bps": 0,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": null,
+      "first_illustrative_clock_meeting_guard_hz": null,
+      "led_programmed_outputs_max": 0,
+      "led_output_current_ma_candidate_max": 0,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "sleep",
+      "storage": "none",
+      "bank_conflicts": [],
+      "requirements": [
+        "HIF-0001",
+        "SYS-0010"
+      ]
+    },
+    {
+      "id": "daily_health",
+      "classification": "candidate",
+      "source": "§37.2",
+      "notes": "EDA included as upper bound; PPG rate is active-window rate, not all-day duty cycle",
+      "streams": [
+        {
+          "stream": "imu_100",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 9600,
+          "scenario_framed_bps": 20800
+        },
+        {
+          "stream": "temp2_1",
+          "bank": "THM",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48,
+          "scenario_framed_bps": 128
+        },
+        {
+          "stream": "ppg2_100",
+          "bank": "OPT",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": 2,
+          "sample_rate_hz_per_PD_per_wavelength": 50,
+          "raw_bps": 4000,
+          "scenario_framed_bps": 12800
+        },
+        {
+          "stream": "eda1_32",
+          "bank": "EDA",
+          "channels": 1,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 32,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 640,
+          "scenario_framed_bps": 2944
+        }
+      ],
+      "adc_occupancy": {
+        "EDA": 1,
+        "IMU": 1,
+        "OPT": 2,
+        "THM": 2
+      },
+      "active_sensor_channels": {
+        "EDA": 1,
+        "IMU": 6,
+        "OPT": 2,
+        "THM": 2
+      },
+      "required_conversions_per_s": {
+        "EDA": 32,
+        "IMU": 600,
+        "OPT": 200,
+        "THM": 2
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "EDA": 8,
+        "OPT": 25,
+        "THM": 1
+      },
+      "logical_acquisition_producers_min": 4,
+      "aggregate_sample_groups_per_s": 233,
+      "raw_payload_bps": 14288,
+      "scenario_framed_bps": 36672,
+      "guarded_host_payload_bps": 44007,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 62868,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "periodic",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "EDA-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "sleep_neuroscience",
+      "classification": "candidate",
+      "source": "§37.3",
+      "notes": "Continuous raw 16 kHz audio is a conservative upper stream; local event extraction could reduce host traffic",
+      "streams": [
+        {
+          "stream": "eeg8_500",
+          "bank": "BIO",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 500,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 96000,
+          "scenario_framed_bps": 160000
+        },
+        {
+          "stream": "ppg4_200",
+          "bank": "OPT",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 200,
+          "wavelength_phases": 2,
+          "sample_rate_hz_per_PD_per_wavelength": 100,
+          "raw_bps": 16000,
+          "scenario_framed_bps": 36800
+        },
+        {
+          "stream": "imu_100",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 9600,
+          "scenario_framed_bps": 20800
+        },
+        {
+          "stream": "temp2_1",
+          "bank": "THM",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48,
+          "scenario_framed_bps": 128
+        },
+        {
+          "stream": "audio1_16000",
+          "bank": "AUDIO",
+          "channels": 1,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 16000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 256000,
+          "scenario_framed_bps": 1408000
+        }
+      ],
+      "adc_occupancy": {
+        "AUDIO": 1,
+        "BIO": 8,
+        "IMU": 1,
+        "OPT": 4,
+        "THM": 2
+      },
+      "active_sensor_channels": {
+        "AUDIO": 1,
+        "BIO": 8,
+        "IMU": 6,
+        "OPT": 4,
+        "THM": 2
+      },
+      "required_conversions_per_s": {
+        "AUDIO": 16000,
+        "BIO": 4000,
+        "IMU": 600,
+        "OPT": 800,
+        "THM": 2
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "AUDIO": 4000,
+        "BIO": 500,
+        "OPT": 100,
+        "THM": 1
+      },
+      "logical_acquisition_producers_min": 5,
+      "aggregate_sample_groups_per_s": 16801,
+      "raw_payload_bps": 377648,
+      "scenario_framed_bps": 1625728,
+      "guarded_host_payload_bps": 1950874,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 2786963,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "periodic",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "AUD-0001",
+        "BIO-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "cardiovascular",
+      "classification": "candidate",
+      "source": "§37.4",
+      "notes": "ECG2 and 8 optical conversion paths are illustrative; cross-sensor timing not yet budgeted",
+      "streams": [
+        {
+          "stream": "ecg2_1000",
+          "bank": "BIO",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48000,
+          "scenario_framed_bps": 128000
+        },
+        {
+          "stream": "ppg8_500",
+          "bank": "OPT",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 500,
+          "wavelength_phases": 2,
+          "sample_rate_hz_per_PD_per_wavelength": 250,
+          "raw_bps": 80000,
+          "scenario_framed_bps": 148000
+        },
+        {
+          "stream": "imu_400",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 400,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 38400,
+          "scenario_framed_bps": 83200
+        },
+        {
+          "stream": "temp2_1",
+          "bank": "THM",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48,
+          "scenario_framed_bps": 128
+        }
+      ],
+      "adc_occupancy": {
+        "BIO": 2,
+        "IMU": 1,
+        "OPT": 8,
+        "THM": 2
+      },
+      "active_sensor_channels": {
+        "BIO": 2,
+        "IMU": 6,
+        "OPT": 8,
+        "THM": 2
+      },
+      "required_conversions_per_s": {
+        "BIO": 2000,
+        "IMU": 2400,
+        "OPT": 4000,
+        "THM": 2
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "BIO": 250,
+        "OPT": 500,
+        "THM": 1
+      },
+      "logical_acquisition_producers_min": 4,
+      "aggregate_sample_groups_per_s": 1901,
+      "raw_payload_bps": 166448,
+      "scenario_framed_bps": 359328,
+      "guarded_host_payload_bps": 431194,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 615992,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "periodic",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "BIO-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "sweat_biochemistry",
+      "classification": "candidate",
+      "source": "§37.5",
+      "notes": "Optional intermittent PPG counted while active; 8 ECHEM and 4 potentiostats require reference-electrode proof",
+      "streams": [
+        {
+          "stream": "ech8_10",
+          "bank": "ECH",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 10,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 1920,
+          "scenario_framed_bps": 3200
+        },
+        {
+          "stream": "eda2_32",
+          "bank": "EDA",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 32,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 1280,
+          "scenario_framed_bps": 3840
+        },
+        {
+          "stream": "temp4_1",
+          "bank": "THM",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 96,
+          "scenario_framed_bps": 192
+        },
+        {
+          "stream": "ppg2_100",
+          "bank": "OPT",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": 2,
+          "sample_rate_hz_per_PD_per_wavelength": 50,
+          "raw_bps": 4000,
+          "scenario_framed_bps": 12800
+        }
+      ],
+      "adc_occupancy": {
+        "ECH": 8,
+        "EDA": 2,
+        "OPT": 2,
+        "THM": 4
+      },
+      "active_sensor_channels": {
+        "ECH": 8,
+        "EDA": 2,
+        "OPT": 2,
+        "THM": 4
+      },
+      "required_conversions_per_s": {
+        "ECH": 80,
+        "EDA": 64,
+        "OPT": 200,
+        "THM": 4
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "ECH": 10,
+        "EDA": 16,
+        "OPT": 25,
+        "THM": 1
+      },
+      "logical_acquisition_producers_min": 4,
+      "aggregate_sample_groups_per_s": 143,
+      "raw_payload_bps": 7296,
+      "scenario_framed_bps": 20032,
+      "guarded_host_payload_bps": 24039,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 34342,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 4,
+      "radio": "periodic",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "ECH-0001",
+        "ECH-0002",
+        "EDA-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001"
+      ]
+    },
+    {
+      "id": "optical_spectroscopy",
+      "classification": "candidate",
+      "source": "§37.6",
+      "notes": "12 PD inputs are scanned in at least two slots with 8 simultaneous ADC paths; all-12 instantaneous coherence is absent",
+      "streams": [
+        {
+          "stream": "opt12_scan_2000",
+          "bank": "OPT",
+          "channels": 12,
+          "simultaneous_channels": 8,
+          "time_slots": 2,
+          "sample_rate_hz_per_channel": 2000,
+          "wavelength_phases": 8,
+          "sample_rate_hz_per_PD_per_wavelength": 250,
+          "raw_bps": 480000,
+          "scenario_framed_bps": 816000
+        },
+        {
+          "stream": "imu_100",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 9600,
+          "scenario_framed_bps": 20800
+        },
+        {
+          "stream": "temp2_10",
+          "bank": "THM",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 10,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 480,
+          "scenario_framed_bps": 1280
+        }
+      ],
+      "adc_occupancy": {
+        "IMU": 1,
+        "OPT": 8,
+        "THM": 2
+      },
+      "active_sensor_channels": {
+        "IMU": 6,
+        "OPT": 12,
+        "THM": 2
+      },
+      "required_conversions_per_s": {
+        "IMU": 600,
+        "OPT": 24000,
+        "THM": 20
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "OPT": 3000,
+        "THM": 5
+      },
+      "logical_acquisition_producers_min": 3,
+      "aggregate_sample_groups_per_s": 2110,
+      "raw_payload_bps": 490080,
+      "scenario_framed_bps": 838080,
+      "guarded_host_payload_bps": 1005696,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 1436709,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "periodic",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "audio",
+      "classification": "candidate",
+      "source": "§37.7",
+      "notes": "Optical PPG counted as limited optional upper bound; bone-output peak current unknown",
+      "streams": [
+        {
+          "stream": "audio2_48000",
+          "bank": "AUDIO",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 48000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 2304000,
+          "scenario_framed_bps": 6144000
+        },
+        {
+          "stream": "imu_100",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 9600,
+          "scenario_framed_bps": 20800
+        },
+        {
+          "stream": "ppg2_100",
+          "bank": "OPT",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 100,
+          "wavelength_phases": 2,
+          "sample_rate_hz_per_PD_per_wavelength": 50,
+          "raw_bps": 4000,
+          "scenario_framed_bps": 12800
+        },
+        {
+          "stream": "temp2_1",
+          "bank": "THM",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48,
+          "scenario_framed_bps": 128
+        }
+      ],
+      "adc_occupancy": {
+        "AUDIO": 2,
+        "IMU": 1,
+        "OPT": 2,
+        "THM": 2
+      },
+      "active_sensor_channels": {
+        "AUDIO": 2,
+        "IMU": 6,
+        "OPT": 2,
+        "THM": 2
+      },
+      "required_conversions_per_s": {
+        "AUDIO": 96000,
+        "IMU": 600,
+        "OPT": 200,
+        "THM": 2
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "AUDIO": 24000,
+        "OPT": 25,
+        "THM": 1
+      },
+      "logical_acquisition_producers_min": 4,
+      "aggregate_sample_groups_per_s": 48201,
+      "raw_payload_bps": 2317648,
+      "scenario_framed_bps": 6177728,
+      "guarded_host_payload_bps": 7413274,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 10590392,
+      "first_illustrative_clock_meeting_guard_hz": 16000000,
+      "led_programmed_outputs_max": 1,
+      "led_output_current_ma_candidate_max": 150,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": true,
+      "active_potentiostats": 0,
+      "radio": "active",
+      "storage": "optional",
+      "bank_conflicts": [],
+      "requirements": [
+        "AUD-0001",
+        "AUD-0011",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "research_raw",
+      "classification": "candidate",
+      "source": "§37.8",
+      "notes": "Illustrative all-bank raw acquisition excluding fast ADC; rates not approved and analog interference unverified",
+      "streams": [
+        {
+          "stream": "eeg8_4000",
+          "bank": "BIO",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 4000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 768000,
+          "scenario_framed_bps": 1280000
+        },
+        {
+          "stream": "eda4_1000",
+          "bank": "EDA",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 80000,
+          "scenario_framed_bps": 176000
+        },
+        {
+          "stream": "ech8_1000",
+          "bank": "ECH",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 192000,
+          "scenario_framed_bps": 320000
+        },
+        {
+          "stream": "opt8_4000",
+          "bank": "OPT",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 4000,
+          "wavelength_phases": 4,
+          "sample_rate_hz_per_PD_per_wavelength": 1000,
+          "raw_bps": 640000,
+          "scenario_framed_bps": 1184000
+        },
+        {
+          "stream": "temp4_10",
+          "bank": "THM",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 10,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 960,
+          "scenario_framed_bps": 1920
+        },
+        {
+          "stream": "audio4_48000",
+          "bank": "AUDIO",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 48000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 4608000,
+          "scenario_framed_bps": 9216000
+        },
+        {
+          "stream": "imu_1000",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 96000,
+          "scenario_framed_bps": 208000
+        }
+      ],
+      "adc_occupancy": {
+        "AUDIO": 4,
+        "BIO": 8,
+        "ECH": 8,
+        "EDA": 4,
+        "IMU": 1,
+        "OPT": 8,
+        "THM": 4
+      },
+      "active_sensor_channels": {
+        "AUDIO": 4,
+        "BIO": 8,
+        "ECH": 8,
+        "EDA": 4,
+        "IMU": 6,
+        "OPT": 8,
+        "THM": 4
+      },
+      "required_conversions_per_s": {
+        "AUDIO": 192000,
+        "BIO": 32000,
+        "ECH": 8000,
+        "EDA": 4000,
+        "IMU": 6000,
+        "OPT": 32000,
+        "THM": 40
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "AUDIO": 48000,
+        "BIO": 4000,
+        "ECH": 1000,
+        "EDA": 1000,
+        "OPT": 4000,
+        "THM": 10
+      },
+      "logical_acquisition_producers_min": 7,
+      "aggregate_sample_groups_per_s": 59010,
+      "raw_payload_bps": 6384960,
+      "scenario_framed_bps": 12385920,
+      "guarded_host_payload_bps": 14863104,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 21233006,
+      "first_illustrative_clock_meeting_guard_hz": 32000000,
+      "led_programmed_outputs_max": 2,
+      "led_output_current_ma_candidate_max": 300,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 4,
+      "radio": "optional",
+      "storage": "NAND_candidate",
+      "bank_conflicts": [],
+      "requirements": [
+        "AUD-0001",
+        "BIO-0001",
+        "ECH-0001",
+        "ECH-0002",
+        "EDA-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "research_fast_stress",
+      "classification": "stress",
+      "source": "§15 + §37.8",
+      "notes": "Adds both candidate 1 MSPS fast ADCs; intentional host/data stress, not an approved mode",
+      "streams": [
+        {
+          "stream": "eeg8_4000",
+          "bank": "BIO",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 4000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 768000,
+          "scenario_framed_bps": 1280000
+        },
+        {
+          "stream": "eda4_1000",
+          "bank": "EDA",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 80000,
+          "scenario_framed_bps": 176000
+        },
+        {
+          "stream": "ech8_1000",
+          "bank": "ECH",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 192000,
+          "scenario_framed_bps": 320000
+        },
+        {
+          "stream": "opt8_4000",
+          "bank": "OPT",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 4000,
+          "wavelength_phases": 4,
+          "sample_rate_hz_per_PD_per_wavelength": 1000,
+          "raw_bps": 640000,
+          "scenario_framed_bps": 1184000
+        },
+        {
+          "stream": "temp4_10",
+          "bank": "THM",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 10,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 960,
+          "scenario_framed_bps": 1920
+        },
+        {
+          "stream": "audio4_48000",
+          "bank": "AUDIO",
+          "channels": 4,
+          "simultaneous_channels": 4,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 48000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 4608000,
+          "scenario_framed_bps": 9216000
+        },
+        {
+          "stream": "imu_1000",
+          "bank": "IMU",
+          "channels": 6,
+          "simultaneous_channels": 1,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 96000,
+          "scenario_framed_bps": 208000
+        },
+        {
+          "stream": "fast2_1000000",
+          "bank": "FAST",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 32000000,
+          "scenario_framed_bps": 112000000
+        }
+      ],
+      "adc_occupancy": {
+        "AUDIO": 4,
+        "BIO": 8,
+        "ECH": 8,
+        "EDA": 4,
+        "FAST": 2,
+        "IMU": 1,
+        "OPT": 8,
+        "THM": 4
+      },
+      "active_sensor_channels": {
+        "AUDIO": 4,
+        "BIO": 8,
+        "ECH": 8,
+        "EDA": 4,
+        "FAST": 2,
+        "IMU": 6,
+        "OPT": 8,
+        "THM": 4
+      },
+      "required_conversions_per_s": {
+        "AUDIO": 192000,
+        "BIO": 32000,
+        "ECH": 8000,
+        "EDA": 4000,
+        "FAST": 2000000,
+        "IMU": 6000,
+        "OPT": 32000,
+        "THM": 40
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "AUDIO": 48000,
+        "BIO": 4000,
+        "ECH": 1000,
+        "EDA": 1000,
+        "FAST": 1000000,
+        "OPT": 4000,
+        "THM": 10
+      },
+      "logical_acquisition_producers_min": 8,
+      "aggregate_sample_groups_per_s": 1059010,
+      "raw_payload_bps": 38384960,
+      "scenario_framed_bps": 124385920,
+      "guarded_host_payload_bps": 149263104,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 213233006,
+      "first_illustrative_clock_meeting_guard_hz": null,
+      "led_programmed_outputs_max": 2,
+      "led_output_current_ma_candidate_max": 300,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 4,
+      "radio": "optional",
+      "storage": "NAND_candidate",
+      "bank_conflicts": [],
+      "requirements": [
+        "ADC-0005",
+        "AUD-0001",
+        "BIO-0001",
+        "ECH-0001",
+        "ECH-0002",
+        "EDA-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010",
+        "THM-0001",
+        "TIM-0007"
+      ]
+    },
+    {
+      "id": "resource_conflict_probe",
+      "classification": "stress",
+      "source": "§7 + §10 + §37.8",
+      "notes": "Intentionally infeasible: BIO demand 10>8, OPT demand 12>8, and theoretical 16 LED ports at full candidate current",
+      "streams": [
+        {
+          "stream": "eeg8_500",
+          "bank": "BIO",
+          "channels": 8,
+          "simultaneous_channels": 8,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 500,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 96000,
+          "scenario_framed_bps": 160000
+        },
+        {
+          "stream": "ecg2_1000",
+          "bank": "BIO",
+          "channels": 2,
+          "simultaneous_channels": 2,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 1000,
+          "wavelength_phases": null,
+          "sample_rate_hz_per_PD_per_wavelength": null,
+          "raw_bps": 48000,
+          "scenario_framed_bps": 128000
+        },
+        {
+          "stream": "opt12_true_2000",
+          "bank": "OPT",
+          "channels": 12,
+          "simultaneous_channels": 12,
+          "time_slots": 1,
+          "sample_rate_hz_per_channel": 2000,
+          "wavelength_phases": 8,
+          "sample_rate_hz_per_PD_per_wavelength": 250,
+          "raw_bps": 480000,
+          "scenario_framed_bps": 816000
+        }
+      ],
+      "adc_occupancy": {
+        "BIO": 10,
+        "OPT": 12
+      },
+      "active_sensor_channels": {
+        "BIO": 10,
+        "OPT": 12
+      },
+      "required_conversions_per_s": {
+        "BIO": 6000,
+        "OPT": 24000
+      },
+      "minimum_average_conversions_per_s_per_ADC": {
+        "BIO": 750,
+        "OPT": 3000
+      },
+      "logical_acquisition_producers_min": 3,
+      "aggregate_sample_groups_per_s": 3500,
+      "raw_payload_bps": 624000,
+      "scenario_framed_bps": 1104000,
+      "guarded_host_payload_bps": 1324800,
+      "minimum_illustrative_bus_clock_hz_at_assumed_efficiency": 1892572,
+      "first_illustrative_clock_meeting_guard_hz": 8000000,
+      "led_programmed_outputs_max": 16,
+      "led_output_current_ma_candidate_max": 2400,
+      "battery_peak_current_ma": null,
+      "battery_peak_current_status": "UNKNOWN: cell voltage, LED voltage, efficiencies, RF, audio and ASIC/IMU load not specified",
+      "audio_output_active": false,
+      "active_potentiostats": 0,
+      "radio": "off",
+      "storage": "none",
+      "bank_conflicts": [
+        "BIO simultaneous converters/receivers 10>8 (BIO-0001)",
+        "OPT simultaneous converters/receivers 12>8 (OPT-0008)"
+      ],
+      "requirements": [
+        "BIO-0001",
+        "HIF-0001",
+        "OPT-0002",
+        "OPT-0008",
+        "SYS-0010"
+      ]
+    }
+  ]
+}
