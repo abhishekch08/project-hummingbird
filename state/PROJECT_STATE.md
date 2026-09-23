@@ -1,10 +1,11 @@
 # Current Baseline
 Architecture version: unselected; candidate requirements and mode scenarios only
-Active branch: feature/CH02-concurrent-modes (to be published)
+Active branch: feature/CH02-concurrent-modes (published draft PR #2)
 Last reviewed baseline: `03ffe313f2325d26455e741416bbf821346c5118` (CH01 merged into main)
+Last validated content commit: `13590a3955166e6d2565a62c6c09b269fd242e12`
 Current chunk: CH02 concurrent modes (scenario gate complete)
 Current subchunk: complete
-Current status: eight candidate modes and two stress probes analyzed; architecture, battery current and product modes not frozen
+Current status: eight candidate modes and two stress probes analyzed in PR #2; architecture, battery current and product modes not frozen
 
 # Passed Gates
 - CH00 scaffold: PASS.
@@ -12,7 +13,7 @@ Current status: eight candidate modes and two stress probes analyzed; architectu
 - CH02 resource accounting and intentionally infeasible scenarios: PASS in `docs/reviews/CH02_GATE.md`.
 
 # Active Work
-- Publish the CH02 feature branch and draft review. No circuit implementation or block literature survey underway.
+- Draft review open: https://github.com/abhishekch08/project-hummingbird/pull/2. No circuit implementation or block literature survey underway.
 
 # Blocked Items
 - Product priority and concurrency approval; cell voltage/impedance; optical source radiometry; actual nRF host throughput; pinout/package rules; foundry/IP availability. See `state/OPEN_ISSUES.md` and the CH02 gate.
@@ -25,6 +26,6 @@ Current status: eight candidate modes and two stress probes analyzed; architectu
 
 # Latest Regression
 Command: `python3 models/python/ch02_concurrency.py --check && python3 -m unittest discover -s verification/unit -p 'test_ch02_*.py' && python3 scripts/verification/check_bootstrap.py && python3 scripts/verification/check_requirements.py`
-Commit: CH02 content commit on published feature branch; inspect Git HEAD
+Commit: `13590a3955166e6d2565a62c6c09b269fd242e12` (validated content); state-only publication update rechecked
 Result: PASS (scenario arithmetic and consistency only, no silicon performance verified)
 Timestamp: 2026-09-23 UTC
