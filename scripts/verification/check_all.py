@@ -10,7 +10,8 @@ STEPS = [
     ["scripts/verification/check_bootstrap.py"],
     ["scripts/verification/check_requirements.py"],
     ["models/python/ch02_concurrency.py", "--check"],
-    ["-m", "unittest", "discover", "-s", "verification/unit", "-p", "test_ch02_*.py"],
+    ["models/python/ch03_energy.py", "--check"],
+    ["-m", "unittest", "discover", "-s", "verification/unit", "-p", "test_ch*.py"],
     ["scripts/verification/check_repository.py"],
 ]
 
@@ -19,7 +20,7 @@ def main():
     for args in STEPS:
         print(f"Running {sys.executable} {' '.join(args)}", flush=True)
         subprocess.run([sys.executable, *args], cwd=ROOT, check=True)
-    print("Public regression PASS (structure, provisional requirements, scenario arithmetic)")
+    print("Public regression PASS (structure, provisional requirements, CH02 and synthetic CH03 arithmetic)")
 
 
 if __name__ == "__main__":

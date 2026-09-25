@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "evidence_class": "SYNTHETIC_CONDITIONAL",
+  "gate": {
+    "model": "MODEL_PASS_IF_REGRESSION_PASSES",
+    "gate": "FEASIBILITY_HOLD",
+    "missing": [
+      "emitter_forward_voltage_and_pulse_waveform",
+      "independent_safety_and_thermal_limits",
+      "measured_block_state_and_startup_loads",
+      "measured_rail_efficiency_vs_input_load_temperature",
+      "product_mode_priorities_and_duty_schedule",
+      "representative_cell_impedance_vs_soc_temperature_age_pulse_duration",
+      "representative_cell_ocv_vs_soc_temperature_age",
+      "usable_capacity_vs_load_temperature_age",
+      "validated_cell_pulse_current_limit"
+    ],
+    "note": "All reported numeric runtime cases use synthetic inputs; no measured feasibility verdict."
+  },
+  "input_sha256": "2f7163e18aa73d7ff1e0266bb0c7419651700d62893f321f9af701c1d2edd12b",
+  "ch02_input_sha256": "c3043a250688a9e7a7901a26cc1956137250e86269150284ed6ae9053b688e67",
+  "cycle_duration_s": 1.0,
+  "physical_state_inventory": {
+    "aon": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "bio": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "eda_bioz": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "electrochemical": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "optical_rx": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "optical_led": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "thermal": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "audio_input": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "audio_output": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "host_rf": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "imu": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "memory": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "pmic": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "compute": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    }
+  },
+  "unmodeled_ch02_modes": [
+    "audio",
+    "cardiovascular",
+    "optical_spectroscopy",
+    "research_fast_stress",
+    "research_raw",
+    "resource_conflict_probe",
+    "sleep_neuroscience",
+    "sweat_biochemistry"
+  ],
+  "reference_mode_cycle_energy": "Synthetic rest + daily-health examples; not real product schedules",
+  "synthetic_traces": [
+    {
+      "state_of_charge": 1.0,
+      "cycle_segments": [
+        {
+          "phase": "rest",
+          "reference_mode": "deep_sleep",
+          "duration_s": 0.89,
+          "active_blocks": [
+            "aon"
+          ],
+          "output_load_w": 0.0,
+          "reason": null,
+          "battery_current_mA": 0.02,
+          "terminal_voltage_v": 3.99996
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.005,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 3.908752,
+          "terminal_voltage_v": 3.992182
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.095,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 3.356766,
+          "terminal_voltage_v": 3.993286
+        },
+        {
+          "phase": "optical_and_radio",
+          "reference_mode": "daily_health",
+          "duration_s": 0.01,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf",
+            "optical_led",
+            "optical_rx"
+          ],
+          "output_load_w": 0.31026,
+          "reason": null,
+          "battery_current_mA": 117.527698,
+          "terminal_voltage_v": 3.764945
+        }
+      ]
+    },
+    {
+      "state_of_charge": 0.5,
+      "cycle_segments": [
+        {
+          "phase": "rest",
+          "reference_mode": "deep_sleep",
+          "duration_s": 0.89,
+          "active_blocks": [
+            "aon"
+          ],
+          "output_load_w": 0.0,
+          "reason": null,
+          "battery_current_mA": 0.02,
+          "terminal_voltage_v": 3.64996
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.005,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 4.278496,
+          "terminal_voltage_v": 3.641443
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.095,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 3.673142,
+          "terminal_voltage_v": 3.642654
+        },
+        {
+          "phase": "optical_and_radio",
+          "reference_mode": "daily_health",
+          "duration_s": 0.01,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf",
+            "optical_led",
+            "optical_rx"
+          ],
+          "output_load_w": 0.31026,
+          "reason": null,
+          "battery_current_mA": 130.559762,
+          "terminal_voltage_v": 3.38888
+        }
+      ]
+    },
+    {
+      "state_of_charge": 0.1,
+      "cycle_segments": [
+        {
+          "phase": "rest",
+          "reference_mode": "deep_sleep",
+          "duration_s": 0.89,
+          "active_blocks": [
+            "aon"
+          ],
+          "output_load_w": 0.0,
+          "reason": null,
+          "battery_current_mA": 0.02,
+          "terminal_voltage_v": 3.36996
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.005,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 4.630008,
+          "terminal_voltage_v": 3.36074
+        },
+        {
+          "phase": "sense_and_send",
+          "reference_mode": "daily_health",
+          "duration_s": 0.095,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf"
+          ],
+          "output_load_w": 0.0099,
+          "reason": null,
+          "battery_current_mA": 3.973866,
+          "terminal_voltage_v": 3.362052
+        },
+        {
+          "phase": "optical_and_radio",
+          "reference_mode": "daily_health",
+          "duration_s": 0.01,
+          "active_blocks": [
+            "aon",
+            "compute",
+            "host_rf",
+            "optical_led",
+            "optical_rx"
+          ],
+          "output_load_w": 0.31026,
+          "reason": null,
+          "battery_current_mA": 143.504792,
+          "terminal_voltage_v": 3.08299
+        }
+      ]
+    }
+  ],
+  "capacity_cases": [
+    {
+      "capacity_label_mAh": 8.0,
+      "conditional_runtime_s": 16998.086831,
+      "max_integration_interval_s": 0.89,
+      "reason": "CHARGE_EXHAUSTED",
+      "first_failed_terminal_voltage_v": null,
+      "peak_requested_battery_current_mA": 147.195332,
+      "peak_delivered_battery_current_mA": 147.195332,
+      "minimum_delivered_terminal_voltage_v": 3.005645,
+      "battery_energy_mWh": 27.568882191,
+      "load_output_energy_mWh": 19.323893,
+      "converter_loss_mWh": 7.749975036,
+      "direct_and_quiescent_mWh": 0.443075822,
+      "startup_input_mWh": 0.051938333,
+      "balance_error_mWh": 3e-12,
+      "discharged_charge_mAh": 8.0,
+      "battery_energy_by_reference_mode_mWh": {
+        "daily_health": 27.261066821,
+        "deep_sleep": 0.307815371
+      },
+      "integration_steps": 67993,
+      "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+    },
+    {
+      "capacity_label_mAh": 10.0,
+      "conditional_runtime_s": 21247.993349,
+      "max_integration_interval_s": 0.89,
+      "reason": "CHARGE_EXHAUSTED",
+      "first_failed_terminal_voltage_v": null,
+      "peak_requested_battery_current_mA": 147.196755,
+      "peak_delivered_battery_current_mA": 147.196755,
+      "minimum_delivered_terminal_voltage_v": 3.005616,
+      "battery_energy_mWh": 34.461092408,
+      "load_output_energy_mWh": 24.154861479,
+      "converter_loss_mWh": 9.687453109,
+      "direct_and_quiescent_mWh": 0.553853374,
+      "startup_input_mWh": 0.064924444,
+      "balance_error_mWh": -7e-12,
+      "discharged_charge_mAh": 10.0,
+      "battery_energy_by_reference_mode_mWh": {
+        "daily_health": 34.076317486,
+        "deep_sleep": 0.384774922
+      },
+      "integration_steps": 84992,
+      "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+    },
+    {
+      "capacity_label_mAh": 14.0,
+      "conditional_runtime_s": 29746.992924,
+      "max_integration_interval_s": 0.89,
+      "reason": "CHARGE_EXHAUSTED",
+      "first_failed_terminal_voltage_v": null,
+      "peak_requested_battery_current_mA": 147.196951,
+      "peak_delivered_battery_current_mA": 147.196951,
+      "minimum_delivered_terminal_voltage_v": 3.005612,
+      "battery_energy_mWh": 48.245479153,
+      "load_output_energy_mWh": 33.816771332,
+      "converter_loss_mWh": 13.562425049,
+      "direct_and_quiescent_mWh": 0.775389161,
+      "startup_input_mWh": 0.090893611,
+      "balance_error_mWh": -3e-11,
+      "discharged_charge_mAh": 14.0,
+      "battery_energy_by_reference_mode_mWh": {
+        "daily_health": 47.706798262,
+        "deep_sleep": 0.538680891
+      },
+      "integration_steps": 118988,
+      "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+    },
+    {
+      "capacity_label_mAh": 20.0,
+      "conditional_runtime_s": 42494.998736,
+      "max_integration_interval_s": 0.89,
+      "reason": "CHARGE_EXHAUSTED",
+      "first_failed_terminal_voltage_v": null,
+      "peak_requested_battery_current_mA": 147.196597,
+      "peak_delivered_battery_current_mA": 147.196597,
+      "minimum_delivered_terminal_voltage_v": 3.005619,
+      "battery_energy_mWh": 68.922042283,
+      "load_output_energy_mWh": 48.309623573,
+      "converter_loss_mWh": 19.374891286,
+      "direct_and_quiescent_mWh": 1.107681591,
+      "startup_input_mWh": 0.129845833,
+      "balance_error_mWh": -5.2e-11,
+      "discharged_charge_mAh": 20.0,
+      "battery_energy_by_reference_mode_mWh": {
+        "daily_health": 68.152510598,
+        "deep_sleep": 0.769531686
+      },
+      "integration_steps": 169980,
+      "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+    }
+  ],
+  "ten_mAh_sensitivities": [
+    {
+      "id": "higher_cell_resistance",
+      "parameter": "series_resistance",
+      "multiplier": 2.0,
+      "case_mAh": 10,
+      "result": {
+        "capacity_label_mAh": 10,
+        "conditional_runtime_s": 12145.99,
+        "max_integration_interval_s": 0.89,
+        "reason": "VOLTAGE_CUTOFF",
+        "first_failed_terminal_voltage_v": 2.999993,
+        "peak_requested_battery_current_mA": 147.472497,
+        "peak_delivered_battery_current_mA": 147.470274,
+        "minimum_delivered_terminal_voltage_v": 3.000038,
+        "battery_energy_mWh": 19.709119155,
+        "load_output_energy_mWh": 13.807115833,
+        "converter_loss_mWh": 5.537414375,
+        "direct_and_quiescent_mWh": 0.327476169,
+        "startup_input_mWh": 0.037112778,
+        "balance_error_mWh": 5e-12,
+        "discharged_charge_mAh": 5.858817346,
+        "battery_energy_by_reference_mode_mWh": {
+          "daily_health": 19.480928573,
+          "deep_sleep": 0.228190582
+        },
+        "integration_steps": 48583,
+        "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+      }
+    },
+    {
+      "id": "lower_available_charge",
+      "parameter": "capacity_fraction",
+      "multiplier": 0.7,
+      "case_mAh": 10,
+      "result": {
+        "capacity_label_mAh": 10,
+        "conditional_runtime_s": 14873.990443,
+        "max_integration_interval_s": 0.89,
+        "reason": "CHARGE_EXHAUSTED",
+        "first_failed_terminal_voltage_v": null,
+        "peak_requested_battery_current_mA": 147.197177,
+        "peak_delivered_battery_current_mA": 147.197177,
+        "minimum_delivered_terminal_voltage_v": 3.005607,
+        "battery_energy_mWh": 24.122810843,
+        "load_output_energy_mWh": 16.908435359,
+        "converter_loss_mWh": 6.781219991,
+        "direct_and_quiescent_mWh": 0.387707159,
+        "startup_input_mWh": 0.045448333,
+        "balance_error_mWh": 5e-12,
+        "discharged_charge_mAh": 7.0,
+        "battery_energy_by_reference_mode_mWh": {
+          "daily_health": 23.853461319,
+          "deep_sleep": 0.269349524
+        },
+        "integration_steps": 59496,
+        "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+      }
+    },
+    {
+      "id": "lower_conversion_efficiency",
+      "parameter": "efficiency",
+      "multiplier": 0.8,
+      "case_mAh": 10,
+      "result": {
+        "capacity_label_mAh": 10,
+        "conditional_runtime_s": 15292.99,
+        "max_integration_interval_s": 0.89,
+        "reason": "VOLTAGE_CUTOFF",
+        "first_failed_terminal_voltage_v": 2.999968,
+        "peak_requested_battery_current_mA": 184.319652,
+        "peak_delivered_battery_current_mA": 184.31644,
+        "minimum_delivered_terminal_voltage_v": 3.00002,
+        "battery_energy_mWh": 30.894781318,
+        "load_output_energy_mWh": 17.384730333,
+        "converter_loss_mWh": 13.061482985,
+        "direct_and_quiescent_mWh": 0.401839389,
+        "startup_input_mWh": 0.046728611,
+        "balance_error_mWh": 9e-12,
+        "discharged_charge_mAh": 9.019897576,
+        "battery_energy_by_reference_mode_mWh": {
+          "daily_health": 30.615403465,
+          "deep_sleep": 0.279377853
+        },
+        "integration_steps": 61171,
+        "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+      }
+    },
+    {
+      "id": "double_optical_duty",
+      "parameter": "optical_duty",
+      "multiplier": 2.0,
+      "case_mAh": 10,
+      "result": {
+        "capacity_label_mAh": 10,
+        "conditional_runtime_s": 11999.984548,
+        "max_integration_interval_s": 0.88,
+        "reason": "CHARGE_EXHAUSTED",
+        "first_failed_terminal_voltage_v": null,
+        "peak_requested_battery_current_mA": 147.196569,
+        "peak_delivered_battery_current_mA": 147.196569,
+        "minimum_delivered_terminal_voltage_v": 3.00562,
+        "battery_energy_mWh": 34.206774874,
+        "load_output_energy_mWh": 23.982668297,
+        "converter_loss_mWh": 9.866862486,
+        "direct_and_quiescent_mWh": 0.320577425,
+        "startup_input_mWh": 0.036666667,
+        "balance_error_mWh": 4e-12,
+        "discharged_charge_mAh": 10.0,
+        "battery_energy_by_reference_mode_mWh": {
+          "daily_health": 33.991896428,
+          "deep_sleep": 0.214878446
+        },
+        "integration_steps": 48000,
+        "cell_pulse_current_limit": "UNKNOWN; no physical current-safety pass"
+      }
+    }
+  ],
+  "convergence_10_mAh": {
+    "base_runtime_s": 21247.993349,
+    "half_step_runtime_s": 21247.992892,
+    "difference_s": 0.000457,
+    "tolerance_s": 1.0
+  },
+  "assumption_limit": "Linear OCV and fixed R/efficiency are arithmetic probes only; no pulse dynamics, heating, temperature/aging law, validated current limit, safety or physical runtime verdict"
+}

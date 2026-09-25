@@ -3,7 +3,7 @@
 
 **Document role:** Authoritative starting specification for a new GPT-6 Astra Work-mode engineering project and GitHub repository.  
 **Project type:** Ultra-miniaturized, ultra-low-power, high-performance heterogeneous physiological-computing ASIC/SiP for a head-worn wearable.  
-**Status:** Candidate requirements baseline. CH00–CH02 have passed limited repository, provisional-register and scenario-accounting gates; CH03 onward are not started. Numerical targets remain provisional pending feasibility evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
+**Status:** Candidate requirements baseline. CH00–CH02 passed limited repository, provisional-register and scenario-accounting gates. CH03 has a passing synthetic energy-model gate but **physical battery/product feasibility remains on hold**; CH04 onward are not started. Numerical targets remain provisional pending measured evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
 **Primary design philosophy:** Maximize physiological sensing capability, signal integrity, compute capability, energy efficiency, and functional density per mm²/mm³ without knowingly sacrificing measurement performance.  
 **Important:** This document is a system and implementation specification, not a claim that any generated layout is tapeout-ready. Final tapeout requires the selected foundry PDK, licensed IP/macros, signoff EDA flow, DRC/LVS/ERC/PEX/STA/EM-IR/reliability closure, and engineering review.
 
@@ -3741,4 +3741,4 @@ Pin versions of public dependencies and scripts. Record command, inputs, seed, t
 
 # 61. CH00 SCOPE AND NEXT GATE
 
-CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture, conduct individual block literature surveys or begin circuit design. CH01 and CH02 are now complete at their limited gates. The next planned chunk is CH03, **paused pending user instruction**; use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV checks pass.
+CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture, conduct individual block literature surveys or begin circuit design. CH01–CH03 are complete only at their limited register, scenario and synthetic-model gates. CH03 does **not** validate battery runtime or peak-current safety. The next planned chunk is CH04, paused pending user instruction; use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV/Python checks pass.

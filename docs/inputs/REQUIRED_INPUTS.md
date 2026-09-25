@@ -1,6 +1,6 @@
 # External inputs and decision queue
 
-These are requests for evidence, **not blockers to drafting a parameterized CH03 model**. A real architecture/runtime verdict depends on them. Do not fill missing values with asserted vendor numbers.
+CH03's parameterized model is complete at a synthetic-math gate. These are still **missing physical/product inputs** for a real architecture, runtime or peak-current verdict. Do not fill missing values with asserted vendor numbers.
 
 | Priority | Input / decision | Needed for | Acceptable evidence | Current state |
 |---|---|---|---|---|
@@ -15,4 +15,4 @@ These are requests for evidence, **not blockers to drafting a parameterized CH03
 | P2 | nRF/MEMS bare-die access, package rules, process/PDK/IP availability | Partition and implementation | Vendor terms, assembly drawing and foundry access | Missing; OI-002/006/007 |
 | P2 | Repository licensing and contribution terms | Outside contributions and reuse | Owner decision with relevant IP review | Missing; OI-008 |
 
-CH02 numeric rates and current are traceable *scenario* values in `specs/system/CH02_MODE_ASSUMPTIONS.json`. They must not be substituted for the missing measured inputs above.
+CH02 numeric rates and LED output current are traceable *scenario* values in `specs/system/CH02_MODE_ASSUMPTIONS.json`. CH03's `specs/system/CH03_ENERGY_SCENARIOS.json` contains separate **synthetic** cell/rail/load values for arithmetic verification. Neither file substitutes for the missing measured inputs above.
