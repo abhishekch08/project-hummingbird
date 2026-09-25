@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "purpose": "CH03 model verification and bounded sensitivity; no product or physical battery-runtime claim",
+  "source": "MASTER_SPEC.md §42; docs/chunks/CH03_POWER_ENERGY.md; CH02 candidate mode IDs only",
+  "parameter_policy": "Every numeric input is a parameter with unit, evidence, source, conditions and explicit sweep range. A range is a study bound, not a statistical confidence interval. All populated numerical values below are synthetic or master scenario labels.",
+  "capacity_cases": [
+    {
+      "value": 8,
+      "unit": "mAh",
+      "evidence": "assumed",
+      "source": "MASTER_SPEC.md §42",
+      "conditions": "master CH03 capacity label; usable capacity unmeasured",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "value": 10,
+      "unit": "mAh",
+      "evidence": "assumed",
+      "source": "MASTER_SPEC.md §42",
+      "conditions": "master CH03 capacity label; usable capacity unmeasured",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "value": 14,
+      "unit": "mAh",
+      "evidence": "assumed",
+      "source": "MASTER_SPEC.md §42",
+      "conditions": "master CH03 capacity label; usable capacity unmeasured",
+      "range": [
+        14,
+        14
+      ]
+    },
+    {
+      "value": 20,
+      "unit": "mAh",
+      "evidence": "assumed",
+      "source": "MASTER_SPEC.md §42",
+      "conditions": "master CH03 capacity label; usable capacity unmeasured",
+      "range": [
+        20,
+        20
+      ]
+    }
+  ],
+  "physical_inputs": {
+    "product_mode_priorities_and_duty_schedule": null,
+    "representative_cell_ocv_vs_soc_temperature_age": null,
+    "representative_cell_impedance_vs_soc_temperature_age_pulse_duration": null,
+    "usable_capacity_vs_load_temperature_age": null,
+    "validated_cell_pulse_current_limit": null,
+    "emitter_forward_voltage_and_pulse_waveform": null,
+    "measured_rail_efficiency_vs_input_load_temperature": null,
+    "measured_block_state_and_startup_loads": null,
+    "independent_safety_and_thermal_limits": null
+  },
+  "physical_state_inventory": {
+    "aon": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "bio": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "eda_bioz": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "electrochemical": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "optical_rx": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "optical_led": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "thermal": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "audio_input": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "audio_output": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "host_rf": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "imu": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "memory": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "pmic": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    },
+    "compute": {
+      "rail": "unknown",
+      "active": null,
+      "idle": null,
+      "retention": null,
+      "off": null,
+      "startup_energy": null,
+      "startup_duration": null
+    }
+  },
+  "synthetic_example": {
+    "id": "one_second_mock_cycle",
+    "classification": "synthetic arithmetic example; do not use for product decisions",
+    "cell": {
+      "ocv_empty": {
+        "value": 3.3,
+        "unit": "V",
+        "evidence": "assumed",
+        "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+        "conditions": "linear OCV at synthetic 0 state of charge",
+        "range": [
+          3.1,
+          3.5
+        ]
+      },
+      "ocv_full": {
+        "value": 4.0,
+        "unit": "V",
+        "evidence": "assumed",
+        "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+        "conditions": "linear OCV at synthetic full state of charge",
+        "range": [
+          3.8,
+          4.2
+        ]
+      },
+      "series_resistance": {
+        "value": 2.0,
+        "unit": "ohm",
+        "evidence": "assumed",
+        "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+        "conditions": "constant Thevenin resistance; no electrochemical validation",
+        "range": [
+          1.0,
+          4.0
+        ]
+      },
+      "cutoff_voltage": {
+        "value": 3.0,
+        "unit": "V",
+        "evidence": "assumed",
+        "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+        "conditions": "illustrative voltage threshold; not a selected cell limit",
+        "range": [
+          3.0,
+          3.0
+        ]
+      },
+      "capacity_fraction": {
+        "value": 1.0,
+        "unit": "ratio",
+        "evidence": "assumed",
+        "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+        "conditions": "synthetic available charge fraction; not measured usable energy",
+        "range": [
+          0.7,
+          1.0
+        ]
+      }
+    },
+    "rails": {
+      "logic": {
+        "output_voltage": {
+          "value": 1.8,
+          "unit": "V",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "abstract synthetic cycle",
+          "range": [
+            1.8,
+            1.8
+          ]
+        },
+        "efficiency": {
+          "value": 0.8,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "abstract synthetic cycle",
+          "range": [
+            0.64,
+            0.9
+          ]
+        },
+        "quiescent_battery_current": {
+          "value": 0.01,
+          "unit": "mA",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "when rail enabled; excludes converter efficiency quiescent",
+          "range": [
+            0.01,
+            0.01
+          ]
+        }
+      },
+      "rf": {
+        "output_voltage": {
+          "value": 1.8,
+          "unit": "V",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "abstract synthetic cycle",
+          "range": [
+            1.8,
+            1.8
+          ]
+        },
+        "efficiency": {
+          "value": 0.75,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "abstract synthetic cycle",
+          "range": [
+            0.6,
+            0.85
+          ]
+        },
+        "quiescent_battery_current": {
+          "value": 0.01,
+          "unit": "mA",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "when rail enabled; excludes converter efficiency quiescent",
+          "range": [
+            0.01,
+            0.01
+          ]
+        }
+      },
+      "led": {
+        "output_voltage": {
+          "value": 2.0,
+          "unit": "V",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic LED forward/rail voltage; actual emitter unspecified",
+          "range": [
+            2.0,
+            2.0
+          ]
+        },
+        "efficiency": {
+          "value": 0.7,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "abstract synthetic cycle",
+          "range": [
+            0.56,
+            0.85
+          ]
+        },
+        "quiescent_battery_current": {
+          "value": 0.02,
+          "unit": "mA",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "when rail enabled; excludes converter efficiency quiescent",
+          "range": [
+            0.02,
+            0.02
+          ]
+        }
+      }
+    },
+    "blocks": {
+      "aon": {
+        "rail": "battery",
+        "state_currents": {
+          "idle": {
+            "value": 0.02,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic idle state at listed rail voltage",
+            "range": [
+              0.02,
+              0.02
+            ]
+          },
+          "active": {
+            "value": 0.05,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic active state at listed rail voltage",
+            "range": [
+              0.05,
+              0.05
+            ]
+          }
+        }
+      },
+      "compute": {
+        "rail": "logic",
+        "state_currents": {
+          "off": {
+            "value": 0,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic off state at listed rail voltage",
+            "range": [
+              0,
+              0
+            ]
+          },
+          "active": {
+            "value": 0.5,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic active state at listed rail voltage",
+            "range": [
+              0.5,
+              0.5
+            ]
+          }
+        }
+      },
+      "optical_rx": {
+        "rail": "logic",
+        "state_currents": {
+          "off": {
+            "value": 0,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic off state at listed rail voltage",
+            "range": [
+              0,
+              0
+            ]
+          },
+          "active": {
+            "value": 0.2,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic active state at listed rail voltage",
+            "range": [
+              0.2,
+              0.2
+            ]
+          }
+        }
+      },
+      "host_rf": {
+        "rail": "rf",
+        "state_currents": {
+          "off": {
+            "value": 0,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic off state at listed rail voltage",
+            "range": [
+              0,
+              0
+            ]
+          },
+          "active": {
+            "value": 5,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic active state at listed rail voltage",
+            "range": [
+              5,
+              5
+            ]
+          }
+        }
+      },
+      "optical_led": {
+        "rail": "led",
+        "state_currents": {
+          "off": {
+            "value": 0,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+            "conditions": "synthetic off state",
+            "range": [
+              0,
+              0
+            ]
+          },
+          "active": {
+            "value": 150,
+            "unit": "mA",
+            "evidence": "assumed",
+            "source": "MASTER_SPEC.md §10 / CH02 candidate peak current; not a measured emitter or safe enable",
+            "conditions": "one illustrative CH02 candidate LED output at synthetic 2.0 V",
+            "range": [
+              150,
+              150
+            ]
+          }
+        }
+      }
+    },
+    "cycle": [
+      {
+        "id": "rest",
+        "ch02_reference_mode": "deep_sleep",
+        "duration": {
+          "value": 0.89,
+          "unit": "s",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic one-second repeat cycle; not a product duty factor",
+          "range": [
+            0.88,
+            0.89
+          ]
+        },
+        "enabled_rails": [],
+        "block_states": {
+          "aon": "idle",
+          "compute": "off",
+          "optical_rx": "off",
+          "host_rf": "off",
+          "optical_led": "off"
+        },
+        "startup_events": []
+      },
+      {
+        "id": "sense_and_send",
+        "ch02_reference_mode": "daily_health",
+        "duration": {
+          "value": 0.1,
+          "unit": "s",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic one-second repeat cycle; not a product duty factor",
+          "range": [
+            0.1,
+            0.1
+          ]
+        },
+        "enabled_rails": [
+          "logic",
+          "rf"
+        ],
+        "block_states": {
+          "aon": "active",
+          "compute": "active",
+          "optical_rx": "off",
+          "host_rf": "active",
+          "optical_led": "off"
+        },
+        "startup_events": [
+          {
+            "id": "wake_compute_and_radio",
+            "input_energy": {
+              "value": 11,
+              "unit": "uJ",
+              "evidence": "assumed",
+              "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+              "conditions": "synthetic battery-input startup energy",
+              "range": [
+                11,
+                11
+              ]
+            },
+            "duration": {
+              "value": 0.005,
+              "unit": "s",
+              "evidence": "assumed",
+              "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+              "conditions": "startup interval at beginning of phase; overlaps active load",
+              "range": [
+                0.005,
+                0.005
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "optical_and_radio",
+        "ch02_reference_mode": "daily_health",
+        "duration": {
+          "value": 0.01,
+          "unit": "s",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic LED plus radio collision; not an approved schedule",
+          "range": [
+            0.01,
+            0.02
+          ]
+        },
+        "enabled_rails": [
+          "logic",
+          "rf",
+          "led"
+        ],
+        "block_states": {
+          "aon": "active",
+          "compute": "active",
+          "optical_rx": "active",
+          "host_rf": "active",
+          "optical_led": "active"
+        },
+        "startup_events": []
+      }
+    ],
+    "sensitivities": [
+      {
+        "id": "higher_cell_resistance",
+        "parameter": "series_resistance",
+        "multiplier": {
+          "value": 2.0,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic resistance sensitivity; no asserted cold-cell model",
+          "range": [
+            2.0,
+            2.0
+          ]
+        }
+      },
+      {
+        "id": "lower_available_charge",
+        "parameter": "capacity_fraction",
+        "multiplier": {
+          "value": 0.7,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic capacity/age sensitivity; no asserted derating law",
+          "range": [
+            0.7,
+            0.7
+          ]
+        }
+      },
+      {
+        "id": "lower_conversion_efficiency",
+        "parameter": "efficiency",
+        "multiplier": {
+          "value": 0.8,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic rail efficiency sensitivity",
+          "range": [
+            0.8,
+            0.8
+          ]
+        }
+      },
+      {
+        "id": "double_optical_duty",
+        "parameter": "optical_duty",
+        "multiplier": {
+          "value": 2.0,
+          "unit": "ratio",
+          "evidence": "assumed",
+          "source": "CH03 synthetic arithmetic fixture; invented for sensitivity only",
+          "conditions": "synthetic pulse duty sensitivity by shortening rest phase",
+          "range": [
+            2.0,
+            2.0
+          ]
+        }
+      }
+    ]
+  }
+}

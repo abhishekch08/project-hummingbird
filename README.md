@@ -9,10 +9,11 @@ Version-controlled research program for a compact heterogeneous physiological-co
 | CH00 repository scaffold | Complete, structure checked | [Project state](state/PROJECT_STATE.md) |
 | CH01 requirements normalization | Provisional 223-ID register; no electrical targets frozen | [Register](state/REQUIREMENTS_TRACEABILITY.csv) · [Review](docs/reviews/CH01_REQUIREMENTS_REVIEW.md) |
 | CH02 concurrent-mode scenarios | Eight candidate modes and two stress probes; arithmetic validated | [Review](docs/reviews/CH02_GATE.md) · [Mode report](docs/budgets/CH02_CONCURRENCY_REVIEW.md) |
-| CH03 battery/energy feasibility | Entry charter prepared; model **not started** | [Charter](docs/chunks/CH03_POWER_ENERGY.md) · [Needed inputs](docs/inputs/REQUIRED_INPUTS.md) |
+| CH03 battery/energy feasibility | Synthetic model and nine tests PASS; **physical feasibility HOLD** | [Gate](docs/reviews/CH03_GATE.md) · [Model](models/python/ch03_energy.py) · [Inputs](docs/inputs/REQUIRED_INPUTS.md) |
+| CH04 data/memory feasibility | **Not started**; wait for user instruction | [Chunk plan](MASTER_SPEC.md#42-development-chunks) |
 | First technical block design (CH07) | **Not started**; requires prior system gates and a committed block literature review | [Chunk plan](MASTER_SPEC.md#42-development-chunks) |
 
-The project is paused after CH02. No circuit, RTL, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
+The project is paused after the CH03 **model** gate. Synthetic battery results are conditional arithmetic, with no measured cell or approved product duty schedule. No circuit, RTL, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
 
 ## Start or resume
 
@@ -25,13 +26,14 @@ The project is paused after CH02. No circuit, RTL, ASIC layout, foundry mapping,
    python3 scripts/verification/check_all.py
    ```
 
-   These checks validate repository consistency and CH02 arithmetic. They do not establish electrical or medical performance.
+   These checks validate repository consistency, CH02 accounting and conditional CH03 arithmetic. They do not establish electrical, battery or medical performance.
 
 ## Find things
 
 - [Documentation index and repository map](docs/README.md)
 - [Master specification and CH00–CH50 program](MASTER_SPEC.md)
 - [Assumption-backed CH02 model](specs/system/CH02_MODE_ASSUMPTIONS.json) · [Executable model](models/python/ch02_concurrency.py)
+- [CH03 synthetic input set](specs/system/CH03_ENERGY_SCENARIOS.json) · [Conditional energy report](docs/budgets/CH03_ENERGY_REVIEW.md)
 - [Decision log](state/DECISIONS.md) · [Risk register](state/RISK_REGISTER.md) · [Verification status](state/VERIFICATION_STATUS.md)
 - [Future-stage directory rules](docs/REPOSITORY_MAP.md) · [Documentation and data policy](docs/governance/DATA_POLICY.md)
 

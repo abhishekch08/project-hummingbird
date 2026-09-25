@@ -4,16 +4,16 @@ The tree follows `MASTER_SPEC.md` §39. Existing directories are reservations; t
 
 | Path | Responsibility | Current state / first expected use |
 |---|---|---|
-| `state/` | Chunk index, decisions, issues, risks, traceability, assumptions, verification status | Active CH00–CH02; update with every chunk. |
-| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01/CH02 reviews; no circuit ADR approved. |
+| `state/` | Chunk index, decisions, issues, risks, traceability, assumptions, verification status | CH00–CH03 limited gates; update with every chunk. |
+| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01–CH03 limited reviews; no circuit ADR approved. |
 | `docs/literature/` | Block-specific, dated, benchmarked surveys with primary citations | Template only; required before each technical block design. |
-| `docs/architecture/`, `docs/interfaces/`, `docs/budgets/` | Selected architecture, frozen contracts, unit-aware models | CH02 provisional budget only; CH03–CH06 produce next artifacts. |
+| `docs/architecture/`, `docs/interfaces/`, `docs/budgets/` | Selected architecture, frozen contracts, unit-aware models | CH02 scenario and CH03 synthetic energy budgets only; CH04–CH06 produce next artifacts. |
 | `docs/package/`, `docs/safety/`, `docs/inputs/`, `docs/governance/` | Package/electrode decisions, safety evidence, external input requests, public repo policy | Input and policy files exist; numeric safety/package signoff pending. |
-| `specs/system/` | Machine-readable scenario definitions and subsequently approved system requirements | CH02 JSON assumptions; not silicon requirements. |
+| `specs/system/` | Machine-readable scenario definitions and subsequently approved system requirements | CH02 candidate modes and CH03 synthetic input JSON; not silicon requirements. |
 | `specs/{biosignal,eda_bioz,electrochem,optical,thermal,audio,adc_dac,digital,pmic,memory,dft}/` | Future block specifications, each traced to requirements and literature | Reserved until authorized chunk. |
-| `models/python/`, `models/{matlab_octave,veriloga,rnm,spice,sensor_models}/` | Executable golden, behavioral and sensor models | CH02 Python scenario model only. |
-| `reports/{block,subsystem,fullchip,signoff}/` | Reproducible results, inputs, tool metadata and evidence class | CH02 generated JSON in `subsystem/`; no signoff report. |
-| `verification/{unit,formal,uvm,ams,regressions,coverage}/` | Tests and checks that can fail on a meaningful defect | CH02 unit tests only; future verification folders reserved. |
+| `models/python/`, `models/{matlab_octave,veriloga,rnm,spice,sensor_models}/` | Executable golden, behavioral and sensor models | CH02 scenario and CH03 synthetic energy models; other folders reserved. |
+| `reports/{block,subsystem,fullchip,signoff}/` | Reproducible results, inputs, tool metadata and evidence class | CH02/CH03 generated JSON in `subsystem/`; no signoff report. |
+| `verification/{unit,formal,uvm,ams,regressions,coverage}/` | Tests and checks that can fail on a meaningful defect | CH02 and CH03 unit tests only; future verification folders reserved. |
 | `scripts/{setup,simulation,synthesis,verification,reporting}/` | Reproducible tool orchestration and repository checks | Standard-library repository checks in `verification/`. |
 | `rtl/`, `analog/`, `pmic/`, `firmware/` | Synthesizable logic, circuits, power design, firmware | Empty by design until reviewed specification and required survey. |
 | `physical/`, `constraints/`, `synthesis/`, `sta/`, `pnr/`, `pex/`, `drc/`, `lvs/`, `emir/`, `reliability/` | Process-specific implementation and signoff | Reserved. No foundry PDK or licensed decks in this public repository. |

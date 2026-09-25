@@ -8,6 +8,6 @@ This public repository is the source of truth. Start with `README.md`, `MASTER_S
 - Quantify noise, power, area and performance tradeoffs. Reject changes that violate approved performance or safety bounds; revise requirements through a reviewed decision when necessary.
 - Keep PDKs, foundry decks, proprietary IP, keys, patient data, and licensed publications out of this public repository. Refer to restricted evidence by metadata and checksum if authorized.
 - Update state, risk, traceability, assumptions, tests and reproducibility instructions for a changed chunk. Run `python3 scripts/verification/check_all.py` and any chunk-specific checks. Record what was tested and what remains unverified.
-- Commit/publish reviewable work. Keep `main` as the reviewed baseline. At present the program is paused after CH02; do not start CH03 or circuit design until the user asks to resume.
+- Commit/publish reviewable work. Keep `main` as the reviewed baseline. At present the program has stopped at the CH03 **synthetic model** gate; CH04 and circuit design await explicit instruction and their own entry gates. CH03 physical battery feasibility remains on hold pending measured inputs.
 
 The user’s current instructions always take precedence over this file.

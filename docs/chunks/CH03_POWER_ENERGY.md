@@ -1,6 +1,6 @@
 # CH03: System power, energy and peak-current feasibility
 
-Status: **entry charter prepared; implementation not started; gate NOT RUN**. Date: 2026-09-25. Work may begin as the next bounded system chunk when design kickoff is directed. CH02's scenario gate is complete; product modes and physical power feasibility are not approved.
+Status: **synthetic model complete and numerically checked; physical battery feasibility HOLD**. Date: 2026-09-25. CH02's scenario gate is complete; product modes, measured battery runtime and peak safety are not approved.
 
 ## Goal and scope
 
@@ -37,7 +37,7 @@ Each value in an executable input must carry unit, evidence class (`assumed`, `v
 
 ## Planned outputs and acceptance
 
-| Artifact (create when CH03 starts) | Purpose |
+| Artifact | Purpose |
 |---|---|
 | `specs/system/CH03_ENERGY_SCENARIOS.json` | Versioned input schema and explicit candidate schedule(s), source conditions and unknown fields |
 | `models/python/ch03_energy.py` | Deterministic standard-library calculation with units and unambiguous failure states |
@@ -47,6 +47,6 @@ Each value in an executable input must carry unit, evidence class (`assumed`, `v
 
 Acceptance requires: exact input provenance; reproducible outputs; tests that fail on incorrect unit conversion, energy/current double counting, underestimated coincident peaks and invalid/incomplete cell data; separate current/voltage traces and runtime by case; sensitivity to unknowns; explicit conditions for every pass/fail. A model-only PASS does **not** close OI-003/009/015. A real architecture/runtime PASS additionally requires representative cell and load measurements and owner-approved mandatory mode schedules. Stop before CH04 and before a PMIC topology or circuit decision.
 
-## Kickoff handoff
+## Results and stop point
 
-The missing input queue is already in `docs/inputs/REQUIRED_INPUTS.md`. At kickoff, confirm the exact bounded output and begin CH03 on its own branch. No extra empty design files are needed beforehand; populate the relevant folders only when producing reviewable CH03 evidence.
+The source input, model, nine focused tests and generated machine/human reports exist at the paths above. `docs/reviews/CH03_GATE.md` records MODEL_PASS for conditional arithmetic and FEASIBILITY_HOLD for physical battery, mandatory modes, peak limit and safety. The synthetic one-second cycle is a test fixture, **not** a daily/sleep product schedule. The missing evidence queue remains in `docs/inputs/REQUIRED_INPUTS.md`; OI-001/003/005/009/015 stay open. `python3 scripts/verification/check_all.py` reproduces both CH02 and CH03 public gates. Stop at CH03; CH04 requires a separate kickoff.
