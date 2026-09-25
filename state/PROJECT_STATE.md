@@ -3,8 +3,8 @@
 Architecture version: unselected; provisional requirements, CH02 scenarios, conditional CH03 energy, CH04 dataflow and CH05 timing models only.
 Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after fetching.
 Previous reviewed baseline: `bb0ce3ecb772a27819932cdb7680f832536d0320` (CH05 literature/entry PR #7 merged before any timing model).
-Current chunk: none active. CH00–CH05 complete at limited gates; CH06 is paused pending user instruction.
-Current subchunk: CH05 synthetic clock, monotonic time, trigger/CDC budget and IMU FIFO model complete; physical timing architecture HOLD.
+Current chunk: CH06 active under user authorization for subsequent chapters. CH00–CH05 remain complete at limited gates.
+Current subchunk: CH06 entry charter and dated host/register primary-source survey; candidate contract follows only after this review is committed. CH05 physical timing architecture remains HOLD.
 Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND selection, pulse safety limit, electrical/timing target, chip architecture or tapeout claim approved.
 
 # Passed Gates
@@ -18,7 +18,7 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 
 # Active Work
 
-- No engineering chunk active. CH03–CH05 sources, models and reports are versioned; CH06 and physical circuit design have not begun. The small SV reference is uncompiled and does not select a timebase.
+- CH06 entry/literature subchunk active; source and candidate acceptance plan are versioned before model work. CH05's small SV reference is uncompiled and does not select a timebase. CH07 and physical circuit design have not begun.
 - `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
@@ -28,7 +28,7 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 
 # Next Exact Action
 
-- Stop at CH05's limited model gate. Wait for the user's instruction to begin **CH06** register map/host protocol; define its scope, literature requirement and acceptance first. Do not select a technical block topology before its committed literature gate or promote CH03–CH05's synthetic outputs to product targets.
+- Publish the CH06 entry charter and literature review first. Then build/test a candidate versioned register/packet model, publish its limited gate and continue to CH07 only if the sequencing and evidence requirements permit. Do not promote CH03–CH05's synthetic outputs to product targets.
 
 # Required Inputs
 

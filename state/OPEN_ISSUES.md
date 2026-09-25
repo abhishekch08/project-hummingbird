@@ -1,6 +1,6 @@
 # Open Issues
 
-These issues block **architecture freeze**, not CH01 transcription or conditional models. CH02–CH05 provide scenario concurrency, power, transport and timing arithmetic; CH06 is paused. Requirements linked in `state/REQUIREMENTS_TRACEABILITY.csv` are provisional. An issue remains open until its owner supplies the closure evidence and records a decision.
+These issues block **architecture freeze**, not CH01 transcription or conditional models. CH02–CH05 provide scenario concurrency, power, transport and timing arithmetic; CH06 entry/literature is active. Requirements linked in `state/REQUIREMENTS_TRACEABILITY.csv` are provisional. An issue remains open until its owner supplies the closure evidence and records a decision.
 
 | ID | Question / decision | Owner role | Closure evidence / intended chunk |
 |---|---|---|---|

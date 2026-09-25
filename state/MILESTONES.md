@@ -6,7 +6,7 @@
 - Documentation/readiness: repository map, assumptions, input queue, evidence status and public CI added after CH02.
 - CH03: synthetic executable energy/sag/loss/peak-current model and nine tests complete; **MODEL_PASS, physical FEASIBILITY_HOLD**.
 - CH04: conditional all-mode byte/packet rates, timed ASIC/host queues, SRAM and NAND projections with 12 tests complete; **MODEL_PASS, physical FEASIBILITY_HOLD**.
-- CH05: dated literature review merged before timing model; conditional clock/trigger/IMU model with 18 tests complete; **MODEL_PASS, physical timing/RTL signoff HOLD**. CH06: paused for separate host contract kickoff and applicable literature gate.
+- CH05: dated literature review merged before timing model; conditional clock/trigger/IMU model with 18 tests complete; **MODEL_PASS, physical timing/RTL signoff HOLD**. CH06: authorized, entry charter and host/register survey precede candidate contract.
 - CH07: first proposed biopotential design chunk, after literature gate and earlier chunks.
 - Remaining chunks and signoff gates: `MASTER_SPEC.md` §42.
 

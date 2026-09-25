@@ -12,10 +12,10 @@ Version-controlled research program for a compact heterogeneous physiological-co
 | CH03 battery/energy feasibility | Synthetic model and nine tests PASS; **physical feasibility HOLD** | [Gate](docs/reviews/CH03_GATE.md) · [Model](models/python/ch03_energy.py) · [Inputs](docs/inputs/REQUIRED_INPUTS.md) |
 | CH04 data/memory feasibility | Synthetic packet/queue/storage model and 12 tests PASS; **physical feasibility HOLD** | [Gate](docs/reviews/CH04_GATE.md) · [Model](models/python/ch04_dataflow.py) · [Report](docs/budgets/CH04_DATA_MEMORY_REVIEW.md) |
 | CH05 timebase/synchronization | Literature gate merged; synthetic clock/trigger/IMU model and 18 tests PASS; **physical timing HOLD** | [Gate](docs/reviews/CH05_GATE.md) · [Survey](docs/literature/timing/2026-09-25_STATE_OF_ART_REVIEW.md) · [Report](docs/budgets/CH05_TIMING_REVIEW.md) |
-| CH06 host protocol | **Not started**; separate entry gate | [Chunk plan](MASTER_SPEC.md#42-development-chunks) |
+| CH06 host protocol | **Entry/literature active**; physical link/ABI unselected | [Charter](docs/chunks/CH06_REGISTER_HOST.md) · [Survey](docs/literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md) |
 | First technical block design (CH07) | **Not started**; requires prior system gates and a committed block literature review | [Chunk plan](MASTER_SPEC.md#42-development-chunks) |
 
-The project is paused after the CH05 **conditional model** gate. Battery, data/memory and timing numbers are conditional arithmetic; measured cell/link/storage/clock/sensor data and approved product schedules remain missing. CH05 includes a minimal **uncompiled** SystemVerilog counter reference for one continuous-clock comparison, not complete timing RTL or CDC. No verified circuit, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
+CH06 entry and host-interface survey are active after CH05's **conditional model** gate. Battery, data/memory and timing numbers are conditional arithmetic; measured cell/link/storage/clock/sensor data and approved product schedules remain missing. CH05 includes a minimal **uncompiled** SystemVerilog counter reference for one continuous-clock comparison, not complete timing RTL or CDC. No verified circuit, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
 
 ## Start or resume
 

@@ -5,8 +5,8 @@ The tree follows `MASTER_SPEC.md` §39. Existing directories are reservations; t
 | Path | Responsibility | Current state / first expected use |
 |---|---|---|
 | `state/` | Chunk index, decisions, issues, risks, traceability, assumptions, verification status | CH00–CH05 limited gates; update with every chunk. |
-| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01–CH05 limited reviews; ADR-0002 is proposed, no physical clock/circuit ADR approved. |
-| `docs/literature/` | Block-specific, dated, benchmarked surveys with primary citations | CH05 timing study merged before model; separate surveys required before other technical block design. |
+| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01–CH05 limited reviews; CH06 charter active; ADR-0002 proposed, no physical clock/circuit ADR approved. |
+| `docs/literature/` | Block-specific, dated, benchmarked surveys with primary citations | CH05 timing survey merged before model; CH06 host survey precedes candidate contract; separate reviews required for later blocks. |
 | `docs/architecture/`, `docs/interfaces/`, `docs/budgets/` | Selected architecture, frozen contracts, unit-aware models | CH02 scenario, CH03 energy, CH04 data/memory and CH05 conditional timing budgets; CH06 next. |
 | `docs/package/`, `docs/safety/`, `docs/inputs/`, `docs/governance/` | Package/electrode decisions, safety evidence, external input requests, public repo policy | Input and policy files exist; numeric safety/package signoff pending. |
 | `specs/system/` | Machine-readable scenario definitions and subsequently approved system requirements | CH02 candidate modes and CH03–CH05 synthetic inputs; not silicon requirements. |
