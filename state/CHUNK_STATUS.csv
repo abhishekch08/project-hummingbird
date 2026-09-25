@@ -6,7 +6,7 @@ CH03,System Power/Energy Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews
 CH04,System Data-Rate / Memory Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews/CH04_GATE.md,CH03; model complete; hardware and product evidence remain open
 CH05,Clock / Timestamp / Synchronization Architecture,COMPLETE,MODEL_PASS_PHYSICAL_HOLD,docs/reviews/CH05_GATE.md,CH04; survey PR #7 merged before model; physical timing held
 CH06,Register Map / Host Protocol,COMPLETE,MODEL_PASS_ABI_PHYSICAL_HOLD,docs/reviews/CH06_GATE.md,CH05; survey PR #9 precedes candidate model; physical ABI remains held
-CH07,Biopotential Numerical Design,PAUSED,NOT_RUN,none,CH06 conditional model; electrode/noise product inputs and block survey needed before topology
+CH07,Biopotential Numerical Design,ACTIVE,NOT_RUN,none,CH06; charter and literature survey in review before conditional numerical model; electrode/noise inputs needed for topology
 CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; follow MASTER_SPEC.md §42 and applicable literature gate
 CH09,EDA/BioZ Architecture,PLANNED,NOT_RUN,none,CH08; follow MASTER_SPEC.md §42 and applicable literature gate
 CH10,Electrochemical / Na⁺ / K⁺ / Sweat Architecture,PLANNED,NOT_RUN,none,CH09; follow MASTER_SPEC.md §42 and applicable literature gate

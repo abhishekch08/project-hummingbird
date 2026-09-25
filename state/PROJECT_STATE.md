@@ -4,8 +4,8 @@ Architecture version: unselected; provisional requirements, CH02 scenarios, cond
 Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after fetching.
 Previous reviewed baseline: `124ef7843b7b71464c618b7cb256368b5e53500c` (CH06 literature/entry PR #9 merged before any host model).
 Current chunk: CH07 next under user authorization for subsequent chapters. CH00–CH06 complete at limited gates; CH06 review is in the current candidate-contract publication.
-CH07 is paused at its literature entry while the CH06 candidate contract review completes publication; the user has already authorized continuation.
-Current subchunk: CH06 candidate model completed and being published; next CH07 entry charter/dated biopotential primary-source survey before numerical design. CH05 timing and CH06 physical host ABI remain HOLD.
+CH07 is active at its entry charter and dated biopotential source review after CH06 PR #10 merged; the user has already authorized continuation.
+Current subchunk: CH07 entry charter and dated biopotential primary-source survey before numerical design. CH05 timing and CH06 physical host ABI remain HOLD.
 Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND selection, pulse safety limit, electrical/timing target, chip architecture or tapeout claim approved.
 
 # Passed Gates
@@ -20,7 +20,7 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 
 # Active Work
 
-- CH07 biopotential numerical entry is next; its own dated literature review must be committed before design. CH05's small SV reference is uncompiled and does not select a timebase. CH07 physical circuit design has not begun.
+- CH07 biopotential numerical entry is active; its own dated literature review and acceptance plan are being committed before numerical design. CH05's small SV reference is uncompiled and does not select a timebase. CH07 physical circuit design has not begun.
 - `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
@@ -30,7 +30,7 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 
 # Next Exact Action
 
-- Complete the CH06 candidate-contract publication and independent CI, then commit CH07 entry charter and dated biopotential literature comparison before numerical/topology work. Do not promote CH03–CH06's synthetic outputs to product targets.
+- Publish CH07 entry charter and dated source comparison independently. Then build/test a conditional numerical noise/offset/headroom/ADC model; hold a selected topology until electrode and product quality targets are owner approved. Do not promote CH03–CH06's synthetic outputs to product targets.
 
 # Required Inputs
 
