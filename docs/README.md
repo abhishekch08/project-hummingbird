@@ -16,13 +16,15 @@
 - [CH01 requirements review](reviews/CH01_REQUIREMENTS_REVIEW.md) and [CH02 resource gate](reviews/CH02_GATE.md).
 - [CH01 chunk record](chunks/CH01_REQUIREMENTS.md), [CH02 chunk record](chunks/CH02_CONCURRENT_MODES.md), and [chunk template](chunks/CH_TEMPLATE.md).
 - [CH03 chunk record](chunks/CH03_POWER_ENERGY.md) and [CH03 model gate](reviews/CH03_GATE.md): synthetic model PASS; physical battery feasibility HOLD.
+- [CH04 chunk record](chunks/CH04_DATA_MEMORY.md) and [CH04 model gate](reviews/CH04_GATE.md): conditional data/queue/storage arithmetic PASS; physical link and memory feasibility HOLD.
 - [CH02 numerical report](budgets/CH02_CONCURRENCY_REVIEW.md) and [exact input assumptions](../specs/system/CH02_MODE_ASSUMPTIONS.json).
 - [CH03 conditional energy report](budgets/CH03_ENERGY_REVIEW.md), [scenario input](../specs/system/CH03_ENERGY_SCENARIOS.json), and [machine summary](../reports/subsystem/CH03_ENERGY_SUMMARY.json).
-- [Requested external inputs for CH03 and later](inputs/REQUIRED_INPUTS.md).
+- [CH04 conditional data/memory report](budgets/CH04_DATA_MEMORY_REVIEW.md), [scenario input](../specs/system/CH04_DATAFLOW_SCENARIOS.json), and [machine summary](../reports/subsystem/CH04_DATAFLOW_SUMMARY.json).
+- [Requested external inputs for unresolved gates](inputs/REQUIRED_INPUTS.md).
 - [Safety evidence status](safety/README.md) and [package evidence status](package/README.md).
 - [Literature review gate and template](literature/README.md) and [ADR template](adr/ADR_TEMPLATE.md).
 - [Repository ownership map](REPOSITORY_MAP.md), [data rules](governance/DATA_POLICY.md), and [licensing status](governance/LICENSE_STATUS.md).
 
 ## Evidence labels
 
-**Scenario/model** means arithmetic conditional on inputs. **Simulation** means a documented model or circuit run. **Measurement** means calibrated physical evidence under stated conditions. **Signoff** means independent accepted review at the required gate. At present the repository has scenario calculations and repository checks; it has no battery measurement, circuit simulation, measured silicon or signoff data.
+**Scenario/model** means arithmetic conditional on inputs. **Simulation** means a documented model or circuit run. **Measurement** means calibrated physical evidence under stated conditions. **Signoff** means independent accepted review at the required gate. At present the repository has scenario calculations and repository checks; it has no representative battery/link/storage measurement, circuit simulation, measured silicon or signoff data.

@@ -1,0 +1,1416 @@
+{
+  "schema_version": 1,
+  "evidence_class": "SYNTHETIC_CONDITIONAL",
+  "gate": {
+    "model": "MODEL_PASS_IF_REGRESSION_PASSES",
+    "physical": "FEASIBILITY_HOLD",
+    "missing": [
+      "asic_sram_macro_area_power_retention_and_yield",
+      "confirmed_sample_timing_and_processing_semantics",
+      "measured_ble_application_goodput_and_airtime",
+      "measured_host_link_payload_wake_and_flow_control",
+      "measured_memory_write_busy_and_power",
+      "owner_approved_modes_and_recording_duty",
+      "qualified_memory_capacity_endurance_ecc_and_retention",
+      "selected_packet_timestamp_crc_and_loss_policy"
+    ]
+  },
+  "input_sha256": "32c6aceec269b8978ccf8caaf99afdd5a1900afb978037b779ac2e2af2a12cf5",
+  "ch02_input_sha256": "c3043a250688a9e7a7901a26cc1956137250e86269150284ed6ae9053b688e67",
+  "ch02_report_sha256": "22189aff4432c4cd94e306dee8f5fbcf65a84adaae41f83b841436db80e937c2",
+  "accounting": {
+    "batch_window_ms": 10,
+    "packet_header_B": 4,
+    "packet_crc_B": 2,
+    "packet_alignment_B": 4,
+    "descriptor_B_per_packet": 16,
+    "illustrative_host_payload_efficiency": 0.7,
+    "sram_workspace_B": 131072,
+    "sram_other_reserved_B": 65536
+  },
+  "mode_rates": {
+    "deep_sleep": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 0,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 0,
+        "packets_per_s": 0,
+        "sample_group_bytes_per_s": 0,
+        "framed_bytes_per_s": 0,
+        "stream_detail": [],
+        "raw_payload_bps": 0,
+        "packet_bytes_per_s": 0,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": null
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 0,
+        "packets_per_s": 0,
+        "sample_group_bytes_per_s": 0,
+        "framed_bytes_per_s": 0,
+        "stream_detail": [],
+        "raw_payload_bps": 0,
+        "packet_bytes_per_s": 0
+      }
+    },
+    "daily_health": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 36672,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 233,
+        "packets_per_s": 233,
+        "sample_group_bytes_per_s": 4600,
+        "framed_bytes_per_s": 6264,
+        "stream_detail": [
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 3200
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 16,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 16,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 2400
+          },
+          {
+            "stream": "eda1_32",
+            "group_bytes": 12,
+            "groups_per_s": 32,
+            "packets_per_s": 32,
+            "framed_bytes_per_s": 640
+          }
+        ],
+        "raw_payload_bps": 14288,
+        "packet_bytes_per_s": 1664,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 85907
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 4,
+        "packets_per_s": 4,
+        "sample_group_bytes_per_s": 66,
+        "framed_bytes_per_s": 96,
+        "stream_detail": [
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 15,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          },
+          {
+            "stream": "eda1_32",
+            "group_bytes": 11,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 14288,
+        "packet_bytes_per_s": 30
+      }
+    },
+    "sleep_neuroscience": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 1625728,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 16801,
+        "packets_per_s": 401,
+        "sample_group_bytes_per_s": 203216,
+        "framed_bytes_per_s": 206024,
+        "stream_detail": [
+          {
+            "stream": "eeg8_500",
+            "group_bytes": 40,
+            "groups_per_s": 500,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 20800
+          },
+          {
+            "stream": "ppg4_200",
+            "group_bytes": 23,
+            "groups_per_s": 200,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 5200
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 3200
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 16,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          },
+          {
+            "stream": "audio1_16000",
+            "group_bytes": 11,
+            "groups_per_s": 16000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 176800
+          }
+        ],
+        "raw_payload_bps": 377648,
+        "packet_bytes_per_s": 2808,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 2825472
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 5,
+        "packets_per_s": 5,
+        "sample_group_bytes_per_s": 104,
+        "framed_bytes_per_s": 140,
+        "stream_detail": [
+          {
+            "stream": "eeg8_500",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "ppg4_200",
+            "group_bytes": 21,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "audio1_16000",
+            "group_bytes": 11,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 377648,
+        "packet_bytes_per_s": 36
+      }
+    },
+    "cardiovascular": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 359328,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 1901,
+        "packets_per_s": 301,
+        "sample_group_bytes_per_s": 44916,
+        "framed_bytes_per_s": 47224,
+        "stream_detail": [
+          {
+            "stream": "ecg2_1000",
+            "group_bytes": 16,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 16800
+          },
+          {
+            "stream": "ppg8_500",
+            "group_bytes": 37,
+            "groups_per_s": 500,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 19200
+          },
+          {
+            "stream": "imu_400",
+            "group_bytes": 26,
+            "groups_per_s": 400,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 11200
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 16,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          }
+        ],
+        "raw_payload_bps": 166448,
+        "packet_bytes_per_s": 2308,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 647644
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 4,
+        "packets_per_s": 4,
+        "sample_group_bytes_per_s": 87,
+        "framed_bytes_per_s": 112,
+        "stream_detail": [
+          {
+            "stream": "ecg2_1000",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "ppg8_500",
+            "group_bytes": 33,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "imu_400",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 166448,
+        "packet_bytes_per_s": 25
+      }
+    },
+    "sweat_biochemistry": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 20032,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 143,
+        "packets_per_s": 143,
+        "sample_group_bytes_per_s": 2504,
+        "framed_bytes_per_s": 3680,
+        "stream_detail": [
+          {
+            "stream": "ech8_10",
+            "group_bytes": 40,
+            "groups_per_s": 10,
+            "packets_per_s": 10,
+            "framed_bytes_per_s": 480
+          },
+          {
+            "stream": "eda2_32",
+            "group_bytes": 15,
+            "groups_per_s": 32,
+            "packets_per_s": 32,
+            "framed_bytes_per_s": 768
+          },
+          {
+            "stream": "temp4_1",
+            "group_bytes": 24,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 16,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 2400
+          }
+        ],
+        "raw_payload_bps": 7296,
+        "packet_bytes_per_s": 1176,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 50469
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 4,
+        "packets_per_s": 4,
+        "sample_group_bytes_per_s": 81,
+        "framed_bytes_per_s": 112,
+        "stream_detail": [
+          {
+            "stream": "ech8_10",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "eda2_32",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "temp4_1",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 15,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          }
+        ],
+        "raw_payload_bps": 7296,
+        "packet_bytes_per_s": 31
+      }
+    },
+    "optical_spectroscopy": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 838080,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 2110,
+        "packets_per_s": 210,
+        "sample_group_bytes_per_s": 104760,
+        "framed_bytes_per_s": 106240,
+        "stream_detail": [
+          {
+            "stream": "opt12_scan_2000",
+            "group_bytes": 51,
+            "groups_per_s": 2000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 102800
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 3200
+          },
+          {
+            "stream": "temp2_10",
+            "group_bytes": 16,
+            "groups_per_s": 10,
+            "packets_per_s": 10,
+            "framed_bytes_per_s": 240
+          }
+        ],
+        "raw_payload_bps": 490080,
+        "packet_bytes_per_s": 1480,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 1457006
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 3,
+        "packets_per_s": 3,
+        "sample_group_bytes_per_s": 85,
+        "framed_bytes_per_s": 104,
+        "stream_detail": [
+          {
+            "stream": "opt12_scan_2000",
+            "group_bytes": 45,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 52
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "temp2_10",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 490080,
+        "packet_bytes_per_s": 19
+      }
+    },
+    "audio": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 6177728,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 48201,
+        "packets_per_s": 301,
+        "sample_group_bytes_per_s": 772216,
+        "framed_bytes_per_s": 774424,
+        "stream_detail": [
+          {
+            "stream": "audio2_48000",
+            "group_bytes": 16,
+            "groups_per_s": 48000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 768800
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 3200
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 16,
+            "groups_per_s": 100,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 2400
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 16,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          }
+        ],
+        "raw_payload_bps": 2317648,
+        "packet_bytes_per_s": 2208,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 10620672
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 4,
+        "packets_per_s": 4,
+        "sample_group_bytes_per_s": 69,
+        "framed_bytes_per_s": 96,
+        "stream_detail": [
+          {
+            "stream": "audio2_48000",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "imu_100",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "ppg2_100",
+            "group_bytes": 15,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 24
+          },
+          {
+            "stream": "temp2_1",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 2317648,
+        "packet_bytes_per_s": 27
+      }
+    },
+    "research_raw": {
+      "class": "candidate",
+      "ch02_scenario_framed_bps": 12385920,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 59010,
+        "packets_per_s": 610,
+        "sample_group_bytes_per_s": 1548240,
+        "framed_bytes_per_s": 1553120,
+        "stream_detail": [
+          {
+            "stream": "eeg8_4000",
+            "group_bytes": 40,
+            "groups_per_s": 4000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 160800
+          },
+          {
+            "stream": "eda4_1000",
+            "group_bytes": 22,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 22800
+          },
+          {
+            "stream": "ech8_1000",
+            "group_bytes": 40,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 40800
+          },
+          {
+            "stream": "opt8_4000",
+            "group_bytes": 37,
+            "groups_per_s": 4000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 148800
+          },
+          {
+            "stream": "temp4_10",
+            "group_bytes": 24,
+            "groups_per_s": 10,
+            "packets_per_s": 10,
+            "framed_bytes_per_s": 320
+          },
+          {
+            "stream": "audio4_48000",
+            "group_bytes": 24,
+            "groups_per_s": 48000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 1152800
+          },
+          {
+            "stream": "imu_1000",
+            "group_bytes": 26,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 26800
+          }
+        ],
+        "raw_payload_bps": 6384960,
+        "packet_bytes_per_s": 4880,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 21299932
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 7,
+        "packets_per_s": 7,
+        "sample_group_bytes_per_s": 183,
+        "framed_bytes_per_s": 236,
+        "stream_detail": [
+          {
+            "stream": "eeg8_4000",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "eda4_1000",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "ech8_1000",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "opt8_4000",
+            "group_bytes": 33,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "temp4_10",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "audio4_48000",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "imu_1000",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          }
+        ],
+        "raw_payload_bps": 6384960,
+        "packet_bytes_per_s": 53
+      }
+    },
+    "research_fast_stress": {
+      "class": "stress",
+      "ch02_scenario_framed_bps": 124385920,
+      "ch02_bank_conflicts": [],
+      "raw": {
+        "sample_groups_per_s": 1059010,
+        "packets_per_s": 710,
+        "sample_group_bytes_per_s": 15548240,
+        "framed_bytes_per_s": 15553920,
+        "stream_detail": [
+          {
+            "stream": "eeg8_4000",
+            "group_bytes": 40,
+            "groups_per_s": 4000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 160800
+          },
+          {
+            "stream": "eda4_1000",
+            "group_bytes": 22,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 22800
+          },
+          {
+            "stream": "ech8_1000",
+            "group_bytes": 40,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 40800
+          },
+          {
+            "stream": "opt8_4000",
+            "group_bytes": 37,
+            "groups_per_s": 4000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 148800
+          },
+          {
+            "stream": "temp4_10",
+            "group_bytes": 24,
+            "groups_per_s": 10,
+            "packets_per_s": 10,
+            "framed_bytes_per_s": 320
+          },
+          {
+            "stream": "audio4_48000",
+            "group_bytes": 24,
+            "groups_per_s": 48000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 1152800
+          },
+          {
+            "stream": "imu_1000",
+            "group_bytes": 26,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 26800
+          },
+          {
+            "stream": "fast2_1000000",
+            "group_bytes": 14,
+            "groups_per_s": 1000000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 14000800
+          }
+        ],
+        "raw_payload_bps": 38384960,
+        "packet_bytes_per_s": 5680,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 213310903
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 8,
+        "packets_per_s": 8,
+        "sample_group_bytes_per_s": 197,
+        "framed_bytes_per_s": 256,
+        "stream_detail": [
+          {
+            "stream": "eeg8_4000",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "eda4_1000",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "ech8_1000",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "opt8_4000",
+            "group_bytes": 33,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "temp4_10",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "audio4_48000",
+            "group_bytes": 20,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 28
+          },
+          {
+            "stream": "imu_1000",
+            "group_bytes": 26,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 32
+          },
+          {
+            "stream": "fast2_1000000",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          }
+        ],
+        "raw_payload_bps": 38384960,
+        "packet_bytes_per_s": 59
+      }
+    },
+    "resource_conflict_probe": {
+      "class": "stress",
+      "ch02_scenario_framed_bps": 1104000,
+      "ch02_bank_conflicts": [
+        "BIO simultaneous converters/receivers 10>8 (BIO-0001)",
+        "OPT simultaneous converters/receivers 12>8 (OPT-0008)"
+      ],
+      "raw": {
+        "sample_groups_per_s": 3500,
+        "packets_per_s": 300,
+        "sample_group_bytes_per_s": 138000,
+        "framed_bytes_per_s": 140400,
+        "stream_detail": [
+          {
+            "stream": "eeg8_500",
+            "group_bytes": 40,
+            "groups_per_s": 500,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 20800
+          },
+          {
+            "stream": "ecg2_1000",
+            "group_bytes": 16,
+            "groups_per_s": 1000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 16800
+          },
+          {
+            "stream": "opt12_true_2000",
+            "group_bytes": 51,
+            "groups_per_s": 2000,
+            "packets_per_s": 100,
+            "framed_bytes_per_s": 102800
+          }
+        ],
+        "raw_payload_bps": 624000,
+        "packet_bytes_per_s": 2400,
+        "minimum_host_clock_hz_at_illustrative_efficiency_and_guard": 1925486
+      },
+      "feature_only_hypothesis": {
+        "sample_groups_per_s": 3,
+        "packets_per_s": 3,
+        "sample_group_bytes_per_s": 91,
+        "framed_bytes_per_s": 112,
+        "stream_detail": [
+          {
+            "stream": "eeg8_500",
+            "group_bytes": 32,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 40
+          },
+          {
+            "stream": "ecg2_1000",
+            "group_bytes": 14,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 20
+          },
+          {
+            "stream": "opt12_true_2000",
+            "group_bytes": 45,
+            "groups_per_s": 1,
+            "packets_per_s": 1,
+            "framed_bytes_per_s": 52
+          }
+        ],
+        "raw_payload_bps": 624000,
+        "packet_bytes_per_s": 21
+      }
+    }
+  },
+  "two_cycle_queue_cases": [
+    {
+      "id": "daily_host_wake",
+      "mode": "daily_health",
+      "class": "candidate",
+      "route": "host",
+      "service_pattern": "host_sleep_200ms",
+      "host_clock_hz_probe": 8000000,
+      "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+      "cycle_end_backlog_B": [
+        [
+          100,
+          164,
+          0
+        ],
+        [
+          100,
+          164,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 2140,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 2568,
+      "minimum_total_sram_B_if_bounded": 199176,
+      "sram_candidate_fit_if_bounded": {
+        "512_KiB": true,
+        "2048_KiB": true
+      },
+      "produced_bytes_two_cycles": 12528,
+      "delivered_bytes_two_cycles": 12428,
+      "remaining_payload_bytes": 100,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "audio_host_wake",
+      "mode": "audio",
+      "class": "candidate",
+      "route": "host",
+      "service_pattern": "host_sleep_200ms",
+      "host_clock_hz_probe": 16000000,
+      "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+      "cycle_end_backlog_B": [
+        [
+          7768,
+          7832,
+          0
+        ],
+        [
+          7768,
+          7832,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 163672,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 196407,
+      "minimum_total_sram_B_if_bounded": 393015,
+      "sram_candidate_fit_if_bounded": {
+        "512_KiB": true,
+        "2048_KiB": true
+      },
+      "produced_bytes_two_cycles": 1548848,
+      "delivered_bytes_two_cycles": 1541080,
+      "remaining_payload_bytes": 7768,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "research_host_16m",
+      "mode": "research_raw",
+      "class": "candidate",
+      "route": "host",
+      "service_pattern": "host_continuous",
+      "host_clock_hz_probe": 16000000,
+      "queue_status": "REPEATED_CYCLE_GROWTH",
+      "cycle_end_backlog_B": [
+        [
+          167120,
+          168144,
+          0
+        ],
+        [
+          320240,
+          322224,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 153120,
+        "asic_with_descriptors_B": 154080,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 322224,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 386669,
+      "minimum_total_sram_B_if_bounded": null,
+      "sram_candidate_fit_if_bounded": null,
+      "produced_bytes_two_cycles": 3106240,
+      "delivered_bytes_two_cycles": 2786000,
+      "remaining_payload_bytes": 320240,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "research_host_32m",
+      "mode": "research_raw",
+      "class": "candidate",
+      "route": "host",
+      "service_pattern": "host_continuous",
+      "host_clock_hz_probe": 32000000,
+      "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+      "cycle_end_backlog_B": [
+        [
+          15560,
+          15672,
+          0
+        ],
+        [
+          15560,
+          15672,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 15672,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 18807,
+      "minimum_total_sram_B_if_bounded": 215415,
+      "sram_candidate_fit_if_bounded": {
+        "512_KiB": true,
+        "2048_KiB": true
+      },
+      "produced_bytes_two_cycles": 3106240,
+      "delivered_bytes_two_cycles": 3090680,
+      "remaining_payload_bytes": 15560,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "fast_stress_host_64m",
+      "mode": "research_fast_stress",
+      "class": "stress",
+      "route": "host",
+      "service_pattern": "host_continuous",
+      "host_clock_hz_probe": 64000000,
+      "queue_status": "REPEATED_CYCLE_GROWTH",
+      "cycle_end_backlog_B": [
+        [
+          10009920,
+          10017216,
+          0
+        ],
+        [
+          19963840,
+          19978400,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 9953920,
+        "asic_with_descriptors_B": 9961184,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 19978400,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": 50,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 23974080,
+      "minimum_total_sram_B_if_bounded": null,
+      "sram_candidate_fit_if_bounded": null,
+      "produced_bytes_two_cycles": 31107840,
+      "delivered_bytes_two_cycles": 11144000,
+      "remaining_payload_bytes": 19963840,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "daily_host_ble",
+      "mode": "daily_health",
+      "class": "candidate",
+      "route": "host_ble",
+      "service_pattern": "host_with_ble_last_200ms",
+      "host_clock_hz_probe": 8000000,
+      "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+      "cycle_end_backlog_B": [
+        [
+          100,
+          164,
+          56
+        ],
+        [
+          100,
+          164,
+          56
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 164,
+      "peak_host_stage_payload_B": 5080,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": 131072,
+      "finite_horizon_asic_fifo_with_margin_B": 197,
+      "minimum_total_sram_B_if_bounded": 196805,
+      "sram_candidate_fit_if_bounded": {
+        "512_KiB": true,
+        "2048_KiB": true
+      },
+      "produced_bytes_two_cycles": 12528,
+      "delivered_bytes_two_cycles": 12372,
+      "remaining_payload_bytes": 156,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "audio_host_ble",
+      "mode": "audio",
+      "class": "candidate",
+      "route": "host_ble",
+      "service_pattern": "host_with_ble_last_200ms",
+      "host_clock_hz_probe": 16000000,
+      "queue_status": "REPEATED_CYCLE_GROWTH",
+      "cycle_end_backlog_B": [
+        [
+          7768,
+          7832,
+          741656
+        ],
+        [
+          7768,
+          7832,
+          1491080
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 749424
+      },
+      "peak_asic_fifo_with_descriptors_B": 7832,
+      "peak_host_stage_payload_B": 1491080,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": 180,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": 131072,
+      "finite_horizon_asic_fifo_with_margin_B": 9399,
+      "minimum_total_sram_B_if_bounded": null,
+      "sram_candidate_fit_if_bounded": null,
+      "produced_bytes_two_cycles": 1548848,
+      "delivered_bytes_two_cycles": 50000,
+      "remaining_payload_bytes": 1498848,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    },
+    {
+      "id": "research_local_nand",
+      "mode": "research_raw",
+      "class": "candidate",
+      "route": "local_nand",
+      "service_pattern": "nand_busy_first_100ms",
+      "host_clock_hz_probe": null,
+      "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+      "cycle_end_backlog_B": [
+        [
+          15560,
+          15672,
+          0
+        ],
+        [
+          15560,
+          15672,
+          0
+        ]
+      ],
+      "second_cycle_backlog_growth_B": {
+        "asic_payload_B": 0,
+        "asic_with_descriptors_B": 0,
+        "host_stage_B": 0
+      },
+      "peak_asic_fifo_with_descriptors_B": 171960,
+      "peak_host_stage_payload_B": null,
+      "first_illustrative_asic_fifo_overflow_ms": null,
+      "first_illustrative_host_stage_overflow_ms": null,
+      "illustrative_asic_fifo_limit_B": 524288,
+      "illustrative_host_stage_limit_B": null,
+      "finite_horizon_asic_fifo_with_margin_B": 206352,
+      "minimum_total_sram_B_if_bounded": 402960,
+      "sram_candidate_fit_if_bounded": {
+        "512_KiB": true,
+        "2048_KiB": true
+      },
+      "produced_bytes_two_cycles": 3106240,
+      "delivered_bytes_two_cycles": 3090680,
+      "remaining_payload_bytes": 15560,
+      "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+    }
+  ],
+  "nand_capacity_and_wear_projections": [
+    {
+      "candidate_nominal_gbit_decimal": 4,
+      "synthetic_usable_bytes": 400000000,
+      "framed_logging_bytes_per_s": 1553120,
+      "full_if_continuous_minutes": 4.292,
+      "assumed_logging_hours_per_day": 1.0,
+      "logical_bytes_per_assumed_day": 5591232000.0,
+      "physical_bytes_per_assumed_day_with_page_and_WA": 11182465024.0,
+      "synthetic_full_equivalent_PE_cycles_per_day": 27.956163,
+      "synthetic_PE_limit_days_if_offloaded": 35.77,
+      "one_assumed_day_fits_without_offload": false,
+      "note": "Wear example assumes even wear and continued offload; ECC, retention, bad blocks and actual P/E unknown."
+    },
+    {
+      "candidate_nominal_gbit_decimal": 16,
+      "synthetic_usable_bytes": 1600000000,
+      "framed_logging_bytes_per_s": 1553120,
+      "full_if_continuous_minutes": 17.17,
+      "assumed_logging_hours_per_day": 1.0,
+      "logical_bytes_per_assumed_day": 5591232000.0,
+      "physical_bytes_per_assumed_day_with_page_and_WA": 11182465024.0,
+      "synthetic_full_equivalent_PE_cycles_per_day": 6.989041,
+      "synthetic_PE_limit_days_if_offloaded": 143.081,
+      "one_assumed_day_fits_without_offload": false,
+      "note": "Wear example assumes even wear and continued offload; ECC, retention, bad blocks and actual P/E unknown."
+    }
+  ],
+  "sensitivity": [
+    {
+      "change": "audio batch 10→20 ms (synthetic)",
+      "result": {
+        "id": "audio_host_wake",
+        "mode": "audio",
+        "class": "candidate",
+        "route": "host",
+        "service_pattern": "host_sleep_200ms",
+        "host_clock_hz_probe": 16000000,
+        "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+        "cycle_end_backlog_B": [
+          [
+            15492,
+            15556,
+            0
+          ],
+          [
+            15492,
+            15556,
+            0
+          ]
+        ],
+        "second_cycle_backlog_growth_B": {
+          "asic_payload_B": 0,
+          "asic_with_descriptors_B": 0,
+          "host_stage_B": 0
+        },
+        "peak_asic_fifo_with_descriptors_B": 170716,
+        "peak_host_stage_payload_B": null,
+        "first_illustrative_asic_fifo_overflow_ms": null,
+        "first_illustrative_host_stage_overflow_ms": null,
+        "illustrative_asic_fifo_limit_B": 524288,
+        "illustrative_host_stage_limit_B": null,
+        "finite_horizon_asic_fifo_with_margin_B": 204860,
+        "minimum_total_sram_B_if_bounded": 401468,
+        "sram_candidate_fit_if_bounded": {
+          "512_KiB": true,
+          "2048_KiB": true
+        },
+        "produced_bytes_two_cycles": 1546848,
+        "delivered_bytes_two_cycles": 1531356,
+        "remaining_payload_bytes": 15492,
+        "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+      }
+    },
+    {
+      "change": "audio host unavailable 200→300 ms (synthetic)",
+      "result": {
+        "id": "audio_host_wake",
+        "mode": "audio",
+        "class": "candidate",
+        "route": "host",
+        "service_pattern": "host_sleep_200ms",
+        "host_clock_hz_probe": 16000000,
+        "queue_status": "BOUNDED_IN_SYNTHETIC_CYCLE",
+        "cycle_end_backlog_B": [
+          [
+            7768,
+            7832,
+            0
+          ],
+          [
+            7768,
+            7832,
+            0
+          ]
+        ],
+        "second_cycle_backlog_growth_B": {
+          "asic_payload_B": 0,
+          "asic_with_descriptors_B": 0,
+          "host_stage_B": 0
+        },
+        "peak_asic_fifo_with_descriptors_B": 241592,
+        "peak_host_stage_payload_B": null,
+        "first_illustrative_asic_fifo_overflow_ms": null,
+        "first_illustrative_host_stage_overflow_ms": null,
+        "illustrative_asic_fifo_limit_B": 524288,
+        "illustrative_host_stage_limit_B": null,
+        "finite_horizon_asic_fifo_with_margin_B": 289911,
+        "minimum_total_sram_B_if_bounded": 486519,
+        "sram_candidate_fit_if_bounded": {
+          "512_KiB": true,
+          "2048_KiB": true
+        },
+        "produced_bytes_two_cycles": 1548848,
+        "delivered_bytes_two_cycles": 1541080,
+        "remaining_payload_bytes": 7768,
+        "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+      }
+    },
+    {
+      "change": "daily BLE available goodput 1,000,000→100,000 bit/s (synthetic)",
+      "result": {
+        "id": "daily_host_ble",
+        "mode": "daily_health",
+        "class": "candidate",
+        "route": "host_ble",
+        "service_pattern": "host_with_ble_last_200ms",
+        "host_clock_hz_probe": 8000000,
+        "queue_status": "REPEATED_CYCLE_GROWTH",
+        "cycle_end_backlog_B": [
+          [
+            100,
+            164,
+            3664
+          ],
+          [
+            100,
+            164,
+            7428
+          ]
+        ],
+        "second_cycle_backlog_growth_B": {
+          "asic_payload_B": 0,
+          "asic_with_descriptors_B": 0,
+          "host_stage_B": 3764
+        },
+        "peak_asic_fifo_with_descriptors_B": 164,
+        "peak_host_stage_payload_B": 8688,
+        "first_illustrative_asic_fifo_overflow_ms": null,
+        "first_illustrative_host_stage_overflow_ms": null,
+        "illustrative_asic_fifo_limit_B": 524288,
+        "illustrative_host_stage_limit_B": 131072,
+        "finite_horizon_asic_fifo_with_margin_B": 197,
+        "minimum_total_sram_B_if_bounded": null,
+        "sram_candidate_fit_if_bounded": null,
+        "produced_bytes_two_cycles": 12528,
+        "delivered_bytes_two_cycles": 5000,
+        "remaining_payload_bytes": 7528,
+        "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+      }
+    },
+    {
+      "change": "research NAND busy 100→300 ms (synthetic)",
+      "result": {
+        "id": "research_local_nand",
+        "mode": "research_raw",
+        "class": "candidate",
+        "route": "local_nand",
+        "service_pattern": "nand_busy_first_100ms",
+        "host_clock_hz_probe": null,
+        "queue_status": "REPEATED_CYCLE_GROWTH",
+        "cycle_end_backlog_B": [
+          [
+            153120,
+            154064,
+            0
+          ],
+          [
+            306240,
+            308128,
+            0
+          ]
+        ],
+        "second_cycle_backlog_growth_B": {
+          "asic_payload_B": 153120,
+          "asic_with_descriptors_B": 154064,
+          "host_stage_B": 0
+        },
+        "peak_asic_fifo_with_descriptors_B": 622928,
+        "peak_host_stage_payload_B": null,
+        "first_illustrative_asic_fifo_overflow_ms": 1240,
+        "first_illustrative_host_stage_overflow_ms": null,
+        "illustrative_asic_fifo_limit_B": 524288,
+        "illustrative_host_stage_limit_B": null,
+        "finite_horizon_asic_fifo_with_margin_B": 747514,
+        "minimum_total_sram_B_if_bounded": null,
+        "sram_candidate_fit_if_bounded": null,
+        "produced_bytes_two_cycles": 3106240,
+        "delivered_bytes_two_cycles": 2800000,
+        "remaining_payload_bytes": 306240,
+        "note": "Two cycles of a synthetic service trace; stable queue is not a measured link, NAND or radio pass."
+      }
+    }
+  ],
+  "limitations": "All source rates candidate/stress; derived frame scheme/clock/radio/NAND/workspace are assumptions. No verified host, BLE, SRAM, product duty, real NAND endurance, ECC, retention, power or raw-to-feature equivalence."
+}
