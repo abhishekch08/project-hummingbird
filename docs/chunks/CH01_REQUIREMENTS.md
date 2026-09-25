@@ -41,7 +41,7 @@ Not applicable to CH01: this is requirement transcription and review. The litera
 
 - 223 candidate/process IDs in the register; source coverage and conflicts recorded in `docs/reviews/CH01_REQUIREMENTS_REVIEW.md`.
 - `python3 scripts/verification/check_bootstrap.py` and `python3 scripts/verification/check_requirements.py`: PASS on 2026-09-23. These checks do not demonstrate electrical performance.
-- Commit: use the CH01 feature branch HEAD after publication.
+- Published review: [PR #1](https://github.com/abhishekch08/project-hummingbird/pull/1), merged into `main` at `03ffe313f2325d26455e741416bbf821346c5118`. The completed historical gate is limited to provisional requirements.
 
 ## Next exact action
 

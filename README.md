@@ -9,7 +9,7 @@ Version-controlled research program for a compact heterogeneous physiological-co
 | CH00 repository scaffold | Complete, structure checked | [Project state](state/PROJECT_STATE.md) |
 | CH01 requirements normalization | Provisional 223-ID register; no electrical targets frozen | [Register](state/REQUIREMENTS_TRACEABILITY.csv) · [Review](docs/reviews/CH01_REQUIREMENTS_REVIEW.md) |
 | CH02 concurrent-mode scenarios | Eight candidate modes and two stress probes; arithmetic validated | [Review](docs/reviews/CH02_GATE.md) · [Mode report](docs/budgets/CH02_CONCURRENCY_REVIEW.md) |
-| CH03 battery/energy feasibility | **Not started**; wait for user instruction | [Needed inputs](docs/inputs/REQUIRED_INPUTS.md) |
+| CH03 battery/energy feasibility | Entry charter prepared; model **not started** | [Charter](docs/chunks/CH03_POWER_ENERGY.md) · [Needed inputs](docs/inputs/REQUIRED_INPUTS.md) |
 | First technical block design (CH07) | **Not started**; requires prior system gates and a committed block literature review | [Chunk plan](MASTER_SPEC.md#42-development-chunks) |
 
 The project is paused after CH02. No circuit, RTL, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.

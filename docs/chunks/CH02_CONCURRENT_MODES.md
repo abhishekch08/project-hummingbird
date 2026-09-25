@@ -38,7 +38,7 @@ Do not select an ADC topology, physical pinout, host SPI frequency, battery chem
 - Eight candidate modes and two stress probes modeled with reproducible machine/human reports.
 - Seven focused tests, deterministic regeneration, CH00/CH01 checks and `git diff --check` pass.
 - Formal gate result and limitations: `docs/reviews/CH02_GATE.md`.
-- Commit and PR: inspect this feature branch after publication.
+- Published review: [PR #2](https://github.com/abhishekch08/project-hummingbird/pull/2), merged into `main` at `c6bd26ea057852b5861956bdd0a34f04de88d179`. The gate remains scenario accounting only.
 
 ## Next exact action
 
