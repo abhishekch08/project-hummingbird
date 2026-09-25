@@ -3,8 +3,8 @@ CH00,Repository Bootstrap,COMPLETE,STRUCTURE_PASS,scripts/verification/check_boo
 CH01,Requirements Normalization & Traceability,COMPLETE,REGISTER_PASS_PROVISIONAL,docs/reviews/CH01_REQUIREMENTS_REVIEW.md,CH00
 CH02,Use-Case / Concurrent-Mode Matrix,COMPLETE,SCENARIOS_PASS_FEASIBILITY_HOLD,docs/reviews/CH02_GATE.md,CH01
 CH03,System Power/Energy Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews/CH03_GATE.md,CH02; model complete; physical evidence remains open
-CH04,System Data-Rate / Memory Model,PAUSED,NOT_RUN,none,CH03; explicit user instruction; CH04 scope and acceptance review
-CH05,Clock / Timestamp / Synchronization Architecture,PLANNED,NOT_RUN,none,CH04; follow MASTER_SPEC.md §42 and applicable literature gate
+CH04,System Data-Rate / Memory Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews/CH04_GATE.md,CH03; model complete; hardware and product evidence remain open
+CH05,Clock / Timestamp / Synchronization Architecture,PAUSED,NOT_RUN,none,CH04; explicit user instruction; scope and applicable literature gate
 CH06,Register Map / Host Protocol,PLANNED,NOT_RUN,none,CH05; follow MASTER_SPEC.md §42 and applicable literature gate
 CH07,Biopotential Numerical Design,PLANNED,NOT_RUN,none,CH06; follow MASTER_SPEC.md §42 and applicable literature gate
 CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; follow MASTER_SPEC.md §42 and applicable literature gate

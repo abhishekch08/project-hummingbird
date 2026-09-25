@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "purpose": "CH04 arithmetic fixture; no selected packet protocol, product mode, nRF/BLE throughput, SRAM macro or NAND part",
+  "source": "MASTER_SPEC.md §§21–23,37,42; specs/system/CH02_MODE_ASSUMPTIONS.json",
+  "physical_inputs": {
+    "owner_approved_modes_and_recording_duty": null,
+    "confirmed_sample_timing_and_processing_semantics": null,
+    "selected_packet_timestamp_crc_and_loss_policy": null,
+    "measured_host_link_payload_wake_and_flow_control": null,
+    "measured_ble_application_goodput_and_airtime": null,
+    "measured_memory_write_busy_and_power": null,
+    "qualified_memory_capacity_endurance_ecc_and_retention": null,
+    "asic_sram_macro_area_power_retention_and_yield": null
+  },
+  "format": {
+    "batch_window_ms": {"value": 10, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic packet fixture", "conditions": "group flush every 10 ms; even a slow source emits only when a sample exists", "range": [5, 20]},
+    "packet_header_bytes": {"value": 4, "unit": "B", "evidence": "assumed", "source": "CH04 synthetic packet fixture", "conditions": "contains hypothetical stream identifier and sequence/length; no selected protocol", "range": [4, 16]},
+    "packet_crc_bytes": {"value": 2, "unit": "B", "evidence": "assumed", "source": "CH04 synthetic packet fixture", "conditions": "illustrative checksum footprint only, not selected polynomial or integrity policy", "range": [2, 4]},
+    "packet_alignment_bytes": {"value": 4, "unit": "B", "evidence": "assumed", "source": "CH04 synthetic packet fixture", "conditions": "whole-frame DMA alignment, including header and CRC", "range": [1, 16]},
+    "asic_descriptor_bytes_per_packet": {"value": 16, "unit": "B", "evidence": "assumed", "source": "CH04 synthetic DMA fixture", "conditions": "per outstanding frame, retained until last byte is sent", "range": [8, 32]},
+    "fifo_margin": {"value": 0.2, "unit": "ratio", "evidence": "assumed", "source": "CH04 synthetic size margin; distinct from CH02 link guard", "conditions": "added to observed packet+descriptor peak, never cures positive cycle drift", "range": [0.1, 0.5]},
+    "host_link_guard": {"value": 1.2, "unit": "ratio", "evidence": "assumed", "source": "HIF-0001 and CH02 illustrative host guard", "conditions": "capacity should exceed computed scenario framed rate by 20 percent", "range": [1.2, 1.5]},
+    "feature_only_bits_per_channel": {"value": 16, "unit": "bit", "evidence": "assumed", "source": "CH04 synthetic processing sensitivity", "conditions": "one hypothetical feature per active channel each second; original sample sequence is discarded", "range": [8, 32]},
+    "feature_only_groups_per_second": {"value": 1, "unit": "Hz", "evidence": "assumed", "source": "CH04 synthetic processing sensitivity", "conditions": "a feature stream is not a validated signal-processing algorithm or raw-data replacement", "range": [1, 4]}
+  },
+  "memory": {
+    "workspace_kib": {"value": 128, "unit": "KiB", "evidence": "assumed", "source": "CH04 synthetic buffer fixture", "conditions": "DSP/processing workspace unrelated to streaming FIFO; design unselected", "range": [64, 256]},
+    "other_reserved_kib": {"value": 64, "unit": "KiB", "evidence": "assumed", "source": "CH04 synthetic buffer fixture", "conditions": "calibration/control/reserve unrelated to FIFO; no bank/ECC overhead included", "range": [32, 128]},
+    "provisional_sram_kib": [
+      {"value": 512, "unit": "KiB", "evidence": "assumed", "source": "MASTER_SPEC.md §21 / MEM-0001 target", "conditions": "candidate lower bound only, no macro availability", "range": [512, 512]},
+      {"value": 2048, "unit": "KiB", "evidence": "assumed", "source": "MASTER_SPEC.md §21 / MEM-0001 target", "conditions": "candidate upper bound only, no macro availability", "range": [2048, 2048]}
+    ],
+    "illustrative_asic_fifo_kib": {"value": 512, "unit": "KiB", "evidence": "assumed", "source": "CH04 synthetic overflow probe", "conditions": "declared FIFO cap is separate from total SRAM target; not a selected macro", "range": [64, 512]},
+    "illustrative_host_staging_kib": {"value": 128, "unit": "KiB", "evidence": "assumed", "source": "CH04 synthetic BLE staging probe", "conditions": "ideal byte stream at host; firmware/radio buffers and packets not modeled", "range": [64, 256]}
+  },
+  "transport_probes": {
+    "host_clock_hz": [
+      {"value": 8000000, "unit": "Hz", "evidence": "assumed", "source": "CH02 illustrative_single_data_line_clocks_hz", "conditions": "clock probe, not an nRF timing specification", "range": [8000000, 8000000]},
+      {"value": 16000000, "unit": "Hz", "evidence": "assumed", "source": "CH02 illustrative_single_data_line_clocks_hz", "conditions": "clock probe, not an nRF timing specification", "range": [16000000, 16000000]},
+      {"value": 32000000, "unit": "Hz", "evidence": "assumed", "source": "CH02 illustrative_single_data_line_clocks_hz", "conditions": "clock probe, not an nRF timing specification", "range": [32000000, 32000000]},
+      {"value": 64000000, "unit": "Hz", "evidence": "assumed", "source": "CH02 illustrative_single_data_line_clocks_hz", "conditions": "clock probe, not an nRF timing specification", "range": [64000000, 64000000]}
+    ],
+    "ble_application_payload_bps": {"value": 1000000, "unit": "bit/s", "evidence": "assumed", "source": "CH04 synthetic BLE service probe", "conditions": "invented application goodput when radio available; not PHY, nRF or wearable measurement", "range": [100000, 2000000]},
+    "nand_effective_write_Bps": {"value": 2000000, "unit": "B/s", "evidence": "assumed", "source": "CH04 synthetic NAND service probe", "conditions": "invented effective byte-drain rate when not busy; page program/bad blocks unknown", "range": [1000000, 4000000]}
+  },
+  "availability_patterns": {
+    "host_sleep_200ms": [
+      {"duration_ms": {"value": 200, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic host wake probe", "conditions": "host cannot service the queue", "range": [100, 300]}, "host": false, "ble": false, "nand": false},
+      {"duration_ms": {"value": 800, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic host wake probe", "conditions": "host link services its queue", "range": [700, 900]}, "host": true, "ble": false, "nand": false}
+    ],
+    "host_continuous": [
+      {"duration_ms": {"value": 1000, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic service probe", "conditions": "hypothetical continuously available host", "range": [1000, 1000]}, "host": true, "ble": false, "nand": false}
+    ],
+    "host_with_ble_last_200ms": [
+      {"duration_ms": {"value": 800, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic radio scheduling probe", "conditions": "host on, BLE service unavailable", "range": [800, 800]}, "host": true, "ble": false, "nand": false},
+      {"duration_ms": {"value": 200, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic radio scheduling probe", "conditions": "host on, BLE service available at invented effective payload rate", "range": [200, 200]}, "host": true, "ble": true, "nand": false}
+    ],
+    "nand_busy_first_100ms": [
+      {"duration_ms": {"value": 100, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic NAND busy probe", "conditions": "storage cannot accept data", "range": [100, 300]}, "host": false, "ble": false, "nand": false},
+      {"duration_ms": {"value": 900, "unit": "ms", "evidence": "assumed", "source": "CH04 synthetic NAND busy probe", "conditions": "storage accepting bytes at invented effective rate", "range": [700, 900]}, "host": false, "ble": false, "nand": true}
+    ]
+  },
+  "cases": [
+    {"id": "daily_host_wake", "mode": "daily_health", "route": "host", "host_clock_hz": 8000000, "pattern": "host_sleep_200ms"},
+    {"id": "audio_host_wake", "mode": "audio", "route": "host", "host_clock_hz": 16000000, "pattern": "host_sleep_200ms"},
+    {"id": "research_host_16m", "mode": "research_raw", "route": "host", "host_clock_hz": 16000000, "pattern": "host_continuous"},
+    {"id": "research_host_32m", "mode": "research_raw", "route": "host", "host_clock_hz": 32000000, "pattern": "host_continuous"},
+    {"id": "fast_stress_host_64m", "mode": "research_fast_stress", "route": "host", "host_clock_hz": 64000000, "pattern": "host_continuous"},
+    {"id": "daily_host_ble", "mode": "daily_health", "route": "host_ble", "host_clock_hz": 8000000, "pattern": "host_with_ble_last_200ms"},
+    {"id": "audio_host_ble", "mode": "audio", "route": "host_ble", "host_clock_hz": 16000000, "pattern": "host_with_ble_last_200ms"},
+    {"id": "research_local_nand", "mode": "research_raw", "route": "local_nand", "pattern": "nand_busy_first_100ms"}
+  ],
+  "nand_projection": {
+    "mode": "research_raw",
+    "nominal_capacity_gbit": [
+      {"value": 4, "unit": "Gbit", "evidence": "assumed", "source": "MASTER_SPEC.md §22 candidate NAND range", "conditions": "decimal billion bits; unselected storage part", "range": [4, 4]},
+      {"value": 16, "unit": "Gbit", "evidence": "assumed", "source": "MASTER_SPEC.md §22 candidate NAND range", "conditions": "decimal billion bits; unselected storage part", "range": [16, 16]}
+    ],
+    "usable_capacity_fraction": {"value": 0.8, "unit": "ratio", "evidence": "assumed", "source": "CH04 synthetic storage example", "conditions": "reserved/bad-block/ECC overhead not characterized", "range": [0.5, 0.9]},
+    "packed_page_bytes": {"value": 2048, "unit": "B", "evidence": "assumed", "source": "CH04 synthetic storage example", "conditions": "logical record stream packed across pages; no per-packet padding", "range": [512, 8192]},
+    "write_amplification": {"value": 2.0, "unit": "ratio", "evidence": "assumed", "source": "CH04 synthetic storage example", "conditions": "applied after packed-page rounding; controller not selected", "range": [1, 4]},
+    "illustrative_pe_cycles": {"value": 1000, "unit": "cycle", "evidence": "assumed", "source": "CH04 synthetic storage example", "conditions": "not a vendor endurance rating or retention guarantee", "range": [100, 3000]},
+    "illustrative_logging_hours_per_day": {"value": 1, "unit": "h/day", "evidence": "assumed", "source": "CH04 synthetic storage example", "conditions": "hypothetical repeated raw research mode, not product duty", "range": [0.5, 2]}
+  }
+}
