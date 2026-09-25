@@ -18,6 +18,7 @@
 - [CH03 chunk record](chunks/CH03_POWER_ENERGY.md) and [CH03 model gate](reviews/CH03_GATE.md): synthetic model PASS; physical battery feasibility HOLD.
 - [CH04 chunk record](chunks/CH04_DATA_MEMORY.md) and [CH04 model gate](reviews/CH04_GATE.md): conditional data/queue/storage arithmetic PASS; physical link and memory feasibility HOLD.
 - [CH05 chunk record](chunks/CH05_CLOCK_TIMING.md), [primary-source timing survey](literature/timing/2026-09-25_STATE_OF_ART_REVIEW.md), [ADR-0002 alternatives](adr/ADR-0002_CONDITIONAL_TIMEBASE.md) and [CH05 model gate](reviews/CH05_GATE.md): model PASS; physical clock/CDC/RTL HOLD.
+- [CH06 entry charter](chunks/CH06_REGISTER_HOST.md) and [primary host/register survey](literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md): literature prerequisite for candidate contract; host/ASIC selection held.
 - [CH02 numerical report](budgets/CH02_CONCURRENCY_REVIEW.md) and [exact input assumptions](../specs/system/CH02_MODE_ASSUMPTIONS.json).
 - [CH03 conditional energy report](budgets/CH03_ENERGY_REVIEW.md), [scenario input](../specs/system/CH03_ENERGY_SCENARIOS.json), and [machine summary](../reports/subsystem/CH03_ENERGY_SUMMARY.json).
 - [CH04 conditional data/memory report](budgets/CH04_DATA_MEMORY_REVIEW.md), [scenario input](../specs/system/CH04_DATAFLOW_SCENARIOS.json), and [machine summary](../reports/subsystem/CH04_DATAFLOW_SUMMARY.json).
