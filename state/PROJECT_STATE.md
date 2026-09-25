@@ -4,7 +4,7 @@ Architecture version: unselected; candidate requirements and CH02 scenarios only
 Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after fetching.
 Reviewed baseline before this documentation pass: `c6bd26ea057852b5861956bdd0a34f04de88d179` (CH02 merged as PR #2).
 Current chunk: none active. CH00–CH02 are complete at their explicitly limited gates; CH03 is paused pending user instruction.
-Current subchunk: none active after repository documentation and CI readiness.
+Current subchunk: none active; CH03 entry charter prepared without starting the model.
 Current status: no product mode, electrical target, chip architecture, battery runtime or tapeout claim approved.
 
 # Passed Gates
@@ -15,7 +15,7 @@ Current status: no product mode, electrical target, chip architecture, battery r
 
 # Active Work
 
-- No engineering chunk active. Documentation and public checks are ready; no circuit implementation or block literature survey underway.
+- No engineering chunk active. The CH03 entry charter in `docs/chunks/CH03_POWER_ENERGY.md` defines the next bounded model without inventing cell or load data; no circuit implementation or block literature survey underway.
 - `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
@@ -35,5 +35,5 @@ Current status: no product mode, electrical target, chip architecture, battery r
 
 Command: `python3 scripts/verification/check_all.py`
 Commit: read `git rev-parse HEAD` on the checkout under test; a commit cannot self-report its eventual merge SHA.
-Result: see `state/VERIFICATION_STATUS.md` and the CI check on the published commit. Public checks establish repository consistency and CH02 arithmetic only.
-Timestamp: 2026-09-23 UTC.
+Result: PASS locally after the pre-kickoff documentation update; see `state/VERIFICATION_STATUS.md` and the CI check on the published commit. Public checks establish repository consistency and CH02 arithmetic only.
+Timestamp: 2026-09-25 UTC.

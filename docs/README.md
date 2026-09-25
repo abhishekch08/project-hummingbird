@@ -15,6 +15,7 @@
 
 - [CH01 requirements review](reviews/CH01_REQUIREMENTS_REVIEW.md) and [CH02 resource gate](reviews/CH02_GATE.md).
 - [CH01 chunk record](chunks/CH01_REQUIREMENTS.md), [CH02 chunk record](chunks/CH02_CONCURRENT_MODES.md), and [chunk template](chunks/CH_TEMPLATE.md).
+- [CH03 entry charter](chunks/CH03_POWER_ENERGY.md): scope and checks prepared; implementation and physical feasibility gate not started.
 - [CH02 numerical report](budgets/CH02_CONCURRENCY_REVIEW.md) and [exact input assumptions](../specs/system/CH02_MODE_ASSUMPTIONS.json).
 - [Requested external inputs for CH03 and later](inputs/REQUIRED_INPUTS.md).
 - [Safety evidence status](safety/README.md) and [package evidence status](package/README.md).
