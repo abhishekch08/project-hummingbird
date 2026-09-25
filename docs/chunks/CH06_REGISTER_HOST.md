@@ -1,12 +1,12 @@
 # CH06: Register map and host protocol
 
-Status: **entry charter; primary-source survey complete; contract implementation pending**. Date: 2026-09-25 UTC. Entry baseline: CH05 conditional gate merged as PR #8 (`bbbebb0cd16e41fa8efe3eea2cbd4abc01ada5b3`). This acceptance plan is committed alongside the [dated host-interface survey](../literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md) **before** register/packet architecture work.
+Status: **entry charter and candidate model complete; physical ABI held**. Date: 2026-09-25 UTC. Entry baseline: CH05 conditional gate merged as PR #8 (`bbbebb0cd16e41fa8efe3eea2cbd4abc01ada5b3`). This acceptance plan is committed alongside the [dated host-interface survey](../literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md) **before** register/packet architecture work.
 
 ## Scope and gate boundary
 
 `MASTER_SPEC.md` §§21–23, 32, 42; `HIF-0001`–`HIF-0003`, `MEM-0001`–`MEM-0003`, `TIM-0001/0004`, `SEC-0003/0004`. Consume CH02 candidate modes, CH04 source/sample-group rates and CH05 64-bit *candidate* timestamp semantics. Do not treat CH04's invented host clock, 70% efficiency, BLE or packet fields as measurements. CH05 physical continuity remains held. No chosen host die revision, pins, SPI polarity/phase, maximum SCK, clock startup, actual BLE, on-chip SRAM macro, DMA controller or safety authorization policy has been approved.
 
-The goal here is a **versioned candidate software-visible contract** and a deterministic transport/transaction model. Stable numeric register offsets and on-wire field widths may be exercised in software, but remain provisional until host/ASIC and safety owners approve them and measured interface data are provided. The intended CH06 'all later digital blocks use this contract' gate cannot freeze physical software ABI from an invented host link.
+The resulting [candidate contract](../interfaces/CH06_REGISTER_PROTOCOL.md) and [limited gate](../reviews/CH06_GATE.md) implement a **versioned candidate software-visible contract** and a deterministic transport/transaction model. Stable numeric register offsets and on-wire field widths may be exercised in software, but remain provisional until host/ASIC and safety owners approve them and measured interface data are provided. The intended CH06 'all later digital blocks use this contract' gate cannot freeze physical software ABI from an invented host link.
 
 ## Acceptance before implementation
 

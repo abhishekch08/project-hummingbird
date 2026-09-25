@@ -5,8 +5,8 @@ CH02,Use-Case / Concurrent-Mode Matrix,COMPLETE,SCENARIOS_PASS_FEASIBILITY_HOLD,
 CH03,System Power/Energy Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews/CH03_GATE.md,CH02; model complete; physical evidence remains open
 CH04,System Data-Rate / Memory Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/reviews/CH04_GATE.md,CH03; model complete; hardware and product evidence remain open
 CH05,Clock / Timestamp / Synchronization Architecture,COMPLETE,MODEL_PASS_PHYSICAL_HOLD,docs/reviews/CH05_GATE.md,CH04; survey PR #7 merged before model; physical timing held
-CH06,Register Map / Host Protocol,ACTIVE,NOT_RUN,none,CH05; CH06 charter and literature gate underway under broad user authorization
-CH07,Biopotential Numerical Design,PLANNED,NOT_RUN,none,CH06; follow MASTER_SPEC.md §42 and applicable literature gate
+CH06,Register Map / Host Protocol,COMPLETE,MODEL_PASS_ABI_PHYSICAL_HOLD,docs/reviews/CH06_GATE.md,CH05; survey PR #9 precedes candidate model; physical ABI remains held
+CH07,Biopotential Numerical Design,PAUSED,NOT_RUN,none,CH06 conditional model; electrode/noise product inputs and block survey needed before topology
 CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; follow MASTER_SPEC.md §42 and applicable literature gate
 CH09,EDA/BioZ Architecture,PLANNED,NOT_RUN,none,CH08; follow MASTER_SPEC.md §42 and applicable literature gate
 CH10,Electrochemical / Na⁺ / K⁺ / Sweat Architecture,PLANNED,NOT_RUN,none,CH09; follow MASTER_SPEC.md §42 and applicable literature gate

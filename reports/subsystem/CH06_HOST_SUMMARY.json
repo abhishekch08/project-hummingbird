@@ -1,0 +1,313 @@
+{
+  "ch04_sha256": "85353d4fa9d5a8c42f1d1a387ab90b1ef7a75dc8734b4981434997dac367e087",
+  "config_sha256": "148a85c7b1846d541dfa682fa89c6b38b8c54cd21813ad87ce536b1499e24e4b",
+  "crc_bytes": 4,
+  "evidence_class": "candidate_synthetic_contract",
+  "example": {
+    "crc32c_check_vector": "0xe3069283",
+    "frame_hex": "5ac3010101000500000000000100000007000000010000000000000068656c6c6f1fa06cee",
+    "queued_after_ack": 0,
+    "queued_before_ack": 5,
+    "retry_identical": true,
+    "time_hi": 1,
+    "time_lo": 7,
+    "time_seq": 1
+  },
+  "fields": [
+    {
+      "bits": 16,
+      "name": "magic"
+    },
+    {
+      "bits": 8,
+      "name": "major"
+    },
+    {
+      "bits": 8,
+      "name": "type"
+    },
+    {
+      "bits": 16,
+      "name": "flags"
+    },
+    {
+      "bits": 16,
+      "name": "payload_len"
+    },
+    {
+      "bits": 32,
+      "name": "seq"
+    },
+    {
+      "bits": 32,
+      "name": "boot_epoch"
+    },
+    {
+      "bits": 64,
+      "name": "sample_time_us"
+    },
+    {
+      "bits": 32,
+      "name": "reserved"
+    }
+  ],
+  "frame_types": {
+    "ACK": 18,
+    "DATA": 1,
+    "ERROR": 20,
+    "GAP": 2,
+    "READ": 16,
+    "REPLY": 19,
+    "STATUS": 3,
+    "WRITE": 17
+  },
+  "gate": "MODEL_PASS_ABI_PHYSICAL_HOLD",
+  "header_bytes": 28,
+  "max_payload_bytes": 1024,
+  "modes": {
+    "audio": {
+      "ch04_alternative_framed_bytes_per_s": 774424,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 10922167,
+      "new_ch06_wire_bytes_per_s": 796408,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_DEFICIT"
+      },
+      "sample_group_bytes_per_s": 772216,
+      "whole_group_frames_per_s": 756
+    },
+    "cardiovascular": {
+      "ch04_alternative_framed_bytes_per_s": 47224,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 636618,
+      "new_ch06_wire_bytes_per_s": 46420,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 44916,
+      "whole_group_frames_per_s": 47
+    },
+    "daily_health": {
+      "ch04_alternative_framed_bytes_per_s": 6264,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 66158,
+      "new_ch06_wire_bytes_per_s": 4824,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 4600,
+      "whole_group_frames_per_s": 7
+    },
+    "deep_sleep": {
+      "ch04_alternative_framed_bytes_per_s": 0,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 0,
+      "new_ch06_wire_bytes_per_s": 0,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 0,
+      "whole_group_frames_per_s": 0
+    },
+    "optical_spectroscopy": {
+      "ch04_alternative_framed_bytes_per_s": 106240,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 1482350,
+      "new_ch06_wire_bytes_per_s": 108088,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 104760,
+      "whole_group_frames_per_s": 104
+    },
+    "research_fast_stress": {
+      "ch04_alternative_framed_bytes_per_s": 15553920,
+      "class": "stress",
+      "min_illustrative_sck_hz_with_guard": 219921189,
+      "new_ch06_wire_bytes_per_s": 16035920,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_DEFICIT",
+        "32000000": "AVERAGE_DEFICIT",
+        "64000000": "AVERAGE_DEFICIT",
+        "8000000": "AVERAGE_DEFICIT"
+      },
+      "sample_group_bytes_per_s": 15548240,
+      "whole_group_frames_per_s": 15240
+    },
+    "research_raw": {
+      "ch04_alternative_framed_bytes_per_s": 1553120,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 21909285,
+      "new_ch06_wire_bytes_per_s": 1597552,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_DEFICIT",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_DEFICIT"
+      },
+      "sample_group_bytes_per_s": 1548240,
+      "whole_group_frames_per_s": 1541
+    },
+    "resource_conflict_probe": {
+      "ch04_alternative_framed_bytes_per_s": 140400,
+      "class": "stress",
+      "min_illustrative_sck_hz_with_guard": 1952256,
+      "new_ch06_wire_bytes_per_s": 142352,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 138000,
+      "whole_group_frames_per_s": 136
+    },
+    "sleep_neuroscience": {
+      "ch04_alternative_framed_bytes_per_s": 206024,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 2875612,
+      "new_ch06_wire_bytes_per_s": 209680,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 203216,
+      "whole_group_frames_per_s": 202
+    },
+    "sweat_biochemistry": {
+      "ch04_alternative_framed_bytes_per_s": 3680,
+      "class": "candidate",
+      "min_illustrative_sck_hz_with_guard": 36535,
+      "new_ch06_wire_bytes_per_s": 2664,
+      "probes_at_70pct_full_duty": {
+        "16000000": "AVERAGE_ONLY",
+        "32000000": "AVERAGE_ONLY",
+        "64000000": "AVERAGE_ONLY",
+        "8000000": "AVERAGE_ONLY"
+      },
+      "sample_group_bytes_per_s": 2504,
+      "whole_group_frames_per_s": 5
+    }
+  },
+  "physical_inputs_missing": [
+    "approved_asic_sram_dma_and_cdc_implementation",
+    "approved_host_part_revision_and_errata_policy",
+    "approved_product_modes_frame_loss_and_retention_policy",
+    "measured_payload_goodput_wake_cs_dma_retry_and_power",
+    "qualified_timebase_and_host_epoch_semantics",
+    "reviewed_security_and_body_drive_authorization_policy",
+    "verified_spi_pins_mode_max_sck_and_mcu_firmware"
+  ],
+  "registers": [
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "DEVICE_ID",
+      "offset": 0,
+      "reset": 1213022769
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "ABI_VERSION",
+      "offset": 4,
+      "reset": 65536
+    },
+    {
+      "access": "RO",
+      "mask": 63,
+      "name": "STATUS",
+      "offset": 8,
+      "reset": 1
+    },
+    {
+      "access": "RW",
+      "mask": 63,
+      "name": "IRQ_ENABLE",
+      "offset": 12,
+      "reset": 0
+    },
+    {
+      "access": "RW1C",
+      "mask": 63,
+      "name": "IRQ_PENDING",
+      "offset": 16,
+      "reset": 0
+    },
+    {
+      "access": "WO",
+      "mask": 1,
+      "name": "TIME_SNAPSHOT",
+      "offset": 20,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "TIME_LO",
+      "offset": 24,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "TIME_HI",
+      "offset": 28,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "TIME_SEQ",
+      "offset": 32,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "FIFO_BYTES",
+      "offset": 36,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "LOSS_COUNT",
+      "offset": 40,
+      "reset": 0
+    },
+    {
+      "access": "RO",
+      "mask": 4294967295,
+      "name": "BOOT_EPOCH",
+      "offset": 44,
+      "reset": 1
+    }
+  ],
+  "schema_version": 1,
+  "status_bits": {
+    "BAD_COMMAND": 3,
+    "CRC_ERROR": 2,
+    "OVERFLOW": 1,
+    "READY": 0,
+    "SESSION_BREAK": 5,
+    "TIME_INVALID": 4
+  }
+}

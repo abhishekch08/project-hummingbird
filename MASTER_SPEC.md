@@ -3,7 +3,7 @@
 
 **Document role:** Authoritative starting specification for a new GPT-6 Astra Work-mode engineering project and GitHub repository.  
 **Project type:** Ultra-miniaturized, ultra-low-power, high-performance heterogeneous physiological-computing ASIC/SiP for a head-worn wearable.  
-**Status:** Candidate requirements baseline. CH00–CH02 passed limited repository, provisional-register and scenario-accounting gates. CH03–CH05 have passing conditional energy, data-flow and timebase **model** gates; physical battery, host/BLE/memory, clock/CDC and product feasibility remain on hold. CH06 entry/literature gate is active under user authorization; CH07 onward are not started. CH05's dated literature survey was merged before its timing model. Numerical targets remain provisional pending measured evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
+**Status:** Candidate requirements baseline. CH00–CH02 passed limited repository, provisional-register and scenario-accounting gates. CH03–CH05 have passing conditional energy, data-flow and timebase **model** gates; physical battery, host/BLE/memory, clock/CDC and product feasibility remain on hold. CH06 has a passing candidate register/host model gate with frozen ABI/physical implementation held; CH07 numerical entry is next under user authorization. CH05's dated literature survey was merged before its timing model. Numerical targets remain provisional pending measured evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
 **Primary design philosophy:** Maximize physiological sensing capability, signal integrity, compute capability, energy efficiency, and functional density per mm²/mm³ without knowingly sacrificing measurement performance.  
 **Important:** This document is a system and implementation specification, not a claim that any generated layout is tapeout-ready. Final tapeout requires the selected foundry PDK, licensed IP/macros, signoff EDA flow, DRC/LVS/ERC/PEX/STA/EM-IR/reliability closure, and engineering review.
 
@@ -2515,6 +2515,10 @@ All subsequent digital blocks use this contract.
 
 ---
 
+**CH06 execution gate (2026-09-25):** The [candidate model review](docs/reviews/CH06_GATE.md) is MODEL_PASS after the host/register survey was merged separately as PR #9. The byte-exact [generated register and framing contract](docs/interfaces/CH06_REGISTER_PROTOCOL.md) is **provisional**. Actual SPI pin and revision qualification, measured goodput/energy, SRAM/DMA/CDC, security, wake and reset semantics remain on hold. CH07 may enter its distinct literature/numerical gate, but this candidate ABI cannot be treated as production hardware.
+
+---
+
 ## CH07 — Biopotential Numerical Design
 
 ### Goal
@@ -3743,4 +3747,4 @@ Pin versions of public dependencies and scripts. Record command, inputs, seed, t
 
 # 61. CH00 SCOPE AND NEXT GATE
 
-CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture or begin circuit design. CH01–CH05 are complete only at limited register, scenario and synthetic-model gates. CH05 has a dated timing survey but **no** physical clock topology approval or surveyed circuit implementation. CH03 does **not** validate battery runtime or peak-current safety; CH04 does **not** validate hardware link, memory or product recording feasibility; CH05 does **not** validate 1 µs sleep accuracy, jitter, CDC/RDC, oscillator power or its uncompiled SV reference. CH06 is active under user authorization; its survey must be committed before the proposed host contract. CH07 and later work require their own gates. Use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV/Python checks pass.
+CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture or begin circuit design. CH01–CH05 are complete only at limited register, scenario and synthetic-model gates. CH05 has a dated timing survey but **no** physical clock topology approval or surveyed circuit implementation. CH03 does **not** validate battery runtime or peak-current safety; CH04 does **not** validate hardware link, memory or product recording feasibility; CH05 does **not** validate 1 µs sleep accuracy, jitter, CDC/RDC, oscillator power or its uncompiled SV reference. CH06 survey was merged before its passing candidate register/host model, but its frozen ABI and physical host link remain held. CH07 and later work require their own evidence gates. Use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV/Python checks pass.

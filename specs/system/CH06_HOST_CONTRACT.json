@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "evidence_class": "candidate_synthetic_contract",
+  "source": "MASTER_SPEC.md §§21–23,32,42; CH04_DATAFLOW_SUMMARY.json and CH05_GATE.md; CH06 host-interface survey",
+  "parameters": {
+    "protocol_major": {"value": 1, "unit": "version", "evidence": "assumed", "source": "CH06 candidate frame", "conditions": "major version; no silicon/firmware agreement", "range": [1, 1]},
+    "header_bytes": {"value": 28, "unit": "B", "evidence": "assumed", "source": "CH06 candidate fixed header", "conditions": "little-endian, structure validated by reference", "range": [28, 28]},
+    "crc_bytes": {"value": 4, "unit": "B", "evidence": "assumed", "source": "RFC 9260 Appendix A CRC-32c applied to CH06 frame", "conditions": "CRC covers header and payload; not authentication", "range": [4, 4]},
+    "max_payload_bytes": {"value": 1024, "unit": "B", "evidence": "assumed", "source": "CH06 candidate DMA buffer study", "conditions": "one frame payload; group records not split", "range": [128, 4096]},
+    "queue_capacity_bytes": {"value": 4096, "unit": "B", "evidence": "assumed", "source": "CH06 bounded ownership test fixture", "conditions": "ready and host-view payload bytes; not selected SRAM", "range": [1024, 65536]},
+    "illustrative_wire_utilization": {"value": 0.7, "unit": "ratio", "evidence": "assumed", "source": "CH02 bus payload efficiency; CH04 uses this as a separate service probe", "conditions": "excludes CH06 header/CRC, includes other wire/wake gaps only as one synthetic aggregate", "range": [0.1, 1.0]},
+    "capacity_guard": {"value": 1.2, "unit": "ratio", "evidence": "assumed", "source": "HIF-0001 and CH02 link guard", "conditions": "applied to CH06 frame bytes, then divided by illustrative utilization", "range": [1.0, 2.0]}
+  },
+  "frame": {
+    "magic": {"value": 50010, "unit": "u16", "evidence": "assumed", "source": "CH06 sync marker 0xC35A", "conditions": "little endian; CRC still needed after magic", "range": [50010, 50010]},
+    "byte_order": "little",
+    "header_fields": [
+      {"name": "magic", "bits": 16}, {"name": "major", "bits": 8}, {"name": "type", "bits": 8},
+      {"name": "flags", "bits": 16}, {"name": "payload_len", "bits": 16},
+      {"name": "seq", "bits": 32}, {"name": "boot_epoch", "bits": 32},
+      {"name": "sample_time_us", "bits": 64}, {"name": "reserved", "bits": 32}
+    ],
+    "types": {"DATA": 1, "GAP": 2, "STATUS": 3, "READ": 16, "WRITE": 17, "ACK": 18, "REPLY": 19, "ERROR": 20},
+    "flags": {"TIME_VALID": 1, "GAP_PRESENT": 2},
+    "crc": "CRC-32c/Castagnoli; reflected 0x82F63B78; init 0xffffffff; final xor 0xffffffff; append little-endian u32"
+  },
+  "status_bits": {"READY": 0, "OVERFLOW": 1, "CRC_ERROR": 2, "BAD_COMMAND": 3, "TIME_INVALID": 4, "SESSION_BREAK": 5},
+  "registers": [
+    {"name": "DEVICE_ID", "offset": 0, "access": "RO", "reset": 1213022769, "mask": 4294967295},
+    {"name": "ABI_VERSION", "offset": 4, "access": "RO", "reset": 65536, "mask": 4294967295},
+    {"name": "STATUS", "offset": 8, "access": "RO", "reset": 1, "mask": 63},
+    {"name": "IRQ_ENABLE", "offset": 12, "access": "RW", "reset": 0, "mask": 63},
+    {"name": "IRQ_PENDING", "offset": 16, "access": "RW1C", "reset": 0, "mask": 63},
+    {"name": "TIME_SNAPSHOT", "offset": 20, "access": "WO", "reset": 0, "mask": 1},
+    {"name": "TIME_LO", "offset": 24, "access": "RO", "reset": 0, "mask": 4294967295},
+    {"name": "TIME_HI", "offset": 28, "access": "RO", "reset": 0, "mask": 4294967295},
+    {"name": "TIME_SEQ", "offset": 32, "access": "RO", "reset": 0, "mask": 4294967295},
+    {"name": "FIFO_BYTES", "offset": 36, "access": "RO", "reset": 0, "mask": 4294967295},
+    {"name": "LOSS_COUNT", "offset": 40, "access": "RO", "reset": 0, "mask": 4294967295},
+    {"name": "BOOT_EPOCH", "offset": 44, "access": "RO", "reset": 1, "mask": 4294967295}
+  ],
+  "descriptor": {"evidence": "assumed", "source": "CH06 ownership fixture, not CH19 DMA RTL", "fields": ["payload_bytes", "sequence", "sample_time_us", "boot_epoch", "owner"], "states": ["FREE", "READY", "HOST_VIEW", "FREE_AFTER_ACK"]},
+  "physical_inputs": {
+    "approved_host_part_revision_and_errata_policy": null,
+    "verified_spi_pins_mode_max_sck_and_mcu_firmware": null,
+    "measured_payload_goodput_wake_cs_dma_retry_and_power": null,
+    "approved_asic_sram_dma_and_cdc_implementation": null,
+    "approved_product_modes_frame_loss_and_retention_policy": null,
+    "reviewed_security_and_body_drive_authorization_policy": null,
+    "qualified_timebase_and_host_epoch_semantics": null
+  }
+}
