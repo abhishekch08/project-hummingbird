@@ -1,6 +1,6 @@
 # Risk Register
 
-Qualitative screening only, updated 2026-09-25. Impact `I` and likelihood `L` use 1 (low) to 5 (high); the product is a **ranking aid, not a measured probability**. Product/safety owner review is still pending after CH04. All risks are open.
+Qualitative screening only, updated 2026-09-25. Impact `I` and likelihood `L` use 1 (low) to 5 (high); the product is a **ranking aid, not a measured probability**. Product/safety owner review is still pending after CH05. All risks are open.
 
 | ID | Risk | I | L | Score | Owner role | Mitigation / next evidence |
 |---|---|---:|---:|---:|---|---|
@@ -18,3 +18,4 @@ Qualitative screening only, updated 2026-09-25. Impact `I` and likelihood `L` us
 | R-012 | Body-connected drive or software fault exceeds safe limit | 5 | 3 | 15 | Safety + analog | Independent interlocks and fault injection; OI-005 |
 | R-013 | High-rate timestamp/framing floods host and FIFO | 4 | 4 | 16 | Digital architecture | CH04 separates packet/frame bytes, ASIC FIFO and host→BLE staging; invented audio BLE and research 16 MHz paths grow each cycle; measured links, loss policy and CH06/CH19 design needed; OI-013 |
 | R-014 | Scanned PDs are mistaken for simultaneous optical data | 4 | 4 | 16 | Optics + timing | CH02 explicitly splits 12 PDs across 8 ADCs; define coherence; OI-014 |
+| R-015 | LF sleep capture or an incoherent clock/reset handoff is mislabeled as 1 µs cross-sensor accuracy | 5 | 4 | 20 | Digital timing + algorithms | CH05 quantifies ~32 µs synthetic wake uncertainty and rejects sleep triggers without wake queue; require biomarker error limits, measured clock PVT/phase, RTL simulation and CDC/RDC signoff; OI-006/010/012 |

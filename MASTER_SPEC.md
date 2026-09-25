@@ -3,7 +3,7 @@
 
 **Document role:** Authoritative starting specification for a new GPT-6 Astra Work-mode engineering project and GitHub repository.  
 **Project type:** Ultra-miniaturized, ultra-low-power, high-performance heterogeneous physiological-computing ASIC/SiP for a head-worn wearable.  
-**Status:** Candidate requirements baseline. CH00–CH02 passed limited repository, provisional-register and scenario-accounting gates. CH03–CH04 have passing conditional energy and data-flow **model** gates; physical battery, host/BLE/memory and product feasibility remain on hold. CH05 onward are not started. Numerical targets remain provisional pending measured evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
+**Status:** Candidate requirements baseline. CH00–CH02 passed limited repository, provisional-register and scenario-accounting gates. CH03–CH05 have passing conditional energy, data-flow and timebase **model** gates; physical battery, host/BLE/memory, clock/CDC and product feasibility remain on hold. CH06 onward are not started. CH05's dated literature survey was merged before its timing model. Numerical targets remain provisional pending measured evidence and architecture review. See `state/PROJECT_STATE.md` for the current execution point.
 **Primary design philosophy:** Maximize physiological sensing capability, signal integrity, compute capability, energy efficiency, and functional density per mm²/mm³ without knowingly sacrificing measurement performance.  
 **Important:** This document is a system and implementation specification, not a claim that any generated layout is tapeout-ready. Final tapeout requires the selected foundry PDK, licensed IP/macros, signoff EDA flow, DRC/LVS/ERC/PEX/STA/EM-IR/reliability closure, and engineering review.
 
@@ -2493,6 +2493,8 @@ Freeze timing model.
 - simultaneous triggers
 - sleep/wake continuity
 
+**CH05 execution gate (2026-09-25):** The [conditional model review](docs/reviews/CH05_GATE.md) is MODEL_PASS; the dated timing survey was merged first. This does **not** freeze a physical clock tree, sub-microsecond sleep accuracy, CDC/RDC or the uncompiled continuous-counter SV reference. Physical timing remains on hold pending the inputs in `docs/inputs/REQUIRED_INPUTS.md`.
+
 ---
 
 ## CH06 — Register Map / Host Protocol
@@ -3741,4 +3743,4 @@ Pin versions of public dependencies and scripts. Record command, inputs, seed, t
 
 # 61. CH00 SCOPE AND NEXT GATE
 
-CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture, conduct individual block literature surveys or begin circuit design. CH01–CH04 are complete only at limited register, scenario and synthetic-model gates. CH03 does **not** validate battery runtime or peak-current safety; CH04 does **not** validate hardware link, memory or product recording feasibility. The next planned chunk is CH05, paused pending user instruction; use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV/Python checks pass.
+CH00 produced this specification, a tracked directory skeleton, templates, state records, traceability schema and a reproducible structural check. It did **not** freeze the proposed channel counts, approve the architecture or begin circuit design. CH01–CH05 are complete only at limited register, scenario and synthetic-model gates. CH05 has a dated timing survey but **no** physical clock topology approval or surveyed circuit implementation. CH03 does **not** validate battery runtime or peak-current safety; CH04 does **not** validate hardware link, memory or product recording feasibility; CH05 does **not** validate 1 µs sleep accuracy, jitter, CDC/RDC, oscillator power or its uncompiled SV reference. The next planned chunk is CH06, paused pending user instruction; use the live state file for handoff. Do not mark a draft specification `verified` solely because Markdown/CSV/Python checks pass.

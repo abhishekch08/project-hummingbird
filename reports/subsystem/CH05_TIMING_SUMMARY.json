@@ -1,0 +1,171 @@
+{
+  "active_budget": {
+    "capture_quantization_bound_ns": 500,
+    "cdc_phase_bound_ns": 500,
+    "cdc_pipeline_nominal_ns": 500,
+    "host_drift_bound_ns": 2000000,
+    "sample_jitter_bound_ns": 500,
+    "sample_time_vs_event_bound_ns": 6500,
+    "sleep_capture": false
+  },
+  "candidate_ticks_us": {
+    "aon": 30.517578,
+    "continuous": 1.0,
+    "fine_awake": 0.5
+  },
+  "cdc_rdc_inventory": [
+    {
+      "method": "coherent handshake with retained epoch and acknowledgment",
+      "path": "AON \u2192 fine timer snapshot",
+      "state": "model only"
+    },
+    {
+      "method": "captured/acknowledged event or queued toggle; no bare short pulse",
+      "path": "async event \u2192 destination",
+      "state": "model only"
+    },
+    {
+      "method": "stable multi-bit handshake or async FIFO; no separate bit flops",
+      "path": "timestamp/descriptor \u2192 host/DMA",
+      "state": "model only"
+    },
+    {
+      "method": "async assert, synchronized release and glitch-free switch proof pending",
+      "path": "reset/clock transition \u2192 each domain",
+      "state": "physical hold"
+    }
+  ],
+  "clock_tree_concept": {
+    "awake_capture": "fine clock only while valid; explicit epoch handoff",
+    "comparison": "continuous high-resolution counter, conditional on power",
+    "continuity_owner": "retained AON domain"
+  },
+  "evidence_class": "synthetic_model",
+  "gate": "MODEL_PASS_PHYSICAL_HOLD",
+  "host_epoch_probe": {
+    "epoch_ns": 1700000100000000000,
+    "uncertainty_bound_ns": 2100000
+  },
+  "imu_fifo_probe": {
+    "read_arrival_us": 1300000,
+    "sample_ns": 1248000000,
+    "uncertainty_bound_ns": 102000
+  },
+  "physical_inputs_missing": [
+    "approved_while_asleep_event_capture_policy",
+    "clock_reset_tree_implementation_and_cdc_rdc_signoff",
+    "owner_approved_cross_sensor_accuracy_and_drift",
+    "qualified_aon_fine_clock_pvt_jitter_power_area",
+    "qualified_host_epoch_exchange_uncertainty",
+    "real_trigger_to_aperture_and_scan_settling",
+    "selected_imu_sync_fifo_period_delay_and_tolerance"
+  ],
+  "schema_version": 1,
+  "simultaneous_events": [
+    {
+      "budget": {
+        "capture_quantization_bound_ns": 500,
+        "cdc_phase_bound_ns": 500,
+        "cdc_pipeline_nominal_ns": 500,
+        "host_drift_bound_ns": 2000000,
+        "sample_jitter_bound_ns": 500,
+        "sample_time_vs_event_bound_ns": 6500,
+        "sleep_capture": false
+      },
+      "capture_ns_upper": 1270000000,
+      "event_ns": 1270000000,
+      "sample_ns_upper": 1270005000,
+      "sample_timestamp_us": 1270004,
+      "sequence": 0,
+      "source": "LED_PULSE",
+      "target": "OPTICAL_ADC"
+    },
+    {
+      "budget": {
+        "capture_quantization_bound_ns": 500,
+        "cdc_phase_bound_ns": 500,
+        "cdc_pipeline_nominal_ns": 500,
+        "host_drift_bound_ns": 2000000,
+        "sample_jitter_bound_ns": 500,
+        "sample_time_vs_event_bound_ns": 6500,
+        "sleep_capture": false
+      },
+      "capture_ns_upper": 1270000000,
+      "event_ns": 1270000000,
+      "sample_ns_upper": 1270005000,
+      "sample_timestamp_us": 1270004,
+      "sequence": 1,
+      "source": "IMU_SYNC",
+      "target": "DMA"
+    },
+    {
+      "budget": {
+        "capture_quantization_bound_ns": 500,
+        "cdc_phase_bound_ns": 500,
+        "cdc_pipeline_nominal_ns": 500,
+        "host_drift_bound_ns": 2000000,
+        "sample_jitter_bound_ns": 500,
+        "sample_time_vs_event_bound_ns": 6500,
+        "sleep_capture": false
+      },
+      "capture_ns_upper": 1270000000,
+      "event_ns": 1270000000,
+      "sample_ns_upper": 1270005000,
+      "sample_timestamp_us": 1270004,
+      "sequence": 2,
+      "source": "GPIO",
+      "target": "EEG_ECG"
+    }
+  ],
+  "sleep_budget": {
+    "capture_quantization_bound_ns": 30518,
+    "cdc_phase_bound_ns": null,
+    "cdc_pipeline_nominal_ns": null,
+    "host_drift_bound_ns": 2000000,
+    "sample_jitter_bound_ns": null,
+    "sample_time_vs_event_bound_ns": null,
+    "sleep_capture": true
+  },
+  "sleep_wake_probe_us": {
+    "awake_after": 1259999,
+    "awake_before": 990000,
+    "continuous_sleep": 1200000,
+    "sleep": 1199981,
+    "wake_handoff_uncertainty_us": 32
+  },
+  "source_sha256": "7e059d5714195bce691b75c21069a4f146aa67249decc4589592969cd05cf96c",
+  "trigger_matrix": [
+    {
+      "source": "LED_PULSE",
+      "target": "OPTICAL_ADC"
+    },
+    {
+      "source": "OPTICAL_ADC",
+      "target": "DMA"
+    },
+    {
+      "source": "EEG_ECG",
+      "target": "DMA"
+    },
+    {
+      "source": "AUDIO_FRAME",
+      "target": "DMA"
+    },
+    {
+      "source": "ECHEM_WAVEFORM",
+      "target": "DMA"
+    },
+    {
+      "source": "IMU_SYNC",
+      "target": "DMA"
+    },
+    {
+      "source": "GPIO",
+      "target": "EEG_ECG"
+    },
+    {
+      "source": "DMA",
+      "target": "GPIO"
+    }
+  ]
+}
