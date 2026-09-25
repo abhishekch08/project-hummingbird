@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "evidence_note": "Invented conditional timing fixtures, not qualified device clocks, limits, or a selected architecture. See dated CH05 literature review.",
+  "parameters": {
+    "aon_clock_hz": {"value": 32768, "unit": "Hz", "evidence": "assumed", "source": "CH05 analytical LF oscillator probe", "conditions": "retained in sleep; exact nominal synthetic frequency", "range": [20000, 200000]},
+    "fine_clock_hz": {"value": 2000000, "unit": "Hz", "evidence": "assumed", "source": "CH05 analytical awake capture probe", "conditions": "awake only; no fine clock during sleep or relock", "range": [1000000, 8000000]},
+    "continuous_clock_hz": {"value": 1000000, "unit": "Hz", "evidence": "assumed", "source": "CH05 analytical always-running comparison", "conditions": "hypothetical always-on counter; physical power unknown", "range": [1000000, 8000000]},
+    "representation_bits": {"value": 64, "unit": "bit", "evidence": "assumed", "source": "TIM-0004 and CH02 group format", "conditions": "unsigned internal timestamp; no session duration approved", "range": [64, 64]},
+    "clock_error_ppm": {"value": 20, "unit": "ppm", "evidence": "assumed", "source": "CH05 drift sensitivity; not a chip tolerance", "conditions": "constant worst-case offset between host anchors, no random jitter", "range": [0, 1000]},
+    "resync_interval_s": {"value": 100, "unit": "s", "evidence": "assumed", "source": "CH05 host epoch sensitivity", "conditions": "hypothetical last-to-next valid host anchor", "range": [1, 86400]},
+    "cdc_stages": {"value": 2, "unit": "cycle", "evidence": "assumed", "source": "CH05 two-stage CDC illustration and AMD CDC guidelines", "conditions": "digital logic latency only; metastability MTBF unknown", "range": [2, 4]},
+    "destination_clock_hz": {"value": 2000000, "unit": "Hz", "evidence": "assumed", "source": "CH05 synthetic destination domain", "conditions": "independent phase; target clock running", "range": [1000000, 8000000]},
+    "trigger_pipeline_cycles": {"value": 1, "unit": "cycle", "evidence": "assumed", "source": "CH05 illustrative trigger dispatch", "conditions": "does not include sensor-specific aperture", "range": [0, 16]},
+    "sample_latency_ns": {"value": 4000, "unit": "ns", "evidence": "assumed", "source": "CH05 generic sensor aperture fixture", "conditions": "nominal after destination trigger; not an ADC specification", "range": [0, 1000000]},
+    "sample_jitter_bound_ns": {"value": 500, "unit": "ns", "evidence": "assumed", "source": "CH05 aperture spread sensitivity", "conditions": "worst-case absolute spread, independent of tick quantization", "range": [0, 100000]},
+    "imu_period_ns": {"value": 10000000, "unit": "ns", "evidence": "assumed", "source": "CH05 hypothetical 100 Hz IMU", "conditions": "device native output interval, not measured sample aperture", "range": [100000, 1000000000]},
+    "imu_pipeline_delay_ns": {"value": 2000000, "unit": "ns", "evidence": "assumed", "source": "CH05 hypothetical device sync-to-aperture correction", "conditions": "selected IMU must supply real value and variation", "range": [0, 100000000]},
+    "imu_delay_spread_ns": {"value": 100000, "unit": "ns", "evidence": "assumed", "source": "CH05 IMU correction sensitivity", "conditions": "worst-case signed uncertainty around pipeline delay", "range": [0, 10000000]},
+    "imu_clock_error_ppm": {"value": 100, "unit": "ppm", "evidence": "assumed", "source": "CH05 device-relative drift sensitivity", "conditions": "constant bound, not vendor specification", "range": [0, 10000]}
+  },
+  "trigger_routes": [
+    {"source": "LED_PULSE", "target": "OPTICAL_ADC"},
+    {"source": "OPTICAL_ADC", "target": "DMA"},
+    {"source": "EEG_ECG", "target": "DMA"},
+    {"source": "AUDIO_FRAME", "target": "DMA"},
+    {"source": "ECHEM_WAVEFORM", "target": "DMA"},
+    {"source": "IMU_SYNC", "target": "DMA"},
+    {"source": "GPIO", "target": "EEG_ECG"},
+    {"source": "DMA", "target": "GPIO"}
+  ],
+  "source_order": ["LED_PULSE", "OPTICAL_ADC", "EEG_ECG", "AUDIO_FRAME", "ECHEM_WAVEFORM", "IMU_SYNC", "GPIO", "DMA"],
+  "physical_inputs": {
+    "owner_approved_cross_sensor_accuracy_and_drift": null,
+    "qualified_aon_fine_clock_pvt_jitter_power_area": null,
+    "clock_reset_tree_implementation_and_cdc_rdc_signoff": null,
+    "real_trigger_to_aperture_and_scan_settling": null,
+    "selected_imu_sync_fifo_period_delay_and_tolerance": null,
+    "qualified_host_epoch_exchange_uncertainty": null,
+    "approved_while_asleep_event_capture_policy": null
+  }
+}

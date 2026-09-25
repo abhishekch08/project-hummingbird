@@ -1,6 +1,6 @@
 # CH05: Clock, timestamp and synchronization
 
-Status: **entry charter; survey complete; timing model pending**. Date: 2026-09-25 UTC. Entry baseline: merged CH04 PR #6 (`95b48dad1460882f068f4d96573aa268491d6ae1`). This charter fixes scope and acceptance before implementation. The [dated timing literature review](../literature/timing/2026-09-25_STATE_OF_ART_REVIEW.md) precedes any CH05 architecture/model work.
+Status: **conditional model complete; physical timing HOLD**. Date: 2026-09-25 UTC. Entry baseline: merged CH04 PR #6 (`95b48dad1460882f068f4d96573aa268491d6ae1`). This charter fixed scope and acceptance before implementation; its first version and the [dated timing literature review](../literature/timing/2026-09-25_STATE_OF_ART_REVIEW.md) merged in PR #7 **before** any CH05 architecture/model work.
 
 ## Boundary and trace
 
@@ -22,8 +22,13 @@ No clock source, cell, RTL topology, physical jitter, power/area, biomarker sync
 |---|---|
 | `specs/system/CH05_TIMING_SCENARIOS.json` | Source/evidence/range for all numbers and explicit missing physical inputs |
 | `models/python/ch05_timing.py` | Standard-library deterministic reference with `--check` regeneration |
+| `rtl/timestamp/ch05_continuous_reference.sv` | Limited continuous-clock counter reference with explicit unimplemented crossings and no synthesis claim |
 | `verification/unit/test_ch05_timing.py` | Tick wrap boundary, ambiguous wrap, simultaneous triggers, async capture, CDC/trigger uncertainties, sleep/wake monotonicity, drift/epoch, IMU FIFO alignment and invalid inputs |
 | `reports/subsystem/CH05_TIMING_SUMMARY.json`, `docs/budgets/CH05_TIMING_REVIEW.md` | Reproducible conditional results, physical hold and cross-links |
 | `docs/reviews/CH05_GATE.md`, `state/` | Requirement trace, open decisions, recorded regression and next stop point |
 
-Acceptance requires the survey committed first, `python3 scripts/verification/check_all.py` and `git diff --check` passing, reviewable publication with CI green, and a gate explicitly separating model behavior from hardware claims. A synthesizable RTL block is **not** signoff evidence without CDC/RDC tools, physical clocks and PDK; the Python state machine is the CH05 timestamp/trigger behavioral RTL reference. Stop at CH05 gate.
+Acceptance requires the survey committed first, `python3 scripts/verification/check_all.py` and `git diff --check` passing, reviewable publication with CI green, and a gate explicitly separating model behavior from hardware claims. The SV counter only sketches the continuous-clock comparison; no SV simulator is installed here. Python tests exercise behavioral contracts, **not** RTL equivalence. This RTL is no signoff evidence without simulation, CDC/RDC tools, physical clocks and PDK. Stop at CH05 gate.
+
+## Results and stop point
+
+The [CH05 gate](../reviews/CH05_GATE.md) records MODEL_PASS for the conditional reference and PHYSICAL_TIMING_HOLD for device accuracy, clock power and complete CDC/RTL. The [generated review](../budgets/CH05_TIMING_REVIEW.md) reports 0.5 µs awake and 30.518 µs slow-sleep ticks plus the unproved ~32 µs wake handoff. The input, source, 18 focused tests and reports are versioned; public regression runs 46 tests. CH06 is paused for a separate instruction.
