@@ -14,6 +14,7 @@ STEPS = [
     ["models/python/ch04_dataflow.py", "--check"],
     ["models/python/ch05_timing.py", "--check"],
     ["models/python/ch06_host.py", "--check"],
+    ["models/python/ch07_biopotential.py", "--check"],
     ["-m", "unittest", "discover", "-s", "verification/unit", "-p", "test_ch*.py"],
     ["scripts/verification/check_repository.py"],
 ]
@@ -23,7 +24,7 @@ def main():
     for args in STEPS:
         print(f"Running {sys.executable} {' '.join(args)}", flush=True)
         subprocess.run([sys.executable, *args], cwd=ROOT, check=True)
-    print("Public regression PASS (structure, provisional requirements, CH02–CH06 conditional models)")
+    print("Public regression PASS (structure, provisional requirements, CH02–CH07 conditional models)")
 
 
 if __name__ == "__main__":

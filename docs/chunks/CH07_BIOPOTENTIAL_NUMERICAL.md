@@ -1,6 +1,6 @@
 # CH07: Biopotential numerical design
 
-Status: **entry charter; numerical model not yet started**. Date: 2026-09-25 UTC. Entry baseline: CH06 candidate host model PR #10 merged as `8b460f4d99c6a5f9aea960b6dbabea5e1b45e4cb`. This charter and the [dated block survey](../literature/biopotential/2026-09-25_STATE_OF_ART_REVIEW.md) are a separate publication **before** any CH07 numerical architecture model. User has authorized subsequent chapters; this is a bounded evidence gate under that authorization.
+Status: **conditional numerical model passed; topology/block spec paused**. Date: 2026-09-25 UTC. Entry baseline: CH06 candidate host model PR #10 merged as `8b460f4d99c6a5f9aea960b6dbabea5e1b45e4cb`. This charter and the [dated block survey](../literature/biopotential/2026-09-25_STATE_OF_ART_REVIEW.md) are a separate publication **before** any CH07 numerical architecture model. User has authorized subsequent chapters; this is a bounded evidence gate under that authorization.
 
 ## Scope and boundary
 
@@ -17,3 +17,7 @@ Status: **entry charter; numerical model not yet started**. Date: 2026-09-25 UTC
 ## Proposed deliverables
 
 `specs/biosignal/CH07_NUMERICAL_SCENARIOS.json`, `models/python/ch07_biopotential.py`, `verification/unit/test_ch07_biopotential.py`, generated `reports/block/CH07_NUMERICAL_SUMMARY.json`, `docs/budgets/CH07_BIOPOTENTIAL_REVIEW.md`, `docs/reviews/CH07_GATE.md`, and updated assumptions, issues, risk, traceability and state. The full block specification and topology ADR remain **held** until source models and limits are approved. No transistor sizing or body-connected drive circuitry in this chapter.
+
+## Numerical result and stop
+
+The [CH07 conditional numerical gate](../reviews/CH07_GATE.md), [generated budget](../budgets/CH07_BIOPOTENTIAL_REVIEW.md), [source fixture](../../specs/biosignal/CH07_NUMERICAL_SCENARIOS.json) and 12 tests establish model arithmetic only. Both invented EEG/ECG scenarios violate an assumed 1 µVrms goal and DC-coupled offset headroom under their chosen gains. An electrode/AFE topology and full block specification remain unselected; CH08 cannot pass its own system-requirement gate until CH07 is resumed with measured/approved inputs.

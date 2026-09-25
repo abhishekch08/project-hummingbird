@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "evidence_class": "synthetic_biopotential_sensitivity",
+  "source": "MASTER_SPEC.md §7 and CH07 literature review; all values are assumed sensitivity fixtures, including values resembling external benchmarks",
+  "physical_inputs": {
+    "approved_eeg_ecg_biomarkers_bands_quality_and_gain_policy": null,
+    "measured_electrode_complex_impedance_noise_offset_motion_population": null,
+    "qualified_pad_esd_mux_leakage_and_parasitic_capacitance": null,
+    "approved_reference_drive_leadoff_and_body_current_safety": null,
+    "selected_afe_supply_power_area_and_pdk": null,
+    "measured_afe_adc_noise_transfer_function_and_alias_response": null
+  },
+  "common": {
+    "temperature_kelvin": {"value": 310, "unit": "K", "evidence": "assumed", "source": "illustrative contact temperature, not a calibrated skin distribution", "conditions": "simple white Johnson source approximation", "range": [270, 330]},
+    "input_resistance_ohm": {"value": 1000000000, "unit": "ohm", "evidence": "assumed", "source": "MASTER_SPEC.md §7 target >1 Gohm, not measured at any frequency", "conditions": "identical real resistance per leg, no pad capacitance or crosspoint", "range": [1000000, 10000000000]},
+    "adc_word_bits": {"value": 24, "unit": "bit", "evidence": "assumed", "source": "MASTER_SPEC.md §7 24-bit class label only", "conditions": "ideal uniform quantization; ENOB is not implied", "range": [8, 32]},
+    "adc_full_scale_vpp": {"value": 2.0, "unit": "Vpp", "evidence": "assumed", "source": "invented end-to-end converter input span; no selected rail", "conditions": "bipolar centered full scale, before gain", "range": [0.2, 5.0]},
+    "cmrr_db": {"value": 100, "unit": "dB", "evidence": "assumed", "source": "MASTER_SPEC.md §7 candidate CMRR, no mismatch condition", "conditions": "intrinsic front-end ideal balanced-source value at one frequency", "range": [60, 140]},
+    "test_common_mode_v": {"value": 1.0, "unit": "V", "evidence": "assumed", "source": "invented 50/60 Hz sensitivity stimulus", "conditions": "common-mode lies within unspecified absolute input range", "range": [0.0, 2.0]},
+    "noise_goal_uv_rms": {"value": 1.0, "unit": "uVrms", "evidence": "assumed", "source": "MASTER_SPEC.md §7 candidate 0.5–1 uVrms with undefined band", "conditions": "illustrative integrated target only, not product requirement", "range": [0.1, 10.0]},
+    "channel_count": {"value": 8, "unit": "channel", "evidence": "assumed", "source": "MASTER_SPEC.md §7 and CH02 simultaneous candidate paths", "conditions": "all channels modeled identically for the power multiplication only", "range": [1, 16]}
+  },
+  "scenarios": [
+    {
+      "id": "eeg_dry_resistive_probe",
+      "parameters": {
+        "band_low_hz": {"value": 0.1, "unit": "Hz", "evidence": "assumed", "source": "MASTER_SPEC.md §7 EEG candidate", "conditions": "simple flat integrated white-noise passband", "range": [0.01, 10]},
+        "band_high_hz": {"value": 250, "unit": "Hz", "evidence": "assumed", "source": "MASTER_SPEC.md §7 EEG candidate", "conditions": "not a selected biomarker bandwidth", "range": [10, 2000]},
+        "sample_rate_sps": {"value": 1000, "unit": "SPS", "evidence": "assumed", "source": "MASTER_SPEC.md §7 listed candidate rate", "conditions": "simultaneous uniform channels, unknown actual ADC", "range": [250, 8000]},
+        "modulator_rate_hz": {"value": 256000, "unit": "Hz", "evidence": "assumed", "source": "invented delta-sigma OSR study", "conditions": "single illustrative rate, not a converter architecture", "range": [1000, 2048000]},
+        "source_pos_ohm": {"value": 120000, "unit": "ohm", "evidence": "assumed", "source": "CH07 survey E3 one measured electrode spans 65–120 kohm", "conditions": "real, constant source at chosen frequency; not a max impedance", "range": [1000, 2000000]},
+        "source_neg_ohm": {"value": 65000, "unit": "ohm", "evidence": "assumed", "source": "CH07 survey E3 favorable measured fixture", "conditions": "deliberately unequal electrodes; no capacitive phase", "range": [1000, 2000000]},
+        "electrode_offset_mv": {"value": 300, "unit": "mV", "evidence": "assumed", "source": "MASTER_SPEC.md §7 provisional ±300 mV", "conditions": "worst absolute DC offset, no servo", "range": [0, 500]},
+        "bias_current_pa": {"value": 300, "unit": "pA", "evidence": "assumed", "source": "TI ADS1299 V1 typical example, not Hummingbird", "conditions": "per electrode pin magnitude; adverse direction", "range": [0, 10000]},
+        "pad_leakage_pa": {"value": 100, "unit": "pA", "evidence": "assumed", "source": "invented pad/ESD sensitivity, unselected PDK", "conditions": "per electrode pin magnitude; adverse direction", "range": [0, 10000]},
+        "amplifier_noise_uv_rms": {"value": 0.6, "unit": "uVrms", "evidence": "assumed", "source": "illustrative full-chain allocation, not E1 measured performance", "conditions": "independent stationary noise over stated band", "range": [0, 20]},
+        "adc_noise_uv_rms": {"value": 0.4, "unit": "uVrms", "evidence": "assumed", "source": "invented converter budget, no ADC selected", "conditions": "independent stationary input-referred noise", "range": [0, 20]},
+        "minimum_signal_uv_peak": {"value": 10, "unit": "uVpeak", "evidence": "assumed", "source": "TI ADS1299 application minimum example, not approved biomarker", "conditions": "unipolar worst amplitude before source loading", "range": [1, 1000]},
+        "gain": {"value": 24, "unit": "V/V", "evidence": "assumed", "source": "MASTER_SPEC.md §7 candidate range; probe offset saturation", "conditions": "DC-coupled single effective gain without servo", "range": [1, 128]},
+        "filter_corner_hz": {"value": 300, "unit": "Hz", "evidence": "assumed", "source": "invented cascade first-order analog low-pass", "conditions": "identical pole corners, no digital decimator attenuation", "range": [10, 5000]},
+        "filter_order": {"value": 2, "unit": "pole", "evidence": "assumed", "source": "invented anti-alias sensitivity", "conditions": "independent first-order cascaded stages", "range": [1, 12]},
+        "out_of_band_uv_peak": {"value": 1000, "unit": "uVpeak", "evidence": "assumed", "source": "invented near-first-image interferer", "conditions": "at fs minus signal band edge, before analog filter", "range": [0, 100000]},
+        "power_per_channel_uw": {"value": 10, "unit": "uW", "evidence": "assumed", "source": "invented AFE channel power for CH03 sensitivity", "conditions": "excludes ADC clock/rail loss, bias drive, pads and processor", "range": [1, 1000]}
+      }
+    },
+    {
+      "id": "ecg_resistive_probe",
+      "parameters": {
+        "band_low_hz": {"value": 0.05, "unit": "Hz", "evidence": "assumed", "source": "MASTER_SPEC.md §7 ECG candidate", "conditions": "flat integrated white noise only", "range": [0.01, 10]},
+        "band_high_hz": {"value": 500, "unit": "Hz", "evidence": "assumed", "source": "MASTER_SPEC.md §7 ECG candidate", "conditions": "no clinical claim or pacer policy", "range": [10, 2000]},
+        "sample_rate_sps": {"value": 2000, "unit": "SPS", "evidence": "assumed", "source": "MASTER_SPEC.md §7 listed candidate rate", "conditions": "uniform sampling", "range": [250, 8000]},
+        "modulator_rate_hz": {"value": 512000, "unit": "Hz", "evidence": "assumed", "source": "invented delta-sigma OSR study", "conditions": "not a converter selection", "range": [1000, 2048000]},
+        "source_pos_ohm": {"value": 50000, "unit": "ohm", "evidence": "assumed", "source": "invented ECG contact stress", "conditions": "pure resistance, unmeasured on head", "range": [1000, 2000000]},
+        "source_neg_ohm": {"value": 150000, "unit": "ohm", "evidence": "assumed", "source": "invented unequal ECG contact stress", "conditions": "pure resistance, unmeasured on head", "range": [1000, 2000000]},
+        "electrode_offset_mv": {"value": 300, "unit": "mV", "evidence": "assumed", "source": "MASTER_SPEC.md §7 provisional ±300 mV", "conditions": "worst absolute, no servo", "range": [0, 500]},
+        "bias_current_pa": {"value": 300, "unit": "pA", "evidence": "assumed", "source": "TI ADS1299 V1 example, not Hummingbird", "conditions": "adverse per-pin magnitude", "range": [0, 10000]},
+        "pad_leakage_pa": {"value": 100, "unit": "pA", "evidence": "assumed", "source": "invented pad/ESD sensitivity", "conditions": "adverse per-pin magnitude", "range": [0, 10000]},
+        "amplifier_noise_uv_rms": {"value": 0.8, "unit": "uVrms", "evidence": "assumed", "source": "invented amplifier allocation", "conditions": "independent stationary noise", "range": [0, 20]},
+        "adc_noise_uv_rms": {"value": 0.6, "unit": "uVrms", "evidence": "assumed", "source": "invented converter allocation", "conditions": "independent stationary input-referred noise", "range": [0, 20]},
+        "minimum_signal_uv_peak": {"value": 50, "unit": "uVpeak", "evidence": "assumed", "source": "illustrative head-worn ECG level, no measured product source", "conditions": "unipolar amplitude", "range": [1, 1000]},
+        "gain": {"value": 4, "unit": "V/V", "evidence": "assumed", "source": "illustrative DC-coupled effective gain", "conditions": "no servo or offset subtraction", "range": [1, 128]},
+        "filter_corner_hz": {"value": 600, "unit": "Hz", "evidence": "assumed", "source": "invented cascade first-order analog low-pass", "conditions": "no decimator attenuation", "range": [10, 5000]},
+        "filter_order": {"value": 2, "unit": "pole", "evidence": "assumed", "source": "invented anti-alias sensitivity", "conditions": "cascaded first-order poles", "range": [1, 12]},
+        "out_of_band_uv_peak": {"value": 1000, "unit": "uVpeak", "evidence": "assumed", "source": "invented image-band interferer", "conditions": "at fs minus signal band edge", "range": [0, 100000]},
+        "power_per_channel_uw": {"value": 12, "unit": "uW", "evidence": "assumed", "source": "invented AFE channel power", "conditions": "excludes digital, conversion/rail overhead and body drive", "range": [1, 1000]}
+      }
+    }
+  ]
+}
