@@ -8,7 +8,7 @@
 - CH04: conditional all-mode byte/packet rates, timed ASIC/host queues, SRAM and NAND projections with 12 tests complete; **MODEL_PASS, physical FEASIBILITY_HOLD**.
 - CH05: dated literature review merged before timing model; conditional clock/trigger/IMU model with 18 tests complete; **MODEL_PASS, physical timing/RTL signoff HOLD**.
 - CH06: dated host/register survey merged as PR #9 before candidate register/packet model; 23 focused tests, **MODEL_PASS, frozen ABI/physical link HOLD**.
-- CH07: first biopotential numerical chunk, entry charter and block literature gate are next; approved electrode and performance inputs required for topology selection.
+- CH07: entry survey merged before numerical work; 12 tests and conditional resistor/noise/CMRR/headroom/alias/power budget pass as arithmetic; **topology and frozen block spec HOLD** for measured electrodes, product quality and safety/PDK inputs. CH08 remains unstarted.
 - Remaining chunks and signoff gates: `MASTER_SPEC.md` §42.
 
 `state/CHUNK_STATUS.csv` is the machine-readable index for all CH00–CH50 gates. Milestones are not silicon or clinical signoff.

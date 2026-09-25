@@ -1,0 +1,105 @@
+{
+  "assumptions": {
+    "adc_full_scale_vpp": 2.0,
+    "adc_word_bits": 24,
+    "channel_count": 8,
+    "cmrr_db": 100,
+    "input_resistance_ohm": 1000000000,
+    "noise_goal_uv_rms": 1.0,
+    "temperature_kelvin": 310,
+    "test_common_mode_v": 1.0
+  },
+  "ch02_sha256": "c3043a250688a9e7a7901a26cc1956137250e86269150284ed6ae9053b688e67",
+  "config_sha256": "0d6d5378c2b9edc87c94a0ec667e7a494d5030d998dffedbe923ca7b191c06a9",
+  "evidence_class": "synthetic_biopotential_sensitivity",
+  "gate": "NUMERICAL_MODEL_ONLY_TOPOLOGY_HOLD",
+  "modes": {
+    "ecg_resistive_probe": {
+      "adc_ideal_lsb_uv": 0.029802322387695312,
+      "adc_ideal_quant_uv_rms": 0.00860318942650595,
+      "assumed_noise_goal_uv_rms": 1.0,
+      "band_hz": [
+        0.05,
+        500
+      ],
+      "bias_plus_pad_worst_uv": 80.0,
+      "contact_mismatch_cm_residual_uv_peak": 99.98000324951128,
+      "dc_coupled_headroom_probe": "MODEL_SATURATES",
+      "dc_coupled_input_half_scale_v": 0.25,
+      "eight_identical_channels_uw": 96,
+      "first_alias_analog_gain": 0.13793103448275862,
+      "first_alias_image_hz": 1500,
+      "first_alias_probe": "MODEL_ABOVE_NOISE_GOAL",
+      "first_alias_spur_uv_peak": 137.9310344827586,
+      "intrinsic_cmrr_residual_uv_peak": 10.0,
+      "loading_fraction": 0.9999000124982502,
+      "minimum_signal_after_loading_uv_peak": 49.995000624912514,
+      "osr_label_only": 256,
+      "power_excludes": [
+        "ADC/AFE implementation uncertainty",
+        "rail losses",
+        "pads",
+        "bias/lead-off drive",
+        "clock and digital",
+        "motion artifact"
+      ],
+      "random_noise_probe": "MODEL_ABOVE_GOAL",
+      "random_rss_input_noise_uv_rms": 1.646657130630462,
+      "sample_rate_sps": 2000,
+      "signal_edge_analog_gain": 0.5901639344262294,
+      "source_neg_ohm": 150000,
+      "source_pos_ohm": 50000,
+      "source_white_thermal_uv_rms": 1.3082070520326046,
+      "worst_phase_common_mode_uv_peak": 109.98000324951128,
+      "worst_phase_required_headroom_v": 0.3002399750038744
+    },
+    "eeg_dry_resistive_probe": {
+      "adc_ideal_lsb_uv": 0.004967053731282552,
+      "adc_ideal_quant_uv_rms": 0.0014338649044176584,
+      "assumed_noise_goal_uv_rms": 1.0,
+      "band_hz": [
+        0.1,
+        250
+      ],
+      "bias_plus_pad_worst_uv": 74.0,
+      "contact_mismatch_cm_residual_uv_peak": 54.98982645313344,
+      "dc_coupled_headroom_probe": "MODEL_SATURATES",
+      "dc_coupled_input_half_scale_v": 0.041666666666666664,
+      "eight_identical_channels_uw": 80,
+      "first_alias_analog_gain": 0.13793103448275862,
+      "first_alias_image_hz": 750,
+      "first_alias_probe": "MODEL_ABOVE_NOISE_GOAL",
+      "first_alias_spur_uv_peak": 137.9310344827586,
+      "intrinsic_cmrr_residual_uv_peak": 10.0,
+      "loading_fraction": 0.9999075093114989,
+      "minimum_signal_after_loading_uv_peak": 9.999075093114989,
+      "osr_label_only": 256,
+      "power_excludes": [
+        "ADC/AFE implementation uncertainty",
+        "rail losses",
+        "pads",
+        "bias/lead-off drive",
+        "clock and digital",
+        "motion artifact"
+      ],
+      "random_noise_probe": "MODEL_ABOVE_GOAL",
+      "random_rss_input_noise_uv_rms": 1.145132392178522,
+      "sample_rate_sps": 1000,
+      "signal_edge_analog_gain": 0.5901639344262294,
+      "source_neg_ohm": 65000,
+      "source_pos_ohm": 120000,
+      "source_white_thermal_uv_rms": 0.8895651407558302,
+      "worst_phase_common_mode_uv_peak": 64.98982645313345,
+      "worst_phase_required_headroom_v": 0.30014898890154623
+    }
+  },
+  "physical_inputs_missing": [
+    "approved_eeg_ecg_biomarkers_bands_quality_and_gain_policy",
+    "approved_reference_drive_leadoff_and_body_current_safety",
+    "measured_afe_adc_noise_transfer_function_and_alias_response",
+    "measured_electrode_complex_impedance_noise_offset_motion_population",
+    "qualified_pad_esd_mux_leakage_and_parasitic_capacitance",
+    "selected_afe_supply_power_area_and_pdk"
+  ],
+  "schema_version": 1
+}

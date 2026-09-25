@@ -88,6 +88,10 @@ def check_chunks():
         if row["Status"] == "COMPLETE":
             assert row["Gate_Result"] != "NOT_RUN", row
             assert (ROOT / row["Evidence"]).is_file(), row
+        elif row["Status"] == "PAUSED" and row["Gate_Result"] != "NOT_RUN":
+            # A reviewed partial gate can be paused for owner inputs without
+            # falsely being marked complete or losing its evidence link.
+            assert (ROOT / row["Evidence"]).is_file(), row
         else:
             assert row["Gate_Result"] == "NOT_RUN" and row["Evidence"] == "none", row
     state = (ROOT / "state/PROJECT_STATE.md").read_text(encoding="utf-8")

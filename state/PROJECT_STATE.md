@@ -1,11 +1,11 @@
 # Current Baseline
 
-Architecture version: unselected; provisional requirements, CH02 scenarios, conditional CH03 energy, CH04 dataflow, CH05 timing and CH06 candidate host models only.
+Architecture version: unselected; provisional requirements, CH02 scenarios, conditional CH03 energy, CH04 dataflow, CH05 timing, CH06 candidate host and CH07 biopotential numerical models only.
 Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after fetching.
-Previous reviewed baseline: `124ef7843b7b71464c618b7cb256368b5e53500c` (CH06 literature/entry PR #9 merged before any host model).
-Current chunk: CH07 next under user authorization for subsequent chapters. CH00–CH06 complete at limited gates; CH06 review is in the current candidate-contract publication.
-CH07 is active at its entry charter and dated biopotential source review after CH06 PR #10 merged; the user has already authorized continuation.
-Current subchunk: CH07 entry charter and dated biopotential primary-source survey before numerical design. CH05 timing and CH06 physical host ABI remain HOLD.
+Previous reviewed baseline: `4e6bd443a2de7402f0ff92fcaba076790b717a19` (CH07 entry/literature PR #11 merged before any numerical model).
+Current chunk: CH07 under user authorization for subsequent chapters. CH00–CH06 complete at limited gates; CH07 has a passing conditional numerical subgate and an unfulfilled topology/block-spec gate.
+CH07 is paused at its topology and frozen-requirements gate for owner-approved electrode, signal-quality, PDK/power and safety evidence; user authorization already covers continuation when those inputs exist.
+Current subchunk: CH07 source survey merged as PR #11, synthetic numerical report and 12 tests published as a limited model gate. CH05 timing and CH06 physical host ABI remain HOLD.
 Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND selection, pulse safety limit, electrical/timing target, chip architecture or tapeout claim approved.
 
 # Passed Gates
@@ -17,20 +17,21 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 - CH04: CH02 raw-rate reconciliation, conditional packet/queue/SRAM/NAND arithmetic and 12 focused tests, MODEL_PASS; physical host/BLE/storage/product FEASIBILITY_HOLD in `docs/reviews/CH04_GATE.md`.
 - CH05: primary timing survey/quantitative comparison merged as PR #7 before architecture work; conditional clock/trigger/drift/IMU model and 18 focused tests, MODEL_PASS; physical timing and uncompiled RTL HOLD in `docs/reviews/CH05_GATE.md`.
 - CH06: host/register primary survey merged as PR #9 before candidate contract; 23 tests and CH04 rate reconciliation, MODEL_PASS; frozen host/ASIC ABI and physical SPI/DMA HOLD in `docs/reviews/CH06_GATE.md`.
+- CH07: electrode/AFE survey merged as PR #11 before any numerical model; conditional resistor/noise/interference/headroom/alias/OSR sensitivities and 12 focused tests, MODEL_PASS; selected topology and block specification HOLD in `docs/reviews/CH07_GATE.md`.
 
 # Active Work
 
-- CH07 biopotential numerical entry is active; its own dated literature review and acceptance plan are being committed before numerical design. CH05's small SV reference is uncompiled and does not select a timebase. CH07 physical circuit design has not begun.
+- CH07 numerical fixtures are versioned; both violate at least one invented goal and select no circuit. CH08 and later chapters requiring a frozen block spec cannot claim a valid requirement-pass gate; see `docs/reviews/CH08_CH50_ENTRY_AUDIT.md`. CH05's small SV reference is uncompiled and does not select a timebase. Physical circuit design has not begun.
 - `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
 
-- Product priorities/concurrency, measured cell voltage/impedance/pulse limit and capacity, real rail/load/duty data, optical source radiometry, actual host/BLE link and memory throughput/endurance, SRAM implementation, approved cross-sensor timing/error limits, qualified clocks/IMU and CDC/RDC, pinout/package rules and foundry/IP availability. See `state/OPEN_ISSUES.md` and `docs/inputs/REQUIRED_INPUTS.md`.
+- Product priorities/concurrency, measured cell voltage/impedance/pulse limit and capacity, real rail/load/duty data, optical source radiometry, actual host/BLE link and memory throughput/endurance, SRAM implementation, approved cross-sensor timing/error limits, qualified clocks/IMU and CDC/RDC, EEG/ECG electrode complex source/noise/artifact distributions and quality limits, safe body-drive/protection policy, pinout/package rules and foundry/IP availability. See `state/OPEN_ISSUES.md` and `docs/inputs/REQUIRED_INPUTS.md`.
 - Architecture and tapeout gates remain blocked by missing external evidence and by the later design/review sequence in `MASTER_SPEC.md`.
 
 # Next Exact Action
 
-- Publish CH07 entry charter and dated source comparison independently. Then build/test a conditional numerical noise/offset/headroom/ADC model; hold a selected topology until electrode and product quality targets are owner approved. Do not promote CH03–CH06's synthetic outputs to product targets.
+- Close CH07's topology/specification gate with representative electrode model versus frequency and movement, approved EEG/ECG signal-quality/passband/recovery/power targets, qualified pad/PDK and body-current safety policy. Then choose/review topology and only then start CH08 behavior. Do not promote CH03–CH07's synthetic outputs to product targets.
 
 # Required Inputs
 
@@ -40,5 +41,5 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 
 Command: `python3 scripts/verification/check_all.py`
 Commit: read `git rev-parse HEAD` on the checkout under test; a commit cannot self-report its eventual merge SHA.
-Result: PASS locally for CH00–CH06 public checks and 69 focused tests; see `state/VERIFICATION_STATUS.md` and CI on the published commit. SV reference is uncompiled; public checks validate bookkeeping and conditional models only.
+Result: PASS locally for CH00–CH07 public checks and 81 focused tests; see `state/VERIFICATION_STATUS.md` and CI on the published commit. SV reference is uncompiled; public checks validate bookkeeping and conditional models only.
 Timestamp: 2026-09-25 UTC.
