@@ -2545,6 +2545,8 @@ No transistor sizing until numerical targets are frozen.
 
 **CH07 conditional subgate (2026-09-25):** The [source survey and entry charter](docs/chunks/CH07_BIOPOTENTIAL_NUMERICAL.md) merged as PR #11 before numerical work. The [synthetic numerical budget](docs/budgets/CH07_BIOPOTENTIAL_REVIEW.md) and [gate](docs/reviews/CH07_GATE.md) pass arithmetic checks, but do **not** deliver this chapter's selected topology or frozen block specification. CH07 is paused for measured complex electrode/contact/motion/offset data, owner-approved EEG/ECG performance and recovery limits, PDK/pad and safety/power policy. The CH08 behavior gate cannot be claimed until CH07's remaining outputs are reviewed; later chapters still require their own sequence and evidence.
 
+**CH07 evidence-readiness follow-on (2026-09-28):** A [passive complex-source sensitivity](docs/budgets/CH07_COMPLEX_ELECTRODE_REVIEW.md) and [owner measurement protocol](docs/inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) are published under a [limited model/plan gate](docs/reviews/CH07_EVIDENCE_READINESS_GATE.md). The assumed capacitances are not characterized electrodes or pads. Topology and block-spec freeze remain HOLD; CH08 is NOT_RUN.
+
 ---
 
 ## CH08 — Biopotential Behavioral Implementation

@@ -14,3 +14,5 @@ Date: 2026-09-25 UTC. This is a dependency check after the [CH07 conditional gat
 | CH49–CH50 release/readiness | Closed full-chip physical/electrical/reliability/test/safety/assembly reviews with immutable signed evidence. | No silicon implementation, approved masks, signoff evidence or tapeout release candidate. Both chapters remain NOT_RUN. |
 
 **Immediate critical path:** sensor and algorithm owners supply the CH07 electrode/quality envelope; systems/power/PDK/safety owners reconcile the prior CH03–CH06 holds and CH07 rail/ESD/drive assumptions. Resume CH07, select and review a topology/block specification, then prepare a separate CH08 entry/survey. The user’s instruction authorizes the work when evidence becomes available; status does not imply a new permission request. Preserve provisional evidence labels rather than filling missing silicon/product inputs with invented values.
+
+The [CH07 evidence intake](../inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) and [complex-source subgate](CH07_EVIDENCE_READINESS_GATE.md), published after this audit, make the input/review path concrete but do not fulfill the CH08 entry condition. CH08–CH50 remain NOT_RUN.

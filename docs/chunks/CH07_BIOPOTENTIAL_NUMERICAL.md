@@ -21,3 +21,5 @@ Status: **conditional numerical model passed; topology/block spec paused**. Date
 ## Numerical result and stop
 
 The [CH07 conditional numerical gate](../reviews/CH07_GATE.md), [generated budget](../budgets/CH07_BIOPOTENTIAL_REVIEW.md), [source fixture](../../specs/biosignal/CH07_NUMERICAL_SCENARIOS.json) and 12 tests establish model arithmetic only. Both invented EEG/ECG scenarios violate an assumed 1 µVrms goal and DC-coupled offset headroom under their chosen gains. An electrode/AFE topology and full block specification remain unselected; CH08 cannot pass its own system-requirement gate until CH07 is resumed with measured/approved inputs.
+
+The [2026-09-28 follow-on](CH07_EVIDENCE_READINESS.md) extends the conditional source model with a passive complex sensitivity sweep and publishes a [measurement intake](../inputs/CH07_ELECTRODE_QUALITY_INTAKE.md). Its [limited gate](../reviews/CH07_EVIDENCE_READINESS_GATE.md) does not close this chapter's topology/block-spec requirement.
