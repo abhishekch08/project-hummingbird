@@ -7,7 +7,7 @@ CH04,System Data-Rate / Memory Model,COMPLETE,MODEL_PASS_FEASIBILITY_HOLD,docs/r
 CH05,Clock / Timestamp / Synchronization Architecture,COMPLETE,MODEL_PASS_PHYSICAL_HOLD,docs/reviews/CH05_GATE.md,CH04; survey PR #7 merged before model; physical timing held
 CH06,Register Map / Host Protocol,COMPLETE,MODEL_PASS_ABI_PHYSICAL_HOLD,docs/reviews/CH06_GATE.md,CH05; survey PR #9 precedes candidate model; physical ABI remains held
 CH07,Biopotential Numerical Design,PAUSED,MODEL_PASS_TOPOLOGY_HOLD,docs/reviews/CH07_GATE.md,CH06; resistor and complex-source synthetic math plus evidence intake complete; measured electrode/quality/PDK/safety inputs needed for selection and block spec
-CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; follow MASTER_SPEC.md §42 and applicable literature gate
+CH08,Biopotential Behavioral Implementation,PLANNED,NOT_RUN,none,CH07; pre-entry source and test plan prepared without starting implementation; CH07 topology/spec required
 CH09,EDA/BioZ Architecture,PLANNED,NOT_RUN,none,CH08; follow MASTER_SPEC.md §42 and applicable literature gate
 CH10,Electrochemical / Na⁺ / K⁺ / Sweat Architecture,PLANNED,NOT_RUN,none,CH09; follow MASTER_SPEC.md §42 and applicable literature gate
 CH11,Optical System Physics & Noise Budget,PLANNED,NOT_RUN,none,CH10; follow MASTER_SPEC.md §42 and applicable literature gate
