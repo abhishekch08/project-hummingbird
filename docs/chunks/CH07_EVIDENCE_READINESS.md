@@ -1,0 +1,16 @@
+# CH07 follow-on: electrode evidence and complex-source sensitivity
+
+Date: 2026-09-28 UTC. This work resumes the paused CH07 numerical study under the user's continuing authorization. It is a bounded **input-readiness** subgate, not a topology selection, a frozen block specification, or CH08 entry. The [CH07 source survey](../literature/biopotential/2026-09-25_STATE_OF_ART_REVIEW.md) and [resistive numerical model](../reviews/CH07_GATE.md) were separately published before this follow-on. Revisit the survey when the actual electrode, market, passband or process is chosen.
+
+## Scope and acceptance, set before implementation
+
+- Derive a passive two-leg complex electrode and input-admittance sensitivity from first principles; sweep both existing synthetic EEG and ECG scenarios, including the 50/60 Hz common-mode probes. Keep the old DC resistances exactly linked to the CH07 fixture. State phase, differential loading and the magnitude of source-mismatch conversion separately from intrinsic AFE CMRR. The worst-phase sum is an **upper bound for one assumed common-mode amplitude**, not an integrated random-noise value.
+- Store all new numbers as assumed, unit-bearing ranges with source/conditions; reject invalid, missing or non-passive elements, duplicate/unordered frequencies, unapproved physical substitutions and mismatches with the existing fixture. Generate a deterministic machine report and reviewed calculation sheet with input hashes. Test a resistive zero-capacitance limit, unequal-source conversion, input-capacitance sensitivity and the bad-input cases.
+- Give sensor, algorithm, analog/PDK, power and safety owners an explicit [evidence intake protocol](../inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) with measurement conditions, deliverable fields, privacy handling and review decisions. Separate private raw recordings from public derived summaries and metadata. Do not assign a universal electrode limit, numerical patient-current limit or product acceptance threshold.
+- Run the full public regression and publish the limited gate; keep CH07 `PAUSED` and CH08 `PLANNED, NOT_RUN` until the missing evidence is independently reviewed.
+
+## Inputs, limits and handoff
+
+Trace `BIO-0003`–`BIO-0021`, `SAFE-0001/0003/0005`, `OI-001/004/005/006/007/012`. The mathematical fixture is [`CH07_NUMERICAL_SCENARIOS.json`](../../specs/biosignal/CH07_NUMERICAL_SCENARIOS.json), with [CH02](../../specs/system/CH02_MODE_ASSUMPTIONS.json) channel count. The complex capacitances are illustrative additions; no measured complex spectrum, electrode population, pad parasitic, noise spectrum, rail, recovery, body-current policy or approved quality target is supplied. No analog/ADC topology, reference drive, lead-off current, circuit, behavioral channel or PDK design is selected. Model errors must not be promoted to product failure claims.
+
+The area/volume/power objective remains to compare feasible implementations within a selected sensor/SiP and CH03 budget after owner data exists. Quality, source-band transfer, recovery and hardware current protection must be set by qualified owners and then upheld; optimizing power or size cannot establish those requirements. The next handoff is CH07's topology/block-spec review. CH08 behavioral implementation starts only after that review passes.

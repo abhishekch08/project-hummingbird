@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "evidence_class": "synthetic_complex_electrode_sensitivity",
+  "source": "CH07 resistive fixture plus illustrative passive RC and pad-capacitance sensitivity; no measured or selected electrode",
+  "physical_inputs": {
+    "approved_eeg_ecg_biomarkers_bands_quality_and_gain_policy": null,
+    "measured_electrode_complex_impedance_noise_offset_motion_population": null,
+    "qualified_pad_esd_mux_leakage_and_parasitic_capacitance": null,
+    "approved_reference_drive_leadoff_and_body_current_safety": null,
+    "selected_afe_supply_power_area_and_pdk": null,
+    "measured_afe_adc_noise_transfer_function_and_alias_response": null
+  },
+  "input_capacitance_pf": {
+    "value": 20, "unit": "pF", "evidence": "assumed",
+    "source": "invented per-leg total pad plus input capacitance for sensitivity",
+    "conditions": "lumped shunt to assumed ideal AC reference, identical per leg; excludes driven shields and nonlinear ESD",
+    "range": [0, 1000]
+  },
+  "frequency_grid_hz": {
+    "values": [0.05, 0.1, 1, 10, 50, 60, 250, 500, 750, 1500], "unit": "Hz", "evidence": "assumed",
+    "source": "CH07 candidate EEG/ECG bands, line interference and first-image probes",
+    "conditions": "discrete steady-state sinusoidal transfer only, not integrated noise/alias filtering",
+    "range": [0.01, 50000]
+  },
+  "modes": [
+    {
+      "id": "eeg_dry_resistive_probe",
+      "positive": {
+        "series_ohm": {"value": 12000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split of CH07 EEG positive DC contact", "conditions": "passive series resistor", "range": [0, 2000000]},
+        "parallel_ohm": {"value": 108000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split; series plus parallel equals old EEG DC resistance", "conditions": "passive resistor shunted by interface capacitance", "range": [1, 2000000]},
+        "interface_capacitance_nf": {"value": 100, "unit": "nF", "evidence": "assumed", "source": "invented polarization sensitivity, not a fitted constant", "conditions": "linear time-invariant lumped capacitor", "range": [0, 100000]}
+      },
+      "negative": {
+        "series_ohm": {"value": 8000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split of CH07 EEG negative DC contact", "conditions": "passive series resistor", "range": [0, 2000000]},
+        "parallel_ohm": {"value": 57000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split; series plus parallel equals old EEG DC resistance", "conditions": "passive resistor shunted by interface capacitance", "range": [1, 2000000]},
+        "interface_capacitance_nf": {"value": 200, "unit": "nF", "evidence": "assumed", "source": "invented polarization sensitivity, not a fitted constant", "conditions": "linear time-invariant lumped capacitor", "range": [0, 100000]}
+      }
+    },
+    {
+      "id": "ecg_resistive_probe",
+      "positive": {
+        "series_ohm": {"value": 5000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split of CH07 ECG positive DC contact", "conditions": "passive series resistor", "range": [0, 2000000]},
+        "parallel_ohm": {"value": 45000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split; series plus parallel equals old ECG DC resistance", "conditions": "passive resistor shunted by interface capacitance", "range": [1, 2000000]},
+        "interface_capacitance_nf": {"value": 50, "unit": "nF", "evidence": "assumed", "source": "invented polarization sensitivity, not a fitted constant", "conditions": "linear time-invariant lumped capacitor", "range": [0, 100000]}
+      },
+      "negative": {
+        "series_ohm": {"value": 10000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split of CH07 ECG negative DC contact", "conditions": "passive series resistor", "range": [0, 2000000]},
+        "parallel_ohm": {"value": 140000, "unit": "ohm", "evidence": "assumed", "source": "illustrative split; series plus parallel equals old ECG DC resistance", "conditions": "passive resistor shunted by interface capacitance", "range": [1, 2000000]},
+        "interface_capacitance_nf": {"value": 80, "unit": "nF", "evidence": "assumed", "source": "invented polarization sensitivity, not a fitted constant", "conditions": "linear time-invariant lumped capacitor", "range": [0, 100000]}
+      }
+    }
+  ]
+}

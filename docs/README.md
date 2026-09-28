@@ -20,6 +20,7 @@
 - [CH05 chunk record](chunks/CH05_CLOCK_TIMING.md), [primary-source timing survey](literature/timing/2026-09-25_STATE_OF_ART_REVIEW.md), [ADR-0002 alternatives](adr/ADR-0002_CONDITIONAL_TIMEBASE.md) and [CH05 model gate](reviews/CH05_GATE.md): model PASS; physical clock/CDC/RTL HOLD.
 - [CH06 entry charter](chunks/CH06_REGISTER_HOST.md) and [primary host/register survey](literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md): candidate model PASS, physical host/ASIC ABI held. [ADR-0003](adr/ADR-0003_CANDIDATE_HOST_CONTRACT.md), [generated contract](interfaces/CH06_REGISTER_PROTOCOL.md), [CH06 model gate](reviews/CH06_GATE.md).
 - [CH07 entry charter](chunks/CH07_BIOPOTENTIAL_NUMERICAL.md) and [dated electrode/AFE primary survey](literature/biopotential/2026-09-25_STATE_OF_ART_REVIEW.md): source survey and model PASS, topology/block spec paused. [Conditional numerical report](budgets/CH07_BIOPOTENTIAL_REVIEW.md) and [gate](reviews/CH07_GATE.md).
+- [CH07 evidence-readiness charter](chunks/CH07_EVIDENCE_READINESS.md), [complex-source review](budgets/CH07_COMPLEX_ELECTRODE_REVIEW.md), [owner measurement intake](inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) and [limited follow-on gate](reviews/CH07_EVIDENCE_READINESS_GATE.md): synthetic sensitivity and collection plan PASS, topology still paused.
 - [CH08–CH50 entry and evidence audit](reviews/CH08_CH50_ENTRY_AUDIT.md): prerequisites and current blockers for the remaining sequence; all NOT_RUN.
 - [CH02 numerical report](budgets/CH02_CONCURRENCY_REVIEW.md) and [exact input assumptions](../specs/system/CH02_MODE_ASSUMPTIONS.json).
 - [CH03 conditional energy report](budgets/CH03_ENERGY_REVIEW.md), [scenario input](../specs/system/CH03_ENERGY_SCENARIOS.json), and [machine summary](../reports/subsystem/CH03_ENERGY_SUMMARY.json).
@@ -27,6 +28,7 @@
 - [CH05 conditional timing report](budgets/CH05_TIMING_REVIEW.md), [scenario input](../specs/system/CH05_TIMING_SCENARIOS.json), [machine summary](../reports/subsystem/CH05_TIMING_SUMMARY.json), and [limited SV reference](../rtl/timestamp/ch05_continuous_reference.sv).
 - [CH06 host/register model](../models/python/ch06_host.py), [candidate input](../specs/system/CH06_HOST_CONTRACT.json), and [machine summary](../reports/subsystem/CH06_HOST_SUMMARY.json).
 - [CH07 numerical model](../models/python/ch07_biopotential.py), [synthetic input](../specs/biosignal/CH07_NUMERICAL_SCENARIOS.json), and [machine summary](../reports/block/CH07_NUMERICAL_SUMMARY.json).
+- [CH07 complex-source model](../models/python/ch07_complex_electrode.py), [synthetic RC/contact input](../specs/biosignal/CH07_COMPLEX_SENSITIVITY.json), and [machine summary](../reports/block/CH07_COMPLEX_SENSITIVITY.json).
 - [Requested external inputs for unresolved gates](inputs/REQUIRED_INPUTS.md).
 - [Safety evidence status](safety/README.md) and [package evidence status](package/README.md).
 - [Literature review gate and template](literature/README.md) and [ADR template](adr/ADR_TEMPLATE.md).
