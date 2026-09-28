@@ -15,8 +15,9 @@ Version-controlled research program for a compact heterogeneous physiological-co
 | CH06 host protocol | Literature gate merged; candidate register/packet model and 23 tests PASS; **physical link/ABI HOLD** | [Gate](docs/reviews/CH06_GATE.md) · [Contract](docs/interfaces/CH06_REGISTER_PROTOCOL.md) · [Survey](docs/literature/host_interface/2026-09-25_STATE_OF_ART_REVIEW.md) |
 | CH07 biopotential numerical | Source survey merged; 12 numerical tests PASS; **topology/block spec PAUSED** | [Gate](docs/reviews/CH07_GATE.md) · [Model report](docs/budgets/CH07_BIOPOTENTIAL_REVIEW.md) · [Block survey](docs/literature/biopotential/2026-09-25_STATE_OF_ART_REVIEW.md) |
 | CH07 complex-source follow-on | Five synthetic sensitivity checks PASS; **electrode/owner evidence still missing** | [Limited gate](docs/reviews/CH07_EVIDENCE_READINESS_GATE.md) · [Input protocol](docs/inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) · [Complex report](docs/budgets/CH07_COMPLEX_ELECTRODE_REVIEW.md) |
+| CH08 behavioral pre-entry | Source review and test charter prepared; **implementation NOT_RUN** | [Readiness review](docs/reviews/CH08_PREENTRY_REVIEW.md) · [Primary-source review](docs/literature/biopotential/2026-09-28_CH08_BEHAVIORAL_PREENTRY_REVIEW.md) |
 
-CH06's candidate model follows its separately merged entry survey. Battery, data/memory, timing, protocol and electrode numbers are conditional models; measured cell/link/storage/clock/sensor data and approved product schedules remain missing. The CH07 complex sweep uses invented passive capacitances to guide measurement; it selects no topology and CH08 is unstarted. CH05 includes a minimal **uncompiled** SystemVerilog counter reference for one continuous-clock comparison, not complete timing RTL or CDC. No verified circuit, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
+CH06's candidate model follows its separately merged entry survey. Battery, data/memory, timing, protocol and electrode numbers are conditional models; measured cell/link/storage/clock/sensor data and approved product schedules remain missing. The CH07 complex sweep uses invented passive capacitances to guide measurement; it selects no topology. CH08 has pre-entry research only, with no behavioral implementation. CH05 includes a minimal **uncompiled** SystemVerilog counter reference for one continuous-clock comparison, not complete timing RTL or CDC. No verified circuit, ASIC layout, foundry mapping, clinical validation or tapeout signoff exists.
 
 ## Start or resume
 
@@ -42,6 +43,7 @@ CH06's candidate model follows its separately merged entry survey. Battery, data
 - [CH06 candidate contract input](specs/system/CH06_HOST_CONTRACT.json) · [Generated register/host protocol](docs/interfaces/CH06_REGISTER_PROTOCOL.md) · [Executable model](models/python/ch06_host.py)
 - [CH07 synthetic EEG/ECG input](specs/biosignal/CH07_NUMERICAL_SCENARIOS.json) · [Numerical model](models/python/ch07_biopotential.py) · [Gate](docs/reviews/CH07_GATE.md)
 - [CH07 complex-source fixture](specs/biosignal/CH07_COMPLEX_SENSITIVITY.json) · [Sensitivity model](models/python/ch07_complex_electrode.py) · [Evidence intake](docs/inputs/CH07_ELECTRODE_QUALITY_INTAKE.md) · [Limited gate](docs/reviews/CH07_EVIDENCE_READINESS_GATE.md)
+- [CH08 pre-entry literature](docs/literature/biopotential/2026-09-28_CH08_BEHAVIORAL_PREENTRY_REVIEW.md) · [Behavioral test charter](docs/chunks/CH08_PREENTRY_BEHAVIORAL.md) · [Readiness decision](docs/reviews/CH08_PREENTRY_REVIEW.md)
 - [Decision log](state/DECISIONS.md) · [Risk register](state/RISK_REGISTER.md) · [Verification status](state/VERIFICATION_STATUS.md)
 - [Future-stage directory rules](docs/REPOSITORY_MAP.md) · [Documentation and data policy](docs/governance/DATA_POLICY.md)
 

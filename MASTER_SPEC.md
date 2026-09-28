@@ -2562,6 +2562,8 @@ No transistor sizing until numerical targets are frozen.
 ### Gate
 Behavioral channel passes all system requirements.
 
+**CH08 pre-entry review (2026-09-28):** A [dated source and representation review](docs/literature/biopotential/2026-09-28_CH08_BEHAVIORAL_PREENTRY_REVIEW.md), [test charter](docs/chunks/CH08_PREENTRY_BEHAVIORAL.md), and [limited readiness decision](docs/reviews/CH08_PREENTRY_REVIEW.md) are published while CH07 remains paused. This preparatory research does **not** select the model or fulfill CH08 entry. Refresh the literature/trade after CH07 topology and approved block requirements exist; implementation and this chapter's system-requirement gate are **NOT_RUN**.
+
 ---
 
 ## CH09 — EDA/BioZ Architecture

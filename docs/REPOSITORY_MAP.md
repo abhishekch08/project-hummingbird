@@ -5,8 +5,8 @@ The tree follows `MASTER_SPEC.md` §39. Existing directories are reservations; t
 | Path | Responsibility | Current state / first expected use |
 |---|---|---|
 | `state/` | Chunk index, decisions, issues, risks, traceability, assumptions, verification status | CH00–CH06 limited gates; CH07 resistor and complex numerical subgates paused at topology; update with every chunk. |
-| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01–CH06 limited reviews; ADR-0002/0003 proposed; no physical clock/circuit or host ABI approved. |
-| `docs/literature/` | Block-specific, dated, benchmarked surveys with primary citations | CH05 and CH06 surveys merged before each model; CH07 biopotential survey merged before numerical model. Later blocks need separate reviews. |
+| `docs/chunks/`, `docs/reviews/`, `docs/adr/` | Bounded work records, gate decisions, architecture decisions | CH01–CH07 limited reviews and CH08 pre-entry plan; ADR-0002/0003 proposed; no CH08 behavioral channel or physical clock/circuit/host ABI approved. |
+| `docs/literature/` | Block-specific, dated, benchmarked surveys with primary citations | CH05 and CH06 surveys merged before each model; CH07 survey merged before numerical model. CH08 pre-entry behavior review is preparation, not implementation/selection clearance. Later blocks need separate reviews. |
 | `docs/architecture/`, `docs/interfaces/`, `docs/budgets/` | Selected architecture, frozen contracts, unit-aware models | CH02 scenario, CH03 energy, CH04 data/memory, CH05 conditional timing and CH07 resistor/complex-source budgets; CH06 candidate host/register contract is not frozen. |
 | `docs/package/`, `docs/safety/`, `docs/inputs/`, `docs/governance/` | Package/electrode decisions, safety evidence, external input requests, public repo policy | CH07 electrode/quality collection protocol and other input/policy files exist; measurements and safety/package signoff pending. |
 | `specs/system/` | Machine-readable scenario definitions and subsequently approved system requirements | CH02 candidate modes and CH03–CH06 synthetic inputs; not silicon requirements. |

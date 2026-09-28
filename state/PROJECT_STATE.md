@@ -5,7 +5,7 @@ Canonical branch: `main`; read `git rev-parse HEAD` for the current commit after
 Previous reviewed baseline: `4e6bd443a2de7402f0ff92fcaba076790b717a19` (CH07 entry/literature PR #11 merged before any numerical model).
 Current chunk: CH07 under user authorization for subsequent chapters. CH00–CH06 complete at limited gates; CH07 has a passing conditional numerical subgate and an unfulfilled topology/block-spec gate.
 CH07 is paused at its topology and frozen-requirements gate for owner-approved electrode, signal-quality, PDK/power and safety evidence; user authorization already covers continuation when those inputs exist.
-Current subchunk: CH07 source survey merged as PR #11; synthetic resistor numerical report and 12 tests published as a limited model gate. Follow-on passive complex-source sensitivity, five tests and owner evidence intake have a separate limited gate; no measurements received. CH05 timing and CH06 physical host ABI remain HOLD.
+Current subchunk: CH07 source survey merged as PR #11; synthetic resistor numerical report and 12 tests published as a limited model gate. Follow-on passive complex-source sensitivity, five tests and owner evidence intake have a separate limited gate; no measurements received. CH08 has a preparatory literature/test review, not chapter entry or implementation. CH05 timing and CH06 physical host ABI remain HOLD.
 Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND selection, pulse safety limit, electrical/timing target, chip architecture or tapeout claim approved.
 
 # Passed Gates
@@ -23,6 +23,7 @@ Current status: no product mode, battery runtime, host/BLE throughput, SRAM/NAND
 # Active Work
 
 - CH07 numerical fixtures and passive complex-source sweep are versioned; both resistor modes violate at least one invented goal and select no circuit. The complex-source fixture has invented capacitances and reports frequency-dependent loading/mismatch, not measured transfer or integrated noise. CH08 and later chapters requiring a frozen block spec cannot claim a valid requirement-pass gate; see `docs/reviews/CH08_CH50_ENTRY_AUDIT.md`. CH05's small SV reference is uncompiled and does not select a timebase. Physical circuit design has not begun.
+- CH08 pre-entry review `docs/reviews/CH08_PREENTRY_REVIEW.md` records primary-source model/test obligations but **does not select representation or execute any behavioral code**. CH08 remains PLANNED / NOT_RUN pending CH07 selected topology and frozen requirements.
 - `state/CHUNK_STATUS.csv` records the complete CH00–CH50 queue; folders marked reserved in `docs/REPOSITORY_MAP.md` are not completed deliverables.
 
 # Blocked Items
